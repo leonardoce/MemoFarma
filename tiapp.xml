@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><ti:app xmlns:ti="http://ti.appcelerator.org">
-	<id>it.interfree.leonardoce.contaPasticche</id>
-	<name>Conta Pasticche</name>
+	<id>it.interfree.leonardoce.memofarma</id>
+	<name>MemoFarma</name>
 	<version>1.0.0</version>
 	<publisher>not specified</publisher>
 	<url>not specified</url>
@@ -9,7 +9,7 @@
 	<icon>appicon.png</icon>
 	<fullscreen>false</fullscreen>
 	<navbar-hidden>false</navbar-hidden>
-	<analytics>true</analytics>
+	<analytics>false</analytics>
 	<guid>035e1e3c-a2d3-4653-8d98-a4428ddc1fc7</guid>
 	<property name="ti.ui.defaultunit">dp</property>
 	<ios>
