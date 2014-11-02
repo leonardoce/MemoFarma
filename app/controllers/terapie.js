@@ -1,3 +1,4 @@
+var datiTerapie = Alloy.Collections.terapie;
 var args = arguments[0] || {};
 
 function aggiungiTerapia() {
@@ -21,3 +22,5 @@ function setupActionBar() {
 
 $.terapie.addEventListener("open", setupActionBar);
 $.terapie.open();
+
+datiTerapie.fetch();

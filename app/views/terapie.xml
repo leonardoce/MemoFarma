@@ -1,4 +1,16 @@
 <Alloy>
 	<Window class="container" title="Terapie">
+		<ListView id="list" width="Ti.UI.FILL" height="Ti.UI.FILL">
+			<Templates>
+				<ItemTemplate name="terapia">
+					<Label bindId="nome" id="nome"/>
+					<Label bindId="oradose" id="ora_dose"/>
+				</ItemTemplate>
+			</Templates>
+
+			<ListSection id="section" dataCollection="terapie">
+				<ListItem template="terapia" nome:text="{nome}" oradose:text="{dose}"/>
+			</ListSection>
+		</ListView>
 	</Window>
 </Alloy>
