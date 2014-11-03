@@ -4,7 +4,7 @@ var args = arguments[0] || {};
 function doTransform(model) 
 {
 	var o = model.toJSON();
-	o.nome = o.nome + " (" + o.ora + ")";
+	o.nome = o.nome.toUpperCase() + " (" + o.ora + ")";
 	return o;
 }
 

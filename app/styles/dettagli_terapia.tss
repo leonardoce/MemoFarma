@@ -1,4 +1,12 @@
 
 ".container" : {
   
+},
+
+"#tf_nome": {
+	autocorrect: false
+},
+
+"#tf_dose": {
+	autocorrect: false
 }
