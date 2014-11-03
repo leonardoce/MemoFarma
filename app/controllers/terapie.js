@@ -1,6 +1,13 @@
 var datiTerapie = Alloy.Collections.terapie;
 var args = arguments[0] || {};
 
+function doTransform(model) 
+{
+	var o = model.toJSON();
+	o.nome = o.nome + " (" + o.ora + ")";
+	return o;
+}
+
 function onChiusiDettagli(e) 
 {
 	e.source.removeEventListener("close", onChiusiDettagli);
@@ -29,10 +36,6 @@ function onItemClick(e)
 function refresh()
 {
 	datiTerapie.fetch();
-	if (datiTerapie.length>0) 
-	{
-		$.nessuna_presente.visible = false;
-	}
 }
 
 $.terapie.open();

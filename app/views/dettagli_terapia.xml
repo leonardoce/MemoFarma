@@ -8,9 +8,9 @@
 				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
 		</Menu>
 		<ScrollView width="Ti.UI.FILL" height="Ti.UI.FILL" layout="vertical">
-			<Picker id="pk_ora" type="Ti.UI.PICKER_TYPE_TIME"/>
 			<TextField id="tf_nome" hintText="Inserisci il nome" width="Ti.UI.FILL"/>
 			<TextField id="tf_dose" hintText="Dose" width="Ti.UI.FILL"/>
+			<Picker id="pk_ora" type="Ti.UI.PICKER_TYPE_TIME"/>
 		</ScrollView>
 	</Window>
 </Alloy>

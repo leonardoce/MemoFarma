@@ -2,7 +2,7 @@ exports.definition = {
 	config: {
 		columns: {
 		    "nome": "text",
-		    "ora": "Date",
+		    "ora": "text",
 		    "dose": "text",
 			"terapia_id": "integer primary key autoincrement"
 		},

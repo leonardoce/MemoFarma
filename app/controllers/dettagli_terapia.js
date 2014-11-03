@@ -1,4 +1,5 @@
 var args = arguments[0] || {};
+var OraUtils = require("OraUtils");
 
 function onSalva()
 {
@@ -18,7 +19,8 @@ function onSalva()
 	{
 		args.modello.set({ 
 			nome: $.tf_nome.value,
-			dose: $.tf_dose.value
+			dose: $.tf_dose.value,
+			ora: OraUtils.dateToOra($.pk_ora.value)
 		});
 
 		args.modello.save();
@@ -41,17 +43,20 @@ function onOpen()
 {
 	if (args.modello) 
 	{
-		$.tf_nome.value = args.modello.get("nome");
-		$.tf_dose.value = args.modello.get("dose");
+		$.tf_nome.value = args.modello.get("nome") || "";
+		$.tf_dose.value = args.modello.get("dose") || "";
+		if (args.modello.get("ora"))
+		{
+			$.pk_ora.value = OraUtils.oraToDate(args.modello.get("ora"));
+		}
+
 		if (!args.modello.get("terapia_id"))
 		{
 			$.dettagli_terapia.activity.actionBar.title = "Nuova terapia";
-			$.__views.cancellaItem.enabled = false;
 		}
 		else
 		{
 			$.dettagli_terapia.activity.actionBar.title = "Dettagli terapia";
-			$.__views.cancellaItem.enabled = true;
 		}
 	}
 }
