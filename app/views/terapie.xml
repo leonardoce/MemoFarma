@@ -1,5 +1,12 @@
 <Alloy>
 	<Window class="container" title="Terapie">
+		<ActionBar id="actionbar" platform="android" title="Terapie"/>
+		<Menu>
+			<MenuItem id="aggiungiItem" title="Aggiungi" onClick="onAggiungiTerapia" 
+				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
+		</Menu>
+
+		<Label id="nessuna_presente" text="Nessuna terapia presente"/>
 		<ListView id="list" width="Ti.UI.FILL" height="Ti.UI.FILL">
 			<Templates>
 				<ItemTemplate name="terapia">
