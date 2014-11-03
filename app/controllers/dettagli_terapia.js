@@ -24,7 +24,16 @@ function onSalva()
 		args.modello.save();
 	}	
 
-	Alloy.Collections.terapie.fetch();
+	$.dettagli_terapia.close();
+}
+
+function onCancella()
+{
+	if (args.modello)
+	{
+		args.modello.destroy();
+	}
+
 	$.dettagli_terapia.close();
 }
 
@@ -37,10 +46,14 @@ function onOpen()
 		if (!args.modello.get("terapia_id"))
 		{
 			$.dettagli_terapia.activity.actionBar.title = "Nuova terapia";
+			$.__views.cancellaItem.enabled = false;
 		}
 		else
 		{
 			$.dettagli_terapia.activity.actionBar.title = "Dettagli terapia";
+			$.__views.cancellaItem.enabled = true;
 		}
 	}
 }
+
+$.dettagli_terapia.addEventListener("open", onOpen);

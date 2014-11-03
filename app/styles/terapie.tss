@@ -1,4 +1,17 @@
 
 ".container" : {
   
+},
+
+".nome": {
+	font: {
+        fontSize: '16dp',
+        fontStyle: 'normal',
+        fontWeight: 'bold'		
+	}	
+},
+
+".riga": {
+	top: "8dp",
+	bottom: "8dp"
 }

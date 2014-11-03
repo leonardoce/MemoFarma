@@ -7,16 +7,19 @@
 		</Menu>
 
 		<Label id="nessuna_presente" text="Nessuna terapia presente"/>
-		<ListView id="list" width="Ti.UI.FILL" height="Ti.UI.FILL">
+		<ListView id="list" width="Ti.UI.FILL" height="Ti.UI.FILL" onItemclick="onItemClick">
 			<Templates>
-				<ItemTemplate name="terapia" layout="vertical">
-					<Label bindId="nome" id="nome"/>
-					<Label bindId="oradose" id="ora_dose"/>
+				<ItemTemplate name="terapia">
+					<View layout="vertical" class="riga">
+						<Label bindId="nome" id="nome" class="nome"/>
+						<Label bindId="oradose" id="ora_dose" class="oradose"/>
+					</View>
 				</ItemTemplate>
 			</Templates>
 
 			<ListSection id="section" dataCollection="terapie">
-				<ListItem template="terapia" nome:text="{nome}" oradose:text="{dose}"/>
+				<ListItem template="terapia" nome:text="{nome}" oradose:text="{dose}"
+					terapia_id="{terapia_id}"/>
 			</ListSection>
 		</ListView>
 	</Window>

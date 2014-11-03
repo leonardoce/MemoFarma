@@ -1,8 +1,10 @@
 <Alloy>
-	<Window class="container" onOpen="onOpen">
+	<Window class="container">
 		<ActionBar platform="android"/>
 		<Menu>
 			<MenuItem id="aggiungiItem" title="Salva" onClick="onSalva" 
+				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
+			<MenuItem id="cancellaItem" title="Cancella" onClick="onCancella" 
 				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
 		</Menu>
 		<ScrollView width="Ti.UI.FILL" height="Ti.UI.FILL" layout="vertical">
