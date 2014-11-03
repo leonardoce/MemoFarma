@@ -2,12 +2,14 @@ exports.definition = {
 	config: {
 		columns: {
 		    "nome": "text",
-		    "ora": "text",
-		    "dose": "text"
+		    "ora": "Date",
+		    "dose": "text",
+			"terapia_id": "integer primary key autoincrement"
 		},
 		adapter: {
 			type: "sql",
-			collection_name: "terapie"
+			collection_name: "terapie",
+			idAttribute: "terapia_id"
 		}
 	},
 	extendModel: function(Model) {

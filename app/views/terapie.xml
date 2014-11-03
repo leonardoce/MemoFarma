@@ -9,7 +9,7 @@
 		<Label id="nessuna_presente" text="Nessuna terapia presente"/>
 		<ListView id="list" width="Ti.UI.FILL" height="Ti.UI.FILL">
 			<Templates>
-				<ItemTemplate name="terapia">
+				<ItemTemplate name="terapia" layout="vertical">
 					<Label bindId="nome" id="nome"/>
 					<Label bindId="oradose" id="ora_dose"/>
 				</ItemTemplate>

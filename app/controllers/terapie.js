@@ -2,7 +2,7 @@ var datiTerapie = Alloy.Collections.terapie;
 var args = arguments[0] || {};
 
 function onAggiungiTerapia() {
-	alert("Ciao");
+	Alloy.createController("dettagli_terapia", {modello: Alloy.createModel("terapie")}).getView().open();
 }
 
 $.terapie.open();
