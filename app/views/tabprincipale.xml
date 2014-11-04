@@ -1,5 +1,5 @@
 <Alloy>
-	<TabGroup class="container">
+	<TabGroup class="container" onFocus="doFocus">
 		<ActionBar id="actionbar" platform="android" title="MemoFarma"/>
 		<Menu>
 			<MenuItem title="Farmaci" onClick="onTerapie" 
@@ -8,14 +8,14 @@
 				showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
 		</Menu>
 
-		<Tab title="Calendario">
+		<Tab titoloPrincipale="Calendario" icon="/images/calendario.png">
 			<Require type="view" src="calendario"/>
 		</Tab>
-		<Tab title="Pressione">
+		<Tab titoloPrincipale="Pressione" icon="/images/pressione.png">
 			<Window title="Pressione">
 			</Window>
 		</Tab>
-		<Tab title="Glicemia">
+		<Tab titoloPrincipale="Glicemia" icon="/images/glicemia.png">
 			<Window title="Glicemia">
 			</Window>
 		</Tab>

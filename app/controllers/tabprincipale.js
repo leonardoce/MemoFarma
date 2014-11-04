@@ -10,4 +10,10 @@ function onAiuto()
 	Alloy.createController("tutorial").getView().open();
 }
 
+function doFocus(e)
+{
+	var titolo = e.tab.titoloPrincipale;
+	$.tabprincipale.title = titolo;
+}
+
 $.tabprincipale.open();
