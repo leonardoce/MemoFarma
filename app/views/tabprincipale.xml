@@ -1,11 +1,13 @@
 <Alloy>
 	<TabGroup class="container">
+		<ActionBar id="actionbar" platform="android" title="MemoFarma"/>
+		<Menu>
+			<MenuItem id="aggiungiItem" title="Farmaci" onClick="onTerapie" 
+				showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
+		</Menu>
+
 		<Tab title="Calendario">
 			<Window title="Calendario">
-			</Window>
-		</Tab>
-		<Tab title="Terapie">
-			<Window title="Terapie">
 			</Window>
 		</Tab>
 		<Tab title="Pressione">

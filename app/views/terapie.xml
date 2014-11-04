@@ -1,6 +1,6 @@
 <Alloy>
-	<Window class="container" title="Terapie" layout="vertical">
-		<ActionBar id="actionbar" platform="android" title="Terapie"/>
+	<Window class="container" title="Farmaci" layout="vertical">
+		<ActionBar id="actionbar" platform="android" title="Farmaci"/>
 		<Menu>
 			<MenuItem id="aggiungiItem" title="Aggiungi" onClick="onAggiungiTerapia" 
 				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
