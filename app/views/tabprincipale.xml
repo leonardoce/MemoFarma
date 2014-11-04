@@ -2,7 +2,9 @@
 	<TabGroup class="container">
 		<ActionBar id="actionbar" platform="android" title="MemoFarma"/>
 		<Menu>
-			<MenuItem id="aggiungiItem" title="Farmaci" onClick="onTerapie" 
+			<MenuItem title="Farmaci" onClick="onTerapie" 
+				showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
+			<MenuItem title="Aiuto" onClick="onAiuto" 
 				showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
 		</Menu>
 
