@@ -38,5 +38,4 @@ function refresh()
 	datiTerapie.fetch();
 }
 
-$.terapie.open();
 refresh();

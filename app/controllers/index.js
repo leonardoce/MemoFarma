@@ -3,4 +3,4 @@ function doClick(e) {
 }
 
 //$.index.open();
-Alloy.createController("terapie");
+Alloy.createController("tutorial");
