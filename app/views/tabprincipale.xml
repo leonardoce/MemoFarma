@@ -1,0 +1,20 @@
+<Alloy>
+	<TabGroup class="container">
+		<Tab title="Calendario">
+			<Window title="Calendario">
+			</Window>
+		</Tab>
+		<Tab title="Terapie">
+			<Window title="Terapie">
+			</Window>
+		</Tab>
+		<Tab title="Pressione">
+			<Window title="Pressione">
+			</Window>
+		</Tab>
+		<Tab title="Glicemia">
+			<Window title="Glicemia">
+			</Window>
+		</Tab>
+	</TabGroup>
+</Alloy>
