@@ -1,7 +1,7 @@
 <Alloy>
 	<Window class="container" title="Tutorial" layout="vertical">
+		<WebView id="contenitore" width="Ti.UI.FILL" height="90%" url="/tutorial.html" />
 		<Button title="Vai a MemoFarma" onClick="onVaiMemoFarma"
-			width="Ti.UI.FILL" height="Ti.UI.SIZE"/>
-		<WebView id="contenitore" width="Ti.UI.FILL" height="Ti.UI.FILL" url="/tutorial.html"/>
+			width="Ti.UI.FILL" height="Ti.UI.FILL"/>
 	</Window>
 </Alloy>
