@@ -9,8 +9,7 @@
 		</Menu>
 
 		<Tab title="Calendario">
-			<Window title="Calendario">
-			</Window>
+			<Require type="view" src="calendario"/>
 		</Tab>
 		<Tab title="Pressione">
 			<Window title="Pressione">

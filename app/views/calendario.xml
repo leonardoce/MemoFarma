@@ -1,0 +1,5 @@
+<Alloy>
+	<Window class="container" title="Calendario">
+		<Require type="widget" src="jp.co.mountposition.calendar" id="cal"/>
+	</Window>
+</Alloy>
