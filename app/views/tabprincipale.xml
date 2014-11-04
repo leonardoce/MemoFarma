@@ -1,5 +1,5 @@
 <Alloy>
-	<TabGroup class="container" onFocus="doFocus">
+	<TabGroup class="container" onFocus="doFocus" onSwipe="doSwipe">
 		<ActionBar id="actionbar" platform="android" title="MemoFarma"/>
 		<Menu>
 			<MenuItem title="Farmaci" onClick="onTerapie" 

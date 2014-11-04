@@ -12,8 +12,18 @@ function onAiuto()
 
 function doFocus(e)
 {
+	if (!e.tab)
+	{
+		return;
+	}
+
 	var titolo = e.tab.titoloPrincipale;
 	$.tabprincipale.title = titolo;
+}
+
+function doSwipe(e)
+{
+	Ti.API.info(e.direction);
 }
 
 $.tabprincipale.open();

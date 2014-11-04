@@ -9,13 +9,10 @@
 		<ListView id="list" width="Ti.UI.FILL" height="Ti.UI.FILL" onItemclick="onItemClick">
 			<Templates>
 				<ItemTemplate name="terapia">
-					<View layout="horizontal" class="riga">
-						<ImageView image="/images/terapia.png"/>
-						<View layout="vertical" class="riga"
-							height="Ti.UI.FILL" width="Ti.UI.FILL">
-							<Label bindId="nome" id="nome" class="nome"/>
-							<Label bindId="oradose" id="ora_dose" class="oradose"/>
-						</View>
+					<View layout="vertical" class="riga"
+						height="Ti.UI.FILL" width="Ti.UI.FILL">
+						<Label bindId="nome" id="nome" class="nome"/>
+						<Label bindId="oradose" id="ora_dose" class="oradose"/>
 					</View>
 				</ItemTemplate>
 			</Templates>

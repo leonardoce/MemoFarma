@@ -5,7 +5,7 @@ function onSalva()
 {
 	if ($.tf_nome.value.length==0) 
 	{
-		alert("Inserisci il nome della terapia");
+		alert("Inserisci il nome della farmaco");
 		return;
 	}
 
@@ -52,11 +52,11 @@ function onOpen()
 
 		if (!args.modello.get("terapia_id"))
 		{
-			$.dettagli_terapia.activity.actionBar.title = "Nuova terapia";
+			$.dettagli_terapia.activity.actionBar.title = "Nuovo farmaco";
 		}
 		else
 		{
-			$.dettagli_terapia.activity.actionBar.title = "Dettagli terapia";
+			$.dettagli_terapia.activity.actionBar.title = "Dettagli farmaco";
 		}
 	}
 }
