@@ -1,4 +1,4 @@
-exports.getActiveTabIndex = function(tabgroup)
+function getActiveTabIndex(tabgroup)
 {
 	var activeIdx = -1;
 
@@ -13,7 +13,10 @@ exports.getActiveTabIndex = function(tabgroup)
 	return activeIdx;
 }
 
-exports.setActiveTabIndex = function(tabgroup, idx)
+function setActiveTabIndex(tabgroup, idx)
 {
 		tabgroup.setActiveTab(tabgroup.tabs[idx]);
 }
+
+exports.getActiveTabIndex = getActiveTabIndex;
+exports.setActiveTabIndex = setActiveTabIndex;
