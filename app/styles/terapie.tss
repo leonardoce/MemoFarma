@@ -9,9 +9,4 @@
         fontStyle: 'normal',
         fontWeight: 'bold'		
 	}	
-},
-
-".riga": {
-	top: "8dp",
-	bottom: "8dp"
 }
