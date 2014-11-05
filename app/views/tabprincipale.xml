@@ -3,7 +3,7 @@
 		<ActionBar id="actionbar" platform="android" title="MemoFarma"/>
 		<Menu>
 			<MenuItem title="Farmaci" onClick="onTerapie" 
-				showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
+				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
 			<MenuItem title="Aiuto" onClick="onAiuto" 
 				showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
 		</Menu>
