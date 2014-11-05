@@ -1,0 +1,32 @@
+<Alloy>
+	<Window class="container">
+		<ActionBar id="actionbar" platform="android" title="Farmaci"/>
+		<Menu>
+			<MenuItem id="aggiungiItem" title="Aggiungi" onClick="doAggiungiPressione" 
+				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
+		</Menu>
+
+		<ListView id="list" width="Ti.UI.FILL" height="Ti.UI.FILL" onItemclick="onItemClick">
+			<Templates>
+				<ItemTemplate name="pressione">
+					<View class="riga" layout="vertical">
+						<View layout="horizontal" class="riga" height="Ti.UI.SIZE" width="Ti.UI.FILL">
+							<Label text="Pressione:"/>
+							<Label bindId="pressione" width="Ti.UI.FILL"/>
+						</View>
+						<View layout="horizontal" class="riga" height="Ti.UI.SIZE" width="Ti.UI.FILL">
+							<Label text="Frequenza:"/>
+							<Label bindId="frequenza" width="Ti.UI.FILL"/>
+						</View>
+						<Label bindId="tipo" height="Ti.UI.SIZE"/>
+					</View>
+				</ItemTemplate>
+			</Templates>
+
+			<ListSection id="section" dataCollection="pressioni" dataTransform="doTransform">
+				<ListItem template="pressione" pressione:text="{testo_pressione}" frequenza:text="{frequenza}"
+				    tipo:text="{tipo}" pressione_id="{pressione_id}"/>
+			</ListSection>
+		</ListView>
+	</Window>
+</Alloy>
