@@ -12,8 +12,7 @@
 			<Require type="view" src="calendario"/>
 		</Tab>
 		<Tab titoloPrincipale="Pressione" icon="/images/pressione.png">
-			<Window title="Pressione">
-			</Window>
+			<Require type="view" src="pressioni"/>
 		</Tab>
 		<Tab titoloPrincipale="Glicemia" icon="/images/glicemia.png">
 			<Window title="Glicemia">
