@@ -1,5 +1,5 @@
 var args = arguments[0] || {};
-var OraUtils = require("OraUtils");
+var StringUtils = require("StringUtils");
 
 function onSalva()
 {
@@ -20,7 +20,7 @@ function onSalva()
 		args.modello.set({ 
 			nome: $.tf_nome.value,
 			dose: $.tf_dose.value,
-			ora: OraUtils.dateToOra($.pk_ora.value)
+			ora: StringUtils.dateToOra($.pk_ora.value)
 		});
 
 		args.modello.save();
@@ -47,7 +47,7 @@ function onOpen()
 		$.tf_dose.value = args.modello.get("dose") || "";
 		if (args.modello.get("ora"))
 		{
-			$.pk_ora.value = OraUtils.oraToDate(args.modello.get("ora"));
+			$.pk_ora.value = StringUtils.oraToDate(args.modello.get("ora"));
 		}
 
 		if (!args.modello.get("terapia_id"))
