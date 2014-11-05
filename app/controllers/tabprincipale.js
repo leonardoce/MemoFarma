@@ -23,17 +23,8 @@ function doFocus(e)
 
 function doSwipe(e)
 {
-	var activeIdx = -1;
-	var i;
-	
-	for (i=0; i<$.tabprincipale.tabs.length; i++)
-	{
-		if ($.tabprincipale.tabs[i] == $.tabprincipale.activeTab)
-		{
-			activeIdx = i;
-		}
-	}
-
+	var TabGroupUtils = require("TabGroupUtils");
+	var activeIdx = TabGroupUtils.getActiveTabIndex($.tabprincipale);
 	if (activeIdx==(-1))
 	{
 		return;
@@ -54,7 +45,7 @@ function doSwipe(e)
 
 	if (activeIdx>=0 && activeIdx<$.tabprincipale.tabs.length)
 	{
-		$.tabprincipale.setActiveTab($.tabprincipale.tabs[activeIdx]);
+		TabGroupUtils.setActiveTabIndex($.tabprincipale, activeIdx);
 	}
 }
 
