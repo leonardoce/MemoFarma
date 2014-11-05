@@ -10,7 +10,7 @@ function formatNumber(number, length)
 	var result = ""+number;
 	while (result.length<length)
 	{
-		result = result + "0";
+		result = "0" + result;
 	}
 	return result;
 }
