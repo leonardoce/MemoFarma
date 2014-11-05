@@ -23,7 +23,39 @@ function doFocus(e)
 
 function doSwipe(e)
 {
-	Ti.API.info(e.direction);
+	var activeIdx = -1;
+	var i;
+	
+	for (i=0; i<$.tabprincipale.tabs.length; i++)
+	{
+		if ($.tabprincipale.tabs[i] == $.tabprincipale.activeTab)
+		{
+			activeIdx = i;
+		}
+	}
+
+	if (activeIdx==(-1))
+	{
+		return;
+	}
+
+	if (e.direction=="left")
+	{
+		activeIdx++;
+	}
+	else if(e.direction=="right")
+	{
+		activeIdx--;
+	}
+	else
+	{
+		return;
+	}
+
+	if (activeIdx>=0 && activeIdx<$.tabprincipale.tabs.length)
+	{
+		$.tabprincipale.setActiveTab($.tabprincipale.tabs[activeIdx]);
+	}
 }
 
 $.tabprincipale.open();
