@@ -2,9 +2,9 @@ exports.getActiveTabIndex = function(tabgroup)
 {
 	var activeIdx = -1;
 
-	for (i=0; i<$.tabprincipale.tabs.length; i++)
+	for (i=0; i<tabgroup.tabs.length; i++)
 	{
-		if ($.tabprincipale.tabs[i] == $.tabprincipale.activeTab)
+		if (tabgroup.tabs[i] == tabgroup.activeTab)
 		{
 			activeIdx = i;
 		}

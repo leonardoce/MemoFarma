@@ -11,4 +11,4 @@
 // Alloy.Globals.someGlobalFunction = function(){};
 
 Alloy.Collections.terapie = Alloy.createCollection("terapie");
-Alloy.Collections.pressioni = Alloy.createCollection("pressioni");
+Alloy.Collections.pressione = Alloy.createCollection("pressione");
