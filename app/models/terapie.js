@@ -14,6 +14,17 @@ exports.definition = {
 	},
 	extendModel: function(Model) {
 		_.extend(Model.prototype, {
+			toString: function()
+			{
+				var StringUtils = require("StringUtils");
+
+				return "<Terapie id=" + StringUtils.stosingle(this.get("terapia_id")) + 
+					" nome=" + StringUtils.stosingle(this.get("nome")) + 
+					" ora=" + StringUtils.stosingle(this.get("ora")) + 
+					" dose=" + StringUtils.stosingle(this.get("dose")) + 
+					"/>"
+			}
+
 			// extended functions and properties go here
 		});
 
