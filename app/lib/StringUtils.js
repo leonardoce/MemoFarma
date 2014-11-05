@@ -8,7 +8,7 @@
 function formatNumber(number, length)
 {
 	var result = ""+number;
-	while (result.length()<length)
+	while (result.length<length)
 	{
 		result = result + "0";
 	}
@@ -18,6 +18,12 @@ function formatNumber(number, length)
 function dateToOra(d)
 {
 	return formatNumber(d.getHours(), 2) + ":" + formatNumber(d.getMinutes(), 2);
+}
+
+function oraToList(s)
+{
+	var sp = s.split(":");
+	return sp;
 }
 
 function oraToDate(s)
@@ -37,6 +43,41 @@ function oraToDate(s)
 	return result;
 }
 
+/**
+ * Racchiude una stringa fra parentesi quadre
+ */
+function box(s)
+{
+	return "[" + s + "]";
+}
+
+/**
+ * Trasforma una stringa in attributo XML
+ */
+function stosingle(s)
+{
+	var result = "\"";
+	
+	for (var i=0; i<s.length; i++)
+	{
+		if (s[i]=="\"")
+		{
+			result += "&quot;";
+		}
+		else
+		{
+			result += s[i];
+		}
+	}
+
+	result += "\"";
+
+	return result;
+}
+
 exports.dateToOra = dateToOra;
 exports.oraToDate = oraToDate;
+exports.oraToList = oraToList;
 exports.formatNumber = formatNumber;
+exports.box = box;
+exports.stosingle = stosingle;
