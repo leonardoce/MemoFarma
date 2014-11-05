@@ -27,8 +27,8 @@ function aggiungiAllarme(id, farmaco, dose, orologio)
 {
 	var StringUtils = require("StringUtils");
 	var l = StringUtils.oraToList(orologio);
-	var ora = parseInt(l[0]);
-	var minuti = parseInt(l[1]);
+	var ora = StringUtils.stringToNumber(l[0]);
+	var minuti = StringUtils.stringToNumber(l[1]);
 	var now = new Date();
 
 	Ti.API.info("Schedulo notifica " + StringUtils.box(id) + " alle: " + 
@@ -43,8 +43,9 @@ function aggiungiAllarme(id, farmaco, dose, orologio)
 		day: now.getDate(),
 		hour: ora,
 		minute: minuti,
-		contentTitle: farmaco,
-		contentText: dose,
+		second: 0,
+		contentTitle: "MemoFarma: " + farmaco,
+		contentText: "Dose: " + dose,
 		icon: Ti.App.Android.R.drawable.appicon,
 		playSound:true,
 		vibrate:true,

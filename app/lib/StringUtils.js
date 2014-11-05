@@ -33,8 +33,8 @@ function oraToDate(s)
 
 	if (sp.length==2)
 	{
-		result.setHours(parseInt(sp[0]));
-		result.setMinutes(parseInt(sp[1]));
+		result.setHours(stringToNumber(sp[0]));
+		result.setMinutes(stringToNumber(sp[1]));
 
 		Ti.API.info(s);
 		Ti.API.info(result);
@@ -75,9 +75,18 @@ function stosingle(s)
 	return result;
 }
 
+/**
+ * Trasforma una stringa in un numero
+ */
+function stringToNumber(s)
+{
+	return parseInt(s, 10);
+}
+
 exports.dateToOra = dateToOra;
 exports.oraToDate = oraToDate;
 exports.oraToList = oraToList;
 exports.formatNumber = formatNumber;
 exports.box = box;
 exports.stosingle = stosingle;
+exports.stringToNumber = stringToNumber;
