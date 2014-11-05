@@ -1,4 +1,3 @@
-var datiTerapie = Alloy.Collections.terapie;
 var args = arguments[0] || {};
 
 function doTransform(model) 
@@ -11,7 +10,7 @@ function doTransform(model)
 function onChiusiDettagli(e) 
 {
 	e.source.removeEventListener("close", onChiusiDettagli);
-	Alloy.Collections.terapie.fetch();
+	refresh();
 }
 
 function onAggiungiTerapia() {
@@ -25,7 +24,7 @@ function onAggiungiTerapia() {
 function onItemClick(e) 
 {
 	var terapia_id = $.list.getSections()[e.sectionIndex].items[e.itemIndex].properties.terapia_id;
-	var item = datiTerapie.get(terapia_id);
+	var item = Alloy.Collections.terapie.get(terapia_id);
 	var wnd = Alloy
 		.createController("dettagli_terapia", {modello: item})
 		.getView();
@@ -35,7 +34,10 @@ function onItemClick(e)
 
 function refresh()
 {
-	datiTerapie.fetch();
+	Alloy.Collections.terapie.fetch();
+
+	var GestoreAllarmi = require("GestoreAllarmi");
+	GestoreAllarmi.programmaAllarmi(Alloy.Collections.terapie);
 }
 
 refresh();
