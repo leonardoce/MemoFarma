@@ -3,7 +3,7 @@ var args = arguments[0] || {};
 function doChiudiDettagli(e) 
 {
 	e.source.removeEventListener("close", doChiudiDettagli);
-	Alloy.Collections.pressioni.fetch();
+	Alloy.Collections.pressione.fetch();
 }
 
 function doAggiungiPressioni()
