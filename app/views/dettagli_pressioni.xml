@@ -1,0 +1,23 @@
+<Alloy>
+	<Window class="container" onOpen="doOpen">
+		<ActionBar platform="android"/>
+		<Menu>
+			<MenuItem id="aggiungiItem" title="Salva" onClick="doSalva" 
+				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
+			<MenuItem id="cancellaItem" title="Elimina" onClick="doCancella" 
+				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
+		</Menu>
+		<ScrollView width="Ti.UI.FILL" height="Ti.UI.FILL" layout="vertical">
+			<TextField id="tf_massima" hintText="Pressione massima" width="Ti.UI.FILL"
+				keyboardType="Ti.UI.KEYBOARD_NUMBER_PAD"/>
+			<TextField id="tf_minima" hintText="Pressione minima" width="Ti.UI.FILL"
+				keyboardType="Ti.UI.KEYBOARD_NUMBER_PAD"/>
+			<TextField id="tf_frequenza" hintText="Frequenza cardiaca" width="Ti.UI.FILL"
+				keyboardType="Ti.UI.KEYBOARD_NUMBER_PAD"/>
+			<Switch id="cb_automisurazione" title="Automisurazione" width="Ti.UI.FILL"
+				style="Ti.UI.Android.SWITCH_STYLE_CHECKBOX"/>
+			<Picker id="pk_rilevazione_data" type="Ti.UI.PICKER_TYPE_DATE"/>
+			<Picker id="pk_rilevazione_ora" type="Ti.UI.PICKER_TYPE_TIME"/>
+		</ScrollView>
+	</Window>
+</Alloy>
