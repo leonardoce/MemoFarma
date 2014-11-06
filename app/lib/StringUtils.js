@@ -114,6 +114,18 @@ function string2logic(s)
 	}
 }
 
+function logic2string(v)
+{
+	if (v)
+	{
+		return "1";
+	}
+	else
+	{
+		return "0";
+	}
+}
+
 /**
  * Controlla se una stringa rappresenta un intero
  */
@@ -143,4 +155,5 @@ exports.box = box;
 exports.stosingle = stosingle;
 exports.stringToNumber = stringToNumber;
 exports.string2logic = string2logic;
+exports.logic2string = logic2string;
 exports.stringIsInteger = stringIsInteger;
