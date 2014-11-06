@@ -6,10 +6,12 @@ exports.definition = {
 		    "frequenza": "integer",
 		    "automisurazione": "text",
 		    "rilevazione": "text",
+		    "nota": "text",
 			"pressione_id": "integer primary key autoincrement"
 		},
 		defaults: {
-			"automisurazione": "1"
+			"automisurazione": "1",
+			"nota": ""
 		},
 		adapter: {
 			type: "sql",

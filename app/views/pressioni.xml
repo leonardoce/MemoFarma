@@ -13,7 +13,7 @@
 							<Label text="Frequenza:" class="titoloCella"/>
 							<Label bindId="frequenza" height="25dp"/>
 						</View>
-						<Label bindId="tipo" width="Ti.UI.FILL" height="25dp"/>
+						<Label bindId="tipo" width="Ti.UI.FILL" height="35dp"/>
 					</View>
 				</ItemTemplate>
 			</Templates>

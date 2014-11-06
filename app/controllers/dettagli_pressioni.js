@@ -17,11 +17,13 @@ function doSalva()
 	if (!StringUtils.stringIsInteger(massima))
 	{
 		alert("Inserire correttamente la pressione massima");
+		return;
 	}
 
 	if (!StringUtils.stringIsInteger(minima))
 	{
 		alert("Inserire correttamente la pressione minima");
+		return;
 	}
 
 	if (!StringUtils.stringIsInteger(frequenza))
@@ -36,7 +38,8 @@ function doSalva()
 			minima: minima,
 			frequenza: frequenza,
 			automisurazione: StringUtils.logic2string(automisurazione),
-			rilevazione: StringUtils.timestampToSql(rilevazione)
+			rilevazione: StringUtils.timestampToSql(rilevazione),
+			nota: $.ta_nota.value
 		});
 
 		args.modello.save();
@@ -63,6 +66,7 @@ function doOpen()
 		$.tf_minima.value = args.modello.get("minima");
 		$.tf_frequenza.value = args.modello.get("frequenza");
 		$.cb_automisurazione.value = StringUtils.string2logic(args.modello.get("automisurazione"));
+		$.ta_nota.value = args.modello.get("nota");
 
 		if (args.modello.get("rilevazione"))
 		{

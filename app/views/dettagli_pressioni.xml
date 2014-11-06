@@ -16,6 +16,8 @@
 				keyboardType="Ti.UI.KEYBOARD_NUMBER_PAD"/>
 			<Switch id="cb_automisurazione" title="Automisurazione" width="Ti.UI.FILL"
 				style="Ti.UI.Android.SWITCH_STYLE_CHECKBOX"/>
+			<TextArea id="ta_nota" hintText="Note" width="Ti.UI.FILL"
+				height="80dp"/>
 			<Picker id="pk_rilevazione_data" type="Ti.UI.PICKER_TYPE_DATE"/>
 			<Picker id="pk_rilevazione_ora" type="Ti.UI.PICKER_TYPE_TIME"/>
 		</ScrollView>
