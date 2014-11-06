@@ -83,6 +83,58 @@ function stringToNumber(s)
 	return parseInt(s, 10);
 }
 
+/**
+ * Trasforma una stringa in un valore booleano
+ */
+function string2logic(s)
+{
+	if (!s)
+	{
+		return false;
+	}
+	else if (s.toLowerCase().indexOf("s")!=(-1))
+	{
+		return true;
+	}
+	else if (s.toLowerCase().indexOf("y")!=(-1))
+	{
+		return true;
+	}
+	else if (s.toLowerCase().indexOf("1")!=(-1))
+	{
+		return true;
+	}
+	else if (s.toLowerCase().indexOf("t")!=(-1))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+/**
+ * Controlla se una stringa rappresenta un intero
+ */
+function stringIsNumber(s)
+{
+	if (!s)
+	{
+		return false;
+	}
+
+	s = s.trim().toLowerCase();
+	if (s=="0")
+	{
+		return true;
+	}
+	else
+	{
+		return stringToNumber(s)!=0;
+	}
+}
+
 exports.dateToOra = dateToOra;
 exports.oraToDate = oraToDate;
 exports.oraToList = oraToList;
@@ -90,3 +142,5 @@ exports.formatNumber = formatNumber;
 exports.box = box;
 exports.stosingle = stosingle;
 exports.stringToNumber = stringToNumber;
+exports.string2logic = string2logic;
+exports.stringIsNumber = stringIsNumber;
