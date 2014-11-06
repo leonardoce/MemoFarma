@@ -117,7 +117,7 @@ function string2logic(s)
 /**
  * Controlla se una stringa rappresenta un intero
  */
-function stringIsNumber(s)
+function stringIsInteger(s)
 {
 	if (!s)
 	{
@@ -143,4 +143,4 @@ exports.box = box;
 exports.stosingle = stosingle;
 exports.stringToNumber = stringToNumber;
 exports.string2logic = string2logic;
-exports.stringIsNumber = stringIsNumber;
+exports.stringIsInteger = stringIsInteger;
