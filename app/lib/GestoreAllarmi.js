@@ -9,6 +9,8 @@ function rimuoviAllarme(id)
 {
 	var StringUtils = require("StringUtils");
 
+	id = StringUtils.stringToNumber(id);
+
 	Ti.API.info("Rimuovo la notifica con id " + 
 		StringUtils.box(id));
 
@@ -30,6 +32,8 @@ function aggiungiAllarme(id, farmaco, dose, orologio)
 	var ora = StringUtils.stringToNumber(l[0]);
 	var minuti = StringUtils.stringToNumber(l[1]);
 	var now = new Date();
+
+	id = StringUtils.stringToNumber(id);
 
 	Ti.API.info("Schedulo notifica " + StringUtils.box(id) + " alle: " + 
 		StringUtils.box(ora + ":" + minuti) + " per " + 
