@@ -9,7 +9,7 @@ function doChiusiDettagli(e)
 function doAggiungiPressioni()
 {
 	var wnd = Alloy
-		.createController("dettagli_pressioni", {modello: Alloy.createModel("pressioni")})
+		.createController("dettagli_pressioni", {modello: Alloy.createModel("pressione")})
 		.getView();
 	wnd.addEventListener("close", onChiusiDettagli);
 	wnd.open();
@@ -47,3 +47,4 @@ function doRefresh()
 }
 
 doRefresh()
+$.doAggiungiPressioni = doAggiungiPressioni;

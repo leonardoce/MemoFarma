@@ -1,11 +1,23 @@
 var args = arguments[0] || {};
 
-function onTerapie()
+function doTerapie()
 {
 	Alloy.createController("terapie").getView().open();
 }
 
-function onAiuto()
+function doAggiungi()
+{
+	var TabGroupUtils = require("TabGroupUtils");
+	var activeIdx = TabGroupUtils.getActiveTabIndex($.tabprincipale);
+
+	if (activeIdx==1)
+	{
+		// Si tratta della pressione
+		$.pressioni.doAggiungiPressioni();
+	}
+}
+
+function doAiuto()
 {
 	Alloy.createController("tutorial").getView().open();
 }

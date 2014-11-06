@@ -1,10 +1,5 @@
 <Alloy>
 	<Window class="container">
-		<Menu>
-			<MenuItem id="aggiungiItem" title="Aggiungi" onClick="doAggiungiPressione" 
-				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
-		</Menu>
-
 		<ListView id="list" width="Ti.UI.FILL" height="Ti.UI.FILL" onItemclick="doItemClick">
 			<Templates>
 				<ItemTemplate name="pressione">
