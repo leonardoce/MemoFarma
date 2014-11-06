@@ -147,6 +147,13 @@ function stringIsInteger(s)
 	}
 }
 
+function formattaDataOra(d)
+{
+	d = new Date(d);
+	return d.getDate() + "-" + (d.getMonth()+1) + "-" + d.getFullYear() +
+		" - " + d.getHours() + ":" + d.getMinutes();
+}
+
 exports.dateToOra = dateToOra;
 exports.oraToDate = oraToDate;
 exports.oraToList = oraToList;
@@ -157,3 +164,4 @@ exports.stringToNumber = stringToNumber;
 exports.string2logic = string2logic;
 exports.logic2string = logic2string;
 exports.stringIsInteger = stringIsInteger;
+exports.formattaDataOra = formattaDataOra;
