@@ -1,8 +1,8 @@
 var args = arguments[0] || {};
 
-function doChiusiDettagli(e) 
+function doChiudiDettagli(e) 
 {
-	e.source.removeEventListener("close", doChiusiDettagli);
+	e.source.removeEventListener("close", doChiudiDettagli);
 	Alloy.Collections.pressioni.fetch();
 }
 
@@ -11,7 +11,7 @@ function doAggiungiPressioni()
 	var wnd = Alloy
 		.createController("dettagli_pressioni", {modello: Alloy.createModel("pressione")})
 		.getView();
-	wnd.addEventListener("close", onChiusiDettagli);
+	wnd.addEventListener("close", doChiudiDettagli);
 	wnd.open();
 }
 
@@ -22,7 +22,7 @@ function doItemClick(e)
 	var wnd = Alloy
 		.createController("dettagli_pressione", {modello: item})
 		.getView();
-	wnd.addEventListener("close", onChiusiDettagli);
+	wnd.addEventListener("close", onChiudiDettagli);
 	wnd.open();
 }
 
