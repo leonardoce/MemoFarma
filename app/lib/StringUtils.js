@@ -114,6 +114,9 @@ function string2logic(s)
 	}
 }
 
+/**
+ * Trasforma un booleano nella rappresentazione stringa
+ */
 function logic2string(v)
 {
 	if (v)
@@ -147,11 +150,47 @@ function stringIsInteger(s)
 	}
 }
 
+/**
+ * Formatta un oggetto data in modo da renderlo proponibile per le interfacce
+ */
 function formattaDataOra(d)
 {
 	d = new Date(d);
 	return d.getDate() + "-" + (d.getMonth()+1) + "-" + d.getFullYear() +
 		" - " + d.getHours() + ":" + d.getMinutes();
+}
+
+/**
+ * Formatta il timestamp in un formato memorizzabile su database
+ */
+function timestampToSql(d)
+{
+	var result = "";
+	result += formatNumber(d.getFullYear(), 4);
+	result += formatNumber(d.getMonth()+1, 2);
+	result += formatNumber(d.getDate(), 2);
+	result += formatNumber(d.getHours(), 2);
+	result += formatNumber(d.getMinutes(), 2);
+	return result;
+}
+
+/**
+ * Prende un timestamp in formato SQL e lo porta in oggetto data
+ */
+function sqlToTimestamp(s)
+{
+	if (s.length!=12)
+	{
+		return null;
+	}
+
+	var result = new Date();
+	result.setFullYear(stringToNumber(s.substring(0, 4)));
+	result.setMonth(stringToNumber(s.substring(4, 6))-1);
+	result.setDate(stringToNumber(s.substring(6, 8)));
+	result.setHours(stringToNumber(s.substring(8, 10)));
+	result.setMinutes(stringToNumber(s.substring(10, 12)));
+	return result;
 }
 
 exports.dateToOra = dateToOra;
@@ -165,3 +204,5 @@ exports.string2logic = string2logic;
 exports.logic2string = logic2string;
 exports.stringIsInteger = stringIsInteger;
 exports.formattaDataOra = formattaDataOra;
+exports.timestampToSql = timestampToSql;
+exports.sqlToTimestamp = sqlToTimestamp;

@@ -36,7 +36,7 @@ function doSalva()
 			minima: minima,
 			frequenza: frequenza,
 			automisurazione: StringUtils.logic2string(automisurazione),
-			rilevazione: rilevazione.toISOString()
+			rilevazione: StringUtils.timestampToSql(rilevazione)
 		});
 
 		args.modello.save();
@@ -66,8 +66,8 @@ function doOpen()
 
 		if (args.modello.get("rilevazione"))
 		{
-			$.pk_rilevazione_data = new Date(args.modello.get("rilevazione"));
-			$.pk_rilevazione_ora = new Date(args.modello.get("rilevazione"));
+			$.pk_rilevazione_data = StringUtils.sqlToTimestamp(args.modello.get("rilevazione"));
+			$.pk_rilevazione_ora = StringUtils.sqlToTimestamp(args.modello.get("rilevazione"));
 		}
 	}
 }

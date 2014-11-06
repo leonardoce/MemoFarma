@@ -39,7 +39,7 @@ function doTransform(model)
 	{
 		o.tipo = "Rilevata da altri";
 	}
-	o.testo_data = StringUtils.formattaDataOra(o.rilevazione);
+	o.testo_data = StringUtils.formattaDataOra(StringUtils.sqlToTimestamp(o.rilevazione));
 	return o;
 }
 

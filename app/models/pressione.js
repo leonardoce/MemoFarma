@@ -5,7 +5,7 @@ exports.definition = {
 		    "minima": "integer",
 		    "frequenza": "integer",
 		    "automisurazione": "text",
-		    "rilevazione": "timestamp",
+		    "rilevazione": "text",
 			"pressione_id": "integer primary key autoincrement"
 		},
 		defaults: {
