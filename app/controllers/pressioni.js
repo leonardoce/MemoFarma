@@ -31,7 +31,7 @@ function doTransform(model)
 {
 	var o = model.toJSON();
 	o.testo_pressione = o.massima + " / " + o.minima;
-	if (o.automisurazione)
+	if (StringUtils.string2logic(o.automisurazione))
 	{
 		o.tipo = "Automisurazione";
 	}
