@@ -4,21 +4,23 @@
 			<Templates>
 				<ItemTemplate name="pressione">
 					<View class="riga" layout="vertical">
-						<View layout="horizontal" class="riga" height="Ti.UI.SIZE" width="Ti.UI.FILL">
-							<Label text="Pressione:"/>
-							<Label bindId="pressione" width="Ti.UI.FILL"/>
+						<Label bindId="data" width="Ti.UI.FILL" height="25dp" class="titolo"/>
+						<View layout="horizontal" height="25dp" width="Ti.UI.FILL">
+							<Label text="Pressione:" class="titoloCella"/>
+							<Label bindId="pressione" height="25dp"/>
 						</View>
-						<View layout="horizontal" class="riga" height="Ti.UI.SIZE" width="Ti.UI.FILL">
-							<Label text="Frequenza:"/>
-							<Label bindId="frequenza" width="Ti.UI.FILL"/>
+						<View layout="horizontal" height="25dp" width="Ti.UI.FILL">
+							<Label text="Frequenza:" class="titoloCella"/>
+							<Label bindId="frequenza" height="25dp"/>
 						</View>
-						<Label bindId="tipo" height="Ti.UI.SIZE"/>
+						<Label bindId="tipo" width="Ti.UI.FILL" height="25dp"/>
 					</View>
 				</ItemTemplate>
 			</Templates>
 
 			<ListSection id="section" dataCollection="pressione" dataTransform="doTransform">
-				<ListItem template="pressione" pressione:text="{testo_pressione}" frequenza:text="{frequenza}"
+				<ListItem template="pressione" pressione:text="{testo_pressione}" 
+					frequenza:text="{frequenza}" data:text="{testo_data}"
 				    tipo:text="{tipo}" pressione_id="{pressione_id}"/>
 			</ListSection>
 		</ListView>

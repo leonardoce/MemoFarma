@@ -1,4 +1,5 @@
 var args = arguments[0] || {};
+var StringUtils = require("StringUtils");
 
 function doChiudiDettagli(e) 
 {
@@ -18,11 +19,11 @@ function doAggiungiPressioni()
 function doItemClick(e) 
 {
 	var pressione_id = $.list.getSections()[e.sectionIndex].items[e.itemIndex].properties.pressione_id;
-	var item = Alloy.Collections.pressioni.get(pressione_id);
+	var item = Alloy.Collections.pressione.get(pressione_id);
 	var wnd = Alloy
-		.createController("dettagli_pressione", {modello: item})
+		.createController("dettagli_pressioni", {modello: item})
 		.getView();
-	wnd.addEventListener("close", onChiudiDettagli);
+	wnd.addEventListener("close", doChiudiDettagli);
 	wnd.open();
 }
 
@@ -38,6 +39,7 @@ function doTransform(model)
 	{
 		o.tipo = "Rilevata da altri";
 	}
+	o.testo_data = StringUtils.formattaDataOra(o.rilevazione);
 	return o;
 }
 

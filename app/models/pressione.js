@@ -4,9 +4,12 @@ exports.definition = {
 		    "massima": "integer",
 		    "minima": "integer",
 		    "frequenza": "integer",
-		    "automisurazione": "bool",
+		    "automisurazione": "text",
 		    "rilevazione": "timestamp",
 			"pressione_id": "integer primary key autoincrement"
+		},
+		defaults: {
+			"automisurazione": "1"
 		},
 		adapter: {
 			type: "sql",

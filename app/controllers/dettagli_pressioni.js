@@ -19,12 +19,12 @@ function doSalva()
 		alert("Inserire correttamente la pressione massima");
 	}
 
-	if (!StringUtils.stringIsNumber(minima))
+	if (!StringUtils.stringIsInteger(minima))
 	{
 		alert("Inserire correttamente la pressione minima");
 	}
 
-	if (!StringUtils.stringIsNumber(frequenza))
+	if (!StringUtils.stringIsInteger(frequenza))
 	{
 		frequenza = 0; // non rilevata
 	}
@@ -35,14 +35,14 @@ function doSalva()
 			massima: massima,
 			minima: minima,
 			frequenza: frequenza,
-			automisurazione: automisurazione,
-			rilevazione: rilevazione.toIsoString()
+			automisurazione: StringUtils.logic2string(automisurazione),
+			rilevazione: rilevazione.toISOString()
 		});
 
-		args.save();
+		args.modello.save();
 	}
 
-	args.close();
+	$.dettagli_pressioni.close();
 }
 
 function doCancella()
