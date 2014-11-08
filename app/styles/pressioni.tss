@@ -1,22 +1,5 @@
 
 ".container" : {
   
-},
-
-".titolo": {
-	font: {
-        fontSize: '16dp',
-        fontStyle: 'normal',
-        fontWeight: 'bold'		
-	}	
-},
-
-".titoloCella": {
-	font: {
-        fontSize: '16dp',
-        fontStyle: 'normal',
-        fontWeight: 'bold'		
-	},
-	height: "25dp",
-	width: "120dp"
 }
+
