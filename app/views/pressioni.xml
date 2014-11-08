@@ -4,14 +4,14 @@
 			<Templates>
 				<ItemTemplate name="pressione">
 					<View class="riga" layout="vertical">
-						<Label bindId="data" width="Ti.UI.FILL" height="25dp" class="titolo"/>
-						<View layout="horizontal" height="25dp" width="Ti.UI.FILL">
+						<Label bindId="data" width="Ti.UI.FILL" height="20dp" class="titolo"/>
+						<View layout="horizontal" height="20dp" width="Ti.UI.FILL">
 							<Label text="Pressione:" class="titoloCella"/>
-							<Label bindId="pressione" height="25dp"/>
+							<Label bindId="pressione" height="20dp"/>
 						</View>
-						<View layout="horizontal" height="25dp" width="Ti.UI.FILL">
+						<View layout="horizontal" height="20dp" width="Ti.UI.FILL">
 							<Label text="Frequenza:" class="titoloCella"/>
-							<Label bindId="frequenza" height="25dp"/>
+							<Label bindId="frequenza" height="20dp"/>
 						</View>
 						<Label bindId="tipo" width="Ti.UI.FILL" height="Ti.UI.SIZE"/>
 					</View>
