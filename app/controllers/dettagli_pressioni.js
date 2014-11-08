@@ -60,8 +60,6 @@ function doCancella()
 
 function doRefreshData()
 {
-	if (!args.modello.get("rilevazione")) return;
-
 	var data = StringUtils.sqlToTimestamp(args.modello.get("rilevazione"));
 	$.lb_rilevazione.text = StringUtils.formattaDataOra(data); 
 }
@@ -70,14 +68,7 @@ function doScegliOra()
 {
 	var data;
 	
-	if (args.modello.get("rilevazione")) 
-	{
-		data = StringUtils.sqlToTimestamp(args.modello.get("rilevazione"));
-	} 
-	else 
-	{
-		data = new Date();
-	}
+	data = StringUtils.sqlToTimestamp(args.modello.get("rilevazione"));
 	
 	var picker = Ti.UI.createPicker({
   		value:data		
@@ -97,13 +88,7 @@ function doScegliOra()
 
 function doScegliData()
 {
-	if (args.modello.get("rilevazione")) {
-		data = StringUtils.sqlToTimestamp(args.modello.get("rilevazione"));
-	} 
-	else 
-	{
-		data = new Date();
-	}
+	var data = StringUtils.sqlToTimestamp(args.modello.get("rilevazione"));
 	
 	var picker = Ti.UI.createPicker({
   		value:data		
