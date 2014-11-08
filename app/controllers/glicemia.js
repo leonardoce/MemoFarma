@@ -11,7 +11,7 @@ function doChiudiDettagli(e)
 function doAggiungiGlicemia()
 {
 	var wnd = Alloy
-		.createController("dettagli_glicemia", {modello: Alloy.createModel("glicemia")})
+		.createController("dettagli_glicemia", {modello: Alloy.createModel("glicemia", {rilevazione:StringUtils.timestampToSql(new Date())})})
 		.getView();
 	wnd.addEventListener("close", doChiudiDettagli);
 	wnd.open();
