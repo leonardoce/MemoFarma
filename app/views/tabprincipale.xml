@@ -7,6 +7,8 @@
 			<MenuItem onClick="doAggiungi" 
 				icon="/images/aggiungi.png"
 				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
+			<MenuItem title="Esporta (CSV)" onClick="doReport" 
+				showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
 			<MenuItem title="Aiuto" onClick="doAiuto" 
 				showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
 		</Menu>

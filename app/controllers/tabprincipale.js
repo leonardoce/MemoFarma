@@ -20,6 +20,17 @@ function doAggiungi()
 	}
 }
 
+function doReport()
+{
+	var TabGroupUtils = require("TabGroupUtils");
+	var activeIdx = TabGroupUtils.getActiveTabIndex($.tabprincipale);
+
+	if (activeIdx==1)
+	{
+		$.pressioni.doReport();
+	}
+}
+
 function doAiuto()
 {
 	Alloy.createController("tutorial").getView().open();
