@@ -2,13 +2,14 @@ exports.definition = {
 	config: {
 		columns: {
 		    "rilevazione": "text",
+		    "glicemia": "integer",
 		    "nota": "text",
 			"glicemia_id": "integer primary key autoincrement"
 		},
 		defaults: {
 			"rilevazione": "",
 			"nota": ""
-		}
+		},
 		adapter: {
 			type: "sql",
 			collection_name: "glicemia",

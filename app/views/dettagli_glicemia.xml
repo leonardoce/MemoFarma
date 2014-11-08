@@ -1,0 +1,19 @@
+<Alloy>
+	<Window class="container" onOpen="doOpen">
+		<ActionBar platform="android"/>
+		<Menu>
+			<MenuItem id="aggiungiItem" title="Salva" onClick="doSalva" 
+				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
+			<MenuItem id="cancellaItem" title="Elimina" onClick="doCancella" 
+				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
+		</Menu>
+		<ScrollView width="Ti.UI.FILL" height="Ti.UI.FILL" layout="vertical">
+			<TextField id="tf_glicemia" hintText="Rilevazione glicemica" width="Ti.UI.FILL"
+				keyboardType="Ti.UI.KEYBOARD_NUMBER_PAD"/>
+			<TextArea id="ta_nota" hintText="Note" width="Ti.UI.FILL"
+				height="80dp"/>
+			<Picker id="pk_rilevazione_data" type="Ti.UI.PICKER_TYPE_DATE"/>
+			<Picker id="pk_rilevazione_ora" type="Ti.UI.PICKER_TYPE_TIME"/>
+		</ScrollView>
+	</Window>
+</Alloy>

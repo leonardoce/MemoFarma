@@ -1,0 +1,24 @@
+<Alloy>
+	<Window class="container">
+		<ListView id="list" width="Ti.UI.FILL" height="Ti.UI.FILL" onItemclick="doItemClick">
+			<Templates>
+				<ItemTemplate name="glicemia">
+					<View class="riga" layout="vertical">
+						<Label bindId="data" width="Ti.UI.FILL" height="20dp" class="titolo"/>
+						<View layout="horizontal" height="20dp" width="Ti.UI.FILL">
+							<Label text="Rilevazione:" class="titoloCella"/>
+							<Label bindId="glicemia" height="20dp"/>
+						</View>
+						<Label bindId="nota" width="Ti.UI.FILL" height="Ti.UI.SIZE"/>
+					</View>
+				</ItemTemplate>
+			</Templates>
+
+			<ListSection id="section" dataCollection="glicemia" dataTransform="doTransform">
+				<ListItem template="glicemia" glicemia:text="{glicemia}" 
+					data:text="{testo_data}" glicemia_id="{glicemia_id}"
+					nota:text="{nota}"/>
+			</ListSection>
+		</ListView>
+	</Window>
+</Alloy>
