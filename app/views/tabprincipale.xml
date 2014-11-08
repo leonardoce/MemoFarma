@@ -18,8 +18,7 @@
 			<Require type="view" src="pressioni" id="pressioni"/>
 		</Tab>
 		<Tab titoloPrincipale="Glicemia" icon="/images/glicemia.png">
-			<Window title="Glicemia">
-			</Window>
+			<Require type="view" src="glicemia" id="glicemia"/>
 		</Tab>
 	</TabGroup>
 </Alloy>

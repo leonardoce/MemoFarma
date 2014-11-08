@@ -12,8 +12,11 @@ function doAggiungi()
 
 	if (activeIdx==1)
 	{
-		// Si tratta della pressione
 		$.pressioni.doAggiungiPressioni();
+	}
+	else if (activeIdx==2)
+	{
+		$.glicemia.doAggiungiGlicemia();
 	}
 }
 
