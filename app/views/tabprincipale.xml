@@ -16,6 +16,9 @@
 		<Tab titoloPrincipale="Calendario" icon="/images/calendario.png">
 			<Require type="view" src="calendario"/>
 		</Tab>
+		<Tab titoloPrincipale="Farmaci" icon="/images/terapia.png">
+			<Require type="view" src="terapie"/>
+		</Tab>
 		<Tab titoloPrincipale="Pressione" icon="/images/pressione.png">
 			<Require type="view" src="pressioni" id="pressioni"/>
 		</Tab>
