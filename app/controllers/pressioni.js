@@ -4,7 +4,7 @@ var StringUtils = require("StringUtils");
 function doChiudiDettagli(e) 
 {
 	e.source.removeEventListener("close", doChiudiDettagli);
-	Alloy.Collections.pressione.fetch();
+	doRefresh();
 }
 
 function doAggiungiPressioni()
