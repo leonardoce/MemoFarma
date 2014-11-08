@@ -51,7 +51,9 @@ function doTransform(model)
 
 function doRefresh()
 {
-	Alloy.Collections.pressione.fetch();
+	Alloy.Collections.pressione.fetch({
+		query: 'select * from pressione order by rilevazione desc'
+	});
 }
 
 doRefresh()
