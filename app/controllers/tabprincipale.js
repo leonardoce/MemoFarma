@@ -1,18 +1,18 @@
 var args = arguments[0] || {};
-var INDICE_PRESSIONI = 1;
-var INDICE_GLICEMIE = 2;
-
-function doTerapie()
-{
-	Alloy.createController("terapie").getView().open();
-}
+var INDICE_TERAPIE = 1;
+var INDICE_PRESSIONI = 2;
+var INDICE_GLICEMIE = 3;
 
 function doAggiungi()
 {
 	var TabGroupUtils = require("TabGroupUtils");
 	var activeIdx = TabGroupUtils.getActiveTabIndex($.tabprincipale);
 
-	if (activeIdx==INDICE_PRESSIONI)
+	if (activeIdx==INDICE_TERAPIE)
+	{
+		$.terapie.onAggiungiTerapia();		
+	} 
+	else if (activeIdx==INDICE_PRESSIONI)
 	{
 		$.pressioni.doAggiungiPressioni();
 	}

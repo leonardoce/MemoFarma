@@ -41,3 +41,5 @@ function refresh()
 }
 
 refresh();
+
+$.onAggiungiTerapia=onAggiungiTerapia;

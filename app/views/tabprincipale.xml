@@ -2,8 +2,6 @@
 	<TabGroup class="container" onFocus="doFocus" onSwipe="doSwipe">
 		<ActionBar id="actionbar" platform="android" title="MemoFarma"/>
 		<Menu>
-			<MenuItem title="Farmaci" onClick="doTerapie" 
-				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
 			<MenuItem onClick="doAggiungi" 
 				icon="/images/aggiungi.png"
 				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
@@ -19,7 +17,7 @@
 			<Require type="view" src="calendario"/>
 		</Tab>
 		<Tab titoloPrincipale="Farmaci" icon="/images/terapia.png">
-			<Require type="view" src="terapie"/>
+			<Require type="view" src="terapie" id="terapie"/>
 		</Tab>
 		<Tab titoloPrincipale="Pressione" icon="/images/pressione.png">
 			<Require type="view" src="pressioni" id="pressioni"/>
