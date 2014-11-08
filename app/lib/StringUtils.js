@@ -7,6 +7,11 @@
  */
 function formatNumber(number, length)
 {
+	if (!number && number!=0)
+	{
+		return "";
+	}
+
 	var result = ""+number;
 	while (result.length<length)
 	{
@@ -156,8 +161,11 @@ function stringIsInteger(s)
 function formattaDataOra(d)
 {
 	d = new Date(d);
-	return d.getDate() + "-" + (d.getMonth()+1) + "-" + d.getFullYear() +
-		" - " + d.getHours() + ":" + d.getMinutes();
+	return formatNumber(d.getDate(), 2) + "-" + 
+		formatNumber(d.getMonth()+1, 2) + "-" + 
+		formatNumber(d.getFullYear(), 4) + " - " + 
+		formatNumber(d.getHours(), 2) + ":" + 
+		formatNumber(d.getMinutes(), 2);
 }
 
 /**
@@ -171,6 +179,9 @@ function timestampToSql(d)
 	result += formatNumber(d.getDate(), 2);
 	result += formatNumber(d.getHours(), 2);
 	result += formatNumber(d.getMinutes(), 2);
+
+	Ti.API.info(d + " -> " + result);
+
 	return result;
 }
 
@@ -190,6 +201,9 @@ function sqlToTimestamp(s)
 	result.setDate(stringToNumber(s.substring(6, 8)));
 	result.setHours(stringToNumber(s.substring(8, 10)));
 	result.setMinutes(stringToNumber(s.substring(10, 12)));
+
+	Ti.API.info(s + " -> " + result);
+
 	return result;
 }
 
