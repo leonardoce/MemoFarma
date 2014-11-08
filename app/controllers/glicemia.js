@@ -1,5 +1,6 @@
 var args = arguments[0] || {};
 var StringUtils = require("StringUtils");
+var GestoreReport = require("GestoreReport");
 
 function doChiudiDettagli(e) 
 {
@@ -14,6 +15,27 @@ function doAggiungiGlicemia()
 		.getView();
 	wnd.addEventListener("close", doChiudiDettagli);
 	wnd.open();
+}
+
+function doReport()
+{
+	var testo = GestoreReport.generaReportGlicemiaCSV(Alloy.Collections.glicemia.toJSON());
+	var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_glicemia.csv')
+	Ti.API.info(testo);
+	f.write(testo);
+
+	var dialog = Ti.UI.createEmailDialog();
+	if (!dialog.isSupported())
+	{
+		alert("Il tuo telefono non ha un indirizzo di mail collegato. Non posso inviare il report.");
+		return;
+	}
+
+	dialog.setSubject("Report glicemia, formato CSV");
+	dialog.setHtml(false);
+	dialog.setMessageBody("Allego quanto in oggetto");
+	dialog.addAttachment(f);
+	dialog.open();
 }
 
 function doItemClick(e) 
@@ -43,3 +65,4 @@ function doRefresh()
 
 doRefresh()
 $.doAggiungiGlicemia = doAggiungiGlicemia;
+$.doReport = doReport;

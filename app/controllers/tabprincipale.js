@@ -29,6 +29,10 @@ function doReport()
 	{
 		$.pressioni.doReport();
 	}
+	else if (activeIdx==2)
+	{
+		$.glicemia.doReport();
+	}
 }
 
 function doAiuto()

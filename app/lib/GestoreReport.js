@@ -24,6 +24,26 @@ function generaReportPressioniCSV(pressioni)
 }
 
 /**
+ * Report glicemia CSV
+ */
+function generaReportGlicemiaCSV(glicemia)
+{
+	var result = "";
+
+	result += "DATA,GLICEMIA,NOTE\n";
+
+	for (var i=0; i<glicemia.length; i++)
+	{
+		var record = glicemia[i];
+		result += StringUtils.formattaDataOra(StringUtils.sqlToTimestamp(record.rilevazione)) + ",";
+		result += record.glicemia + ",";
+		result += togliVirgole(record.nota) + "\n";
+	}
+
+	return result;
+}
+
+/**
  * Toglie tutte le virgole da una stringa (romperebbero il CSV)
  */
 function togliVirgole(stringa)
@@ -34,3 +54,4 @@ function togliVirgole(stringa)
 }
 
 exports.generaReportPressioniCSV = generaReportPressioniCSV;
+exports.generaReportGlicemiaCSV = generaReportGlicemiaCSV;
