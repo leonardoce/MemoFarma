@@ -58,6 +58,55 @@ function doCancella()
 	$.dettagli_pressioni.close();
 }
 
+function doRefreshData()
+{
+	var data = StringUtils.sqlToTimestamp(args.modello.get("rilevazione"));
+	$.lb_rilevazione.text = StringUtils.formattaDataOra(data); 
+}
+
+function doScegliOra()
+{
+	var data;
+	
+	data = StringUtils.sqlToTimestamp(args.modello.get("rilevazione"));
+	
+	var picker = Ti.UI.createPicker({
+  		value:data		
+	});
+	
+	picker.showTimePickerDialog({
+		value: data,
+		callback: function(e) {
+			if (e.cancel) return;
+			data.setHours(e.value.getHours());
+			data.setMinutes(e.value.getMinutes());
+			args.modello.set({rilevazione: StringUtils.timestampToSql(data)});
+			doRefreshData();
+		}
+	});
+}
+
+function doScegliData()
+{
+	var data = StringUtils.sqlToTimestamp(args.modello.get("rilevazione"));
+	
+	var picker = Ti.UI.createPicker({
+  		value:data		
+	});
+	
+	picker.showDatePickerDialog({
+		value: data,
+		callback: function(e) {
+			if (e.cancel) return;
+			data.setFullYear(e.value.getFullYear());
+			data.setMonth(e.value.getMonth());
+			data.setDate(e.value.getDate());
+			args.modello.set({rilevazione: StringUtils.timestampToSql(data)});
+			doRefreshData();
+		}
+	});
+}
+
 function doOpen()
 {
 	if (args.modello)
@@ -68,11 +117,7 @@ function doOpen()
 		$.cb_automisurazione.value = StringUtils.string2logic(args.modello.get("automisurazione"));
 		$.ta_nota.value = args.modello.get("nota");
 
-		if (args.modello.get("rilevazione"))
-		{
-			$.pk_rilevazione_data = StringUtils.sqlToTimestamp(args.modello.get("rilevazione"));
-			$.pk_rilevazione_ora = StringUtils.sqlToTimestamp(args.modello.get("rilevazione"));
-		}
+		doRefreshData();
 	}
 }
 

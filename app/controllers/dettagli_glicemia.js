@@ -4,12 +4,6 @@ var StringUtils = require("StringUtils");
 function doSalva()
 {
 	var glicemia = $.tf_glicemia.value.trim();
-	var rilevazione_data = $.pk_rilevazione_data.value;
-	var rilevazione_ora = $.pk_rilevazione_ora.value;
-
-	var rilevazione = new Date(rilevazione_data);
-	rilevazione.setHours(rilevazione.getHours());
-	rilevazione.setMinutes(rilevazione.getMinutes());
 
 	if (!StringUtils.stringIsInteger(glicemia))
 	{
@@ -21,7 +15,6 @@ function doSalva()
 	{
 		args.modello.set({
 			glicemia: glicemia,
-			rilevazione: StringUtils.timestampToSql(rilevazione),
 			nota: $.ta_nota.value
 		});
 
@@ -41,6 +34,55 @@ function doCancella()
 	$.dettagli_glicemia.close();
 }
 
+function doRefreshData()
+{
+	var data = StringUtils.sqlToTimestamp(args.modello.get("rilevazione"));
+	$.lb_rilevazione.text = StringUtils.formattaDataOra(data); 
+}
+
+function doScegliOra()
+{
+	var data;
+	
+	data = StringUtils.sqlToTimestamp(args.modello.get("rilevazione"));
+	
+	var picker = Ti.UI.createPicker({
+  		value:data		
+	});
+	
+	picker.showTimePickerDialog({
+		value: data,
+		callback: function(e) {
+			if (e.cancel) return;
+			data.setHours(e.value.getHours());
+			data.setMinutes(e.value.getMinutes());
+			args.modello.set({rilevazione: StringUtils.timestampToSql(data)});
+			doRefreshData();
+		}
+	});
+}
+
+function doScegliData()
+{
+	var data = StringUtils.sqlToTimestamp(args.modello.get("rilevazione"));
+	
+	var picker = Ti.UI.createPicker({
+  		value:data		
+	});
+	
+	picker.showDatePickerDialog({
+		value: data,
+		callback: function(e) {
+			if (e.cancel) return;
+			data.setFullYear(e.value.getFullYear());
+			data.setMonth(e.value.getMonth());
+			data.setDate(e.value.getDate());
+			args.modello.set({rilevazione: StringUtils.timestampToSql(data)});
+			doRefreshData();
+		}
+	});
+}
+
 function doOpen()
 {
 	if (args.modello)
@@ -48,10 +90,6 @@ function doOpen()
 		$.tf_glicemia.value = args.modello.get("glicemia");
 		$.ta_nota.value = args.modello.get("nota");
 
-		if (args.modello.get("rilevazione"))
-		{
-			$.pk_rilevazione_data = StringUtils.sqlToTimestamp(args.modello.get("rilevazione"));
-			$.pk_rilevazione_ora = StringUtils.sqlToTimestamp(args.modello.get("rilevazione"));
-		}
+		doRefreshData();
 	}
 }

@@ -12,7 +12,7 @@ function doChiudiDettagli(e)
 function doAggiungiPressioni()
 {
 	var wnd = Alloy
-		.createController("dettagli_pressioni", {modello: Alloy.createModel("pressione")})
+		.createController("dettagli_pressioni", {modello: Alloy.createModel("pressione", {rilevazione:StringUtils.timestampToSql(new Date())})})
 		.getView();
 	wnd.addEventListener("close", doChiudiDettagli);
 	wnd.open();
