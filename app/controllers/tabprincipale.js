@@ -1,4 +1,6 @@
 var args = arguments[0] || {};
+var INDICE_PRESSIONI = 1;
+var INDICE_GLICEMIE = 2;
 
 function doTerapie()
 {
@@ -10,11 +12,11 @@ function doAggiungi()
 	var TabGroupUtils = require("TabGroupUtils");
 	var activeIdx = TabGroupUtils.getActiveTabIndex($.tabprincipale);
 
-	if (activeIdx==1)
+	if (activeIdx==INDICE_PRESSIONI)
 	{
 		$.pressioni.doAggiungiPressioni();
 	}
-	else if (activeIdx==2)
+	else if (activeIdx==INDICE_GLICEMIE)
 	{
 		$.glicemia.doAggiungiGlicemia();
 	}
@@ -25,13 +27,28 @@ function doReport()
 	var TabGroupUtils = require("TabGroupUtils");
 	var activeIdx = TabGroupUtils.getActiveTabIndex($.tabprincipale);
 
-	if (activeIdx==1)
+	if (activeIdx==INDICE_PRESSIONI)
 	{
 		$.pressioni.doReport();
 	}
-	else if (activeIdx==2)
+	else if (activeIdx==INDICE_GLICEMIE)
 	{
 		$.glicemia.doReport();
+	}
+}
+
+function doReportHTML()
+{
+	var TabGroupUtils = require("TabGroupUtils");
+	var activeIdx = TabGroupUtils.getActiveTabIndex($.tabprincipale);
+
+	if (activeIdx==INDICE_PRESSIONI)
+	{
+		$.pressioni.doReportHTML();
+	}
+	else if (activeIdx==INDICE_GLICEMIE)
+	{
+		$.glicemia.doReportHTML();
 	}
 }
 
