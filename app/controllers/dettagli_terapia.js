@@ -33,9 +33,6 @@ function onCancella()
 {
 	if (args.modello)
 	{
-		var GestoreAllarmi = require("GestoreAllarmi");
-		GestoreAllarmi.rimuoviAllarme(args.modello.get("terapia_id"));
-
 		args.modello.destroy();
 	}
 

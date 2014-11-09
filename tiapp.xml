@@ -44,6 +44,9 @@
             <application android:theme="@style/Light"/>
             <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="19"/>
         </manifest>
+		<services>
+			<service url="alarmservice.js" type="interval"/>
+		</services>
     </android>
     <mobileweb>
         <precache/>

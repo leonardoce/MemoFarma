@@ -1,14 +1,17 @@
 exports.definition = {
 	config: {
 		columns: {
-		    "quando": "timestamp",
+		    "quando": "text",
 		    "nome": "text",
 		    "dose": "text",
-		    "stato": "text"
+		    "ora_richiesta": "text",
+		    "stato": "text",
+		    "somministrazione_id": "integer primary key autoincrement"
 		},
 		adapter: {
-			type: "sql",
-			collection_name: "somministrazione"
+		    type: "sql",
+		    collection_name: "somministrazione",
+		    idAttribute: "somministrazione_id"
 		}
 	},
 	extendModel: function(Model) {

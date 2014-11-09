@@ -35,9 +35,6 @@ function onItemClick(e)
 function refresh()
 {
 	Alloy.Collections.terapie.fetch();
-
-	var GestoreAllarmi = require("GestoreAllarmi");
-	GestoreAllarmi.programmaAllarmi(Alloy.Collections.terapie);
 }
 
 refresh();

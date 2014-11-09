@@ -13,3 +13,6 @@
 Alloy.Collections.terapie = Alloy.createCollection("terapie");
 Alloy.Collections.pressione = Alloy.createCollection("pressione");
 Alloy.Collections.glicemia = Alloy.createCollection("glicemia");
+
+var GestoreAllarmi = require("GestoreAllarmi");
+GestoreAllarmi.attivaGestioneAllarmi();

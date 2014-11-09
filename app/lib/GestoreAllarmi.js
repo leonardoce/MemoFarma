@@ -1,84 +1,94 @@
 var alarmModule = require('bencoding.alarmmanager');
 var alarmManager = alarmModule.createAlarmManager();
 
-/**
- * Rimuove l'allarme corrispondente ad una certa terapia
- * @param id {Number} il numero identificativo della terapia
- */
-function rimuoviAllarme(id)
-{
-	var StringUtils = require("StringUtils");
+var StringUtils = require("StringUtils");
 
-	id = StringUtils.stringToNumber(id);
-
-	Ti.API.info("Rimuovo la notifica con id " + 
-		StringUtils.box(id));
-
-	alarmManager.cancelAlarmNotification(id);
-}
+var ID_ALLARME = 1223;
+var INTERVALLO_MINUTI = 1;
 
 /**
- * Aggiunge un allarme per i dati richiesti
- * @param id {Number} L'id dell'allarme da pianificare
- * @param farmaco {String} Il nome del farmaco
- * @param dose {String} La dose del farmaco da assumere
- * @param orologio {String} L'ora alla quale assumere il farmaco
- *   nel formato "HH:MM"
+ * Viene attivato un allarme eseguito ogni 5 minuti ed alla
+ * ricezione l'applicazione controlla se ci sono delle terapie che dovono
+ * essere ancora prese. Se ci sono allora viene messa una notifica in modo
+ * che l'utente se ne accorga.
  */
-function aggiungiAllarme(id, farmaco, dose, orologio)
+
+/**
+ * Attiva la gestione degli allarmi
+ */
+function attivaGestioneAllarmi()
 {
-	var StringUtils = require("StringUtils");
-	var l = StringUtils.oraToList(orologio);
-	var ora = StringUtils.stringToNumber(l[0]);
-	var minuti = StringUtils.stringToNumber(l[1]);
+    Ti.API.info("Gestione degli allarmi attivata");
+
 	var now = new Date();
 
-	id = StringUtils.stringToNumber(id);
-
-	Ti.API.info("Schedulo notifica " + StringUtils.box(id) + " alle: " + 
-		StringUtils.box(ora + ":" + minuti) + " per " + 
-		StringUtils.box(farmaco) + " con dose " +
-		StringUtils.box(dose));
-
-	alarmManager.addAlarmNotification({
-		requestCode: id,
-		year: now.getFullYear(),
-		month: now.getMonth(),
-		day: now.getDate(),
-		hour: ora,
-		minute: minuti,
-		second: 0,
-		contentTitle: "MemoFarma: " + farmaco,
-		contentText: "Dose: " + dose,
-		icon: Ti.App.Android.R.drawable.appicon,
-		playSound:true,
-		vibrate:true,
-		showLights: true,
-		repeat: 'daily'
-	});
+    var MINUTES = 1000 * 60;
+    alarmManager.addAlarmService({
+        requestCode: ID_ALLARME,
+        year: now.getFullYear(),
+        month: now.getMonth(),
+        day: now.getDate(),
+        hour: now.getHours(),
+        minute: now.getMinutes(),
+        second: 0,
+        service: 'it.interfree.leonardoce.memofarma.AlarmserviceService',
+        repeat: INTERVALLO_MINUTI * MINUTES
+    });
 }
 
 /**
- * Data la lista delle terapie da assumere
- * pianifica gli allarmi.
- * @param {[Terapie]} La lista delle terapie (modelli Backbone JS)
+ * Controlla se oggi ci sono delle terapie che
+ * non sono state prese
  */
-function programmaAllarmi(terapie)
+function controllaTerapieDiOggi()
 {
-	for (var i=0; i<terapie.length; i++)
-	{
-		var record = terapie.at(i);
+    var somministrazioni = Alloy.createCollection("somministrazione");
+    var terapie = Alloy.createCollection("terapie");
 
-		Ti.API.info(record);
+    var dataOggi = StringUtils.timestampToSql(new Date());
 
-		aggiungiAllarme(
-			record.get("terapia_id"),
-			record.get("nome"),
-			record.get("dose"),
-			record.get("ora")
-		);
-	}
+    somministrazioni.fetch({
+        query: {
+            statement: "select * from somministrazione where quando like ? order by quando",
+            params: [
+                dataOggi.substring(0, 8) + '%'
+            ]
+        }
+    });
+	terapie.fetch();
+
+	terapie = terapie.toJSON();
+	somministrazioni = somministrazioni.toJSON();
+
+    var terapieNonPrese = [];
+    for(var i=0; i<terapie.length; i++)
+    {
+        if (!controllaSeSomministrata(terapie[i], somministrazioni))
+        {
+            terapieNonPrese.push(terapie[i]);
+        }
+    }
+
+	Ti.API.info("Ci sono " + terapieNonPrese.length + " terapie non prese");
+
+    return terapieNonPrese;
 }
 
-exports.rimuoviAllarme = rimuoviAllarme;
-exports.programmaAllarmi = programmaAllarmi;
+/**
+ * Controlla se e' stata presa una certa terapia
+ */
+function controllaSeSomministrata(terapia, somministrazioni)
+{
+    for (var i=0; i<somministrazioni.length; i++)
+    {
+        if (somministrazioni[i].ora_richiesta==terapia.ora)
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+exports.attivaGestioneAllarmi = attivaGestioneAllarmi;
+exports.controllaTerapieDiOggi = controllaTerapieDiOggi;
