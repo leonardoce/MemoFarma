@@ -40,7 +40,8 @@ if (terapieNonPrese.length>0)
 		contentIntent: pending,
 		ledOnMS: 2000,
 		ledOffMS: 2000,
-		defaults: Ti.Android.DEFAULT_ALL
+		defaults: Ti.Android.DEFAULT_ALL,
+		icon: '/images/terapia.png'
 	});
 
 	// Send the notification.
