@@ -2,7 +2,7 @@ var StringUtils = require("StringUtils");
 
 var MINUTES = 60*1000;
 var ID_ALLARME = 1223;
-var INTERVALLO_MINUTI = 1;
+var INTERVALLO_MINUTI = 5;
 
 /**
  * Viene attivato un allarme eseguito ogni 5 minuti ed alla
