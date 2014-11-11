@@ -24,6 +24,7 @@ if (terapieNonPrese.length>0)
 		className : 'it.interfree.leonardoce.memofarma.MemofarmaActivity',
 	});
 	intent.addCategory(Ti.Android.CATEGORY_LAUNCHER);
+	intent.putExtra("tipologia", "terapie_non_somministrate");
 
 	// Create a PendingIntent to tie together the Activity and Intent
 	var pending = Titanium.Android.createPendingIntent({
@@ -41,7 +42,7 @@ if (terapieNonPrese.length>0)
 		ledOnMS: 2000,
 		ledOffMS: 2000,
 		defaults: Ti.Android.DEFAULT_ALL,
-		icon: '/images/terapia.png'
+		icon: '/images/terapia_bianca.png'
 	});
 
 	// Send the notification.
