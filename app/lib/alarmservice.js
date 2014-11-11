@@ -11,7 +11,7 @@ if (terapieNonPrese.length>0)
 	var contenutoNotifica = "";
 	if (terapieNonPrese.length==1)
 	{
-		contenutoNotifica = terapieNonPrese.nome;
+		contenutoNotifica = terapieNonPrese[0].nome;
 	}
 	else
 	{
@@ -39,7 +39,8 @@ if (terapieNonPrese.length>0)
 		contentText : contenutoNotifica,
 		contentIntent: pending,
 		ledOnMS: 2000,
-		ledOffMS: 2000
+		ledOffMS: 2000,
+		defaults: Ti.Android.DEFAULT_ALL
 	});
 
 	// Send the notification.
