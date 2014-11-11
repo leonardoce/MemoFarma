@@ -11,7 +11,7 @@ if (terapieNonPrese.length>0)
 	var contenutoNotifica = "";
 	if (terapieNonPrese.length==1)
 	{
-		contenutoNotifica = terapieNonPrese[0].nome;
+		contenutoNotifica = terapieNonPrese[0].nome + " (" + terapieNonPrese[0].dose + ")";
 	}
 	else
 	{
