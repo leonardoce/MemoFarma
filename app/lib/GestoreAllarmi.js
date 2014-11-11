@@ -1,8 +1,6 @@
-var alarmModule = require('bencoding.alarmmanager');
-var alarmManager = alarmModule.createAlarmManager();
-
 var StringUtils = require("StringUtils");
 
+var MINUTES = 60*1000;
 var ID_ALLARME = 1223;
 var INTERVALLO_MINUTI = 1;
 
@@ -18,22 +16,13 @@ var INTERVALLO_MINUTI = 1;
  */
 function attivaGestioneAllarmi()
 {
-    Ti.API.info("Gestione degli allarmi attivata");
+    Ti.API.info("Attivo la gestione degli allarmi");
 
-	var now = new Date();
-
-    var MINUTES = 1000 * 60;
-    alarmManager.addAlarmService({
-        requestCode: ID_ALLARME,
-        year: now.getFullYear(),
-        month: now.getMonth(),
-        day: now.getDate(),
-        hour: now.getHours(),
-        minute: now.getMinutes(),
-        second: 0,
-        service: 'it.interfree.leonardoce.memofarma.AlarmserviceService',
-        repeat: INTERVALLO_MINUTI * MINUTES
-    });
+	var intent = Titanium.Android.createServiceIntent({
+		url: 'alarmservice.js'
+	});
+	intent.putExtra('interval', INTERVALLO_MINUTI*MINUTES); // Needs to be milliseconds
+	Ti.Android.startService(intent);
 }
 
 /**

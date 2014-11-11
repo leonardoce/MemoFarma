@@ -45,8 +45,3 @@ if (terapieNonPrese.length>0)
 	// Send the notification.
 	Titanium.Android.NotificationManager.notify(1, notification);
 }
-
-// Fatto questo il servizio potrebbe tranquillamente salutare
-// la curva
-var service = Ti.Android.currentService;
-Ti.Android.stopService(service);
