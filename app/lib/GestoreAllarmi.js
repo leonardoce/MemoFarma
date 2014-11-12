@@ -4,6 +4,8 @@ var MINUTES = 60*1000;
 var ID_ALLARME = 1223;
 var INTERVALLO_MINUTI = 5;
 
+var serviceIntent = null;
+
 /**
  * Viene attivato un allarme eseguito ogni 5 minuti ed alla
  * ricezione l'applicazione controlla se ci sono delle terapie che dovono
@@ -16,13 +18,20 @@ var INTERVALLO_MINUTI = 5;
  */
 function attivaGestioneAllarmi()
 {
-    Ti.API.info("Attivo la gestione degli allarmi");
+	if (serviceIntent==null)
+	{
+		Ti.API.info("Attivo la gestione degli allarmi");
 
-	var intent = Titanium.Android.createServiceIntent({
-		url: 'alarmservice.js'
-	});
-	intent.putExtra('interval', INTERVALLO_MINUTI*MINUTES); // Needs to be milliseconds
-	Ti.Android.startService(intent);
+		serviceIntent = Titanium.Android.createServiceIntent({
+			url: 'alarmservice.js'
+		});
+		serviceIntent.putExtra('interval', INTERVALLO_MINUTI*MINUTES);
+		Ti.Android.startService(serviceIntent);
+	}
+	else
+	{
+		Ti.API.info("La gestione degli allarmi e' gia' attivata");
+	}
 }
 
 /**
