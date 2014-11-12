@@ -95,5 +95,3 @@ function doSwipe(e)
 		TabGroupUtils.setActiveTabIndex($.tabprincipale, activeIdx);
 	}
 }
-
-$.tabprincipale.open();

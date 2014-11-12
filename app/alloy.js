@@ -14,10 +14,33 @@ Alloy.Collections.terapie = Alloy.createCollection("terapie");
 Alloy.Collections.pressione = Alloy.createCollection("pressione");
 Alloy.Collections.glicemia = Alloy.createCollection("glicemia");
 
+// Queste sono le due schermate principali possibili
 var GestoreAllarmi = require("GestoreAllarmi");
 GestoreAllarmi.attivaGestioneAllarmi();
 
 // Adesso vediamo se siamo stati attivati da una
 // notifica
 var currActivity = Ti.Android.currentActivity;
-Ti.API.info("Tipo: " + currActivity.getIntent().getStringExtra("tipologia"));
+var tipologia = currActivity.getIntent().getStringExtra("tipologia");
+Ti.API.info("Tipo: " + tipologia);
+
+if (tipologia=="terapie_non_somministrate")
+{
+	// Sono stato avviato da una notifica e quindi devo mostrare
+	// la pagina delle notifiche
+	if (!Alloy.Globals.promemoria_terapie)
+	{
+		Alloy.Globals.promemoria_terapie = Alloy.createController("promemoria_terapie");
+	}
+	Alloy.Globals.promemoria_terapie.getView().open();
+}
+else
+{
+	// Sono stato avviato dal launcher e quindi mi apro
+	// normalmente
+	if (!Alloy.Globals.tabprincipale)
+	{
+		Alloy.Globals.tabprincipale = Alloy.createController("tabprincipale");
+	}
+	Alloy.Globals.tabprincipale.getView().open();
+}
