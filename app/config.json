@@ -7,7 +7,5 @@
   "os:blackberry": {},
   "os:ios": {},
   "os:mobileweb": {},
-  "dependencies": {
-    "jp.co.mountposition.calendar": "*"
-  }
+  "dependencies": {}
 }

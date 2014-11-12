@@ -1,8 +1,8 @@
 <Alloy>
 	<Window class="container" title="Calendario">
-		<Require type="widget" 
-		  src="jp.co.mountposition.calendar" 
+		<!--Require type="widget" 
+		  src="ti.pedro.calendar" 
 		  id="cal"
-		  width="100%" height="100%"/>
+		  width="Ti.UI.FILL" height="Ti.UI.FILL"/-->
 	</Window>
 </Alloy>
