@@ -16,3 +16,8 @@ Alloy.Collections.glicemia = Alloy.createCollection("glicemia");
 
 var GestoreAllarmi = require("GestoreAllarmi");
 GestoreAllarmi.attivaGestioneAllarmi();
+
+// Adesso vediamo se siamo stati attivati da una
+// notifica
+var currActivity = Ti.Android.currentActivity;
+Ti.API.info("Tipo: " + currActivity.getIntent().getStringExtra("tipologia"));
