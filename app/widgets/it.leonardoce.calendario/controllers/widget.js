@@ -1,6 +1,7 @@
 // Questo widget implementa un semplice calendario
 // che puo' disegnare una casella per giorno
 
+var NOMIGIORNI = ["D", "L", "M", "M", "G", "V", "S"];
 var casellePerGiorni = [];
 
 // Questo tiene traccia del mese corrente
@@ -81,55 +82,100 @@ function resetLayout()
 	$.container.removeAllChildren();
 	casellePerGiorni = [];
 
+	// Un mese puo' stare a cavallo fra 6 settimane (vedi 11/2014)
+	// ed una riga mi serve per indicare i nomi dei giorni; per questa
+	// ragione mi servono 7 righe.
+	// Le settimane, per fortuna, sono sempre di 7 giorni
 	var larghezzaCelle = larghezza / 7;
-	var lunghezzaCelle = lunghezza / 6;
+	var lunghezzaCelle = lunghezza / 7;
+
+	// Adesso disegno i nomi dei giorni {{{
+	for (var j=0; j<7; j++)
+	{
+		var spessore, coloreBordo, dataDellaCella;
+
+		spessore = 1;
+		coloreBordo = "#000000";
+
+		var cella = Ti.UI.createLabel({
+			color: (j==0?"#ff0000": "#000000"),
+			borderColor: coloreBordo,
+			borderWidth: spessore,
+			width: larghezzaCelle,
+			height: lunghezzaCelle,
+			top: 0,
+			left: j*larghezzaCelle,
+			text: NOMIGIORNI[j],
+			textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+		});
+
+		$.container.add(cella);
+	}
+	// }}}
+
+	// Adesso disegno il calendario {{{
 	var giorniContati = 0;
 
 	for (var i=0; i<6; i++)
 	{
 		for (var j=0; j<7; j++)
 		{
+			var spessore, coloreBordo, dataDellaCella, coloreTesto;
+
+			spessore = 1;
+			coloreBordo = "#000000";
+			coloreTesto = "#000000";
+			dataDellaCella = null;
+
+			if (j==0)
+			{
+				// Domenica
+				coloreTesto = "#ff0000";
+			}
+
 			if (i==0 && j<primoGiorno)
 			{
 				// Siamo prima del mese corrente
+				coloreBordo = "#aaaaaa";
 			}
 			else if (giorniContati>=giorniInQuestoMese)
 			{
 				// Siamo dopo il mese corrente
-			}	
+				coloreBordo = "#aaaaaa";
+			}
 			else
 			{
-				var spessore, coloreBordo;
 
-				var dataDellaCella = new Date();
-				dataDiOggi.setDate(giorniContati+1);
-
-				spessore = 1;
-				coloreBordo = "#000000";
+				dataDellaCella = new Date();
+				dataDellaCella.setDate(giorniContati+1);
 
 				if (confrontaData(dataDiOggi, dataDellaCella))
 				{
 					spessore = 3;
-					coloreBordo = "#000000";
 				}
 
-				var cella = Ti.UI.createLabel({
-					borderColor: coloreBordo,
-					borderWidth: spessore,
-					width: larghezzaCelle,
-					height: lunghezzaCelle,
-					top: i*lunghezzaCelle,
-					left: j*larghezzaCelle,
-					text: ""+dataDellaCella.getDate(),
-					dataDiQuestaCella: dataDellaCella,
-					textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
-				});
-
+				// Giorno del mese giusto
 				giorniContati++;
-				$.container.add(cella);
 			}
+
+			var cella = Ti.UI.createLabel({
+				color: coloreTesto,
+				borderColor: coloreBordo,
+				borderWidth: spessore,
+				width: larghezzaCelle,
+				height: lunghezzaCelle,
+				top: (i+1)*lunghezzaCelle,
+				left: j*larghezzaCelle,
+				text: (dataDellaCella==null?"":""+dataDellaCella.getDate()),
+				dataDiQuestaCella: dataDellaCella,
+				textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+			});
+
+			$.container.add(cella);
 		}
 	}
+
+	// }}}
 }
 
 function init()
