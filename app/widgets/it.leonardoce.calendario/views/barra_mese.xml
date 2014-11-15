@@ -1,0 +1,9 @@
+<Alloy>
+	<View layout="horizontal" onPostlayout="doPostlayout">
+		<Button onClick="doPrima" title="Prima" height="Ti.UI.FILL"
+			width="Ti.UI.SIZE" id="btPrima"/>
+		<Label id="txtDescrizioneMese" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER"/>
+		<Button onClick="doDopo" title="Dopo" height="Ti.UI.FILL"
+			width="Ti.UI.SIZE" id="btDopo"/>
+	</View>
+</Alloy>

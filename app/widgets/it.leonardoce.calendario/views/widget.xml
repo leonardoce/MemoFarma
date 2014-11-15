@@ -1,3 +1,8 @@
 <Alloy>
-	<View id="container" onPostlayout="doPostlayout"/>
+	<View layout="vertical" onPostlayout="doPostlayout">
+		<Require type="widget" src="it.leonardoce.calendario" 
+			name="barra_mese" id="barra_mese"/>
+		<View id="container"
+			width="Ti.UI.FILL" height="Ti.UI.FILL"/>
+	</View>
 </Alloy>

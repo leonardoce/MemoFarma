@@ -2,8 +2,8 @@
 // che puo' disegnare una casella per giorno
 
 var DateUtils = require(WPATH("DateUtils"));
+var moment = require(WPATH("moment-with-locales"));
 
-var NOMIGIORNI = ["D", "L", "M", "M", "G", "V", "S"];
 var casellePerGiorni = [];
 var casellePerNomiDeiGiorni = [];
 
@@ -91,7 +91,7 @@ function creaCasellePerNomiDeiGiorni()
 			color: (j===0?"#ff0000": "#000000"),
 			borderColor: coloreBordo,
 			borderWidth: spessore,
-			text: NOMIGIORNI[j],
+			text: moment.weekdaysMin()[j],
 			textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
 		});
 
@@ -191,11 +191,25 @@ function configuraCellePerMeseCorrente()
 	}
 }
 
+function doMeseCambiato(e)
+{
+	annoCorrente = e.year;
+	meseCorrente = e.month;
+	configuraCellePerMeseCorrente();
+}
+
 function init()
 {
 	var d = new Date();
 	meseCorrente = d.getMonth();
 	annoCorrente = d.getFullYear();
+
+	// Barra del mese
+	$.barra_mese.getView().applyProperties({
+		width: Ti.UI.FILL,
+		height: '50dp'
+	});
+	$.barra_mese.getView().addEventListener("mese_cambiato", doMeseCambiato);
 
 	creaCasellePerNomiDeiGiorni();
 	creaCasellePerGiorni();
