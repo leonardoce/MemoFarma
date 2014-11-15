@@ -32,6 +32,7 @@ function resetLayout()
 	}
 	// }}}
 
+	var i,j;
 	var primoGiorno = DateUtils.primoGiornoDelMese(annoCorrente, meseCorrente);
 	var giorniInQuestoMese = DateUtils.quantiGiorniHaQuestoMese(annoCorrente, meseCorrente);
 	var dataDiOggi = new Date();
@@ -44,7 +45,7 @@ function resetLayout()
 	var lunghezzaCelle = lunghezza / 7;
 
 	// Adesso disegno i nomi dei giorni {{{
-	for (var j=0; j<7; j++)
+	for (j=0; j<7; j++)
 	{
 		casellePerNomiDeiGiorni[j].applyProperties({
 			width: larghezzaCelle,
@@ -58,9 +59,9 @@ function resetLayout()
 	// Adesso disegno il calendario {{{
 	var giorniContati = 0;
 
-	for (var i=0; i<6; i++)
+	for (i=0; i<6; i++)
 	{
-		for (var j=0; j<7; j++)
+		for (j=0; j<7; j++)
 		{
 			var spessore, coloreBordo, dataDellaCella;
 
@@ -68,7 +69,7 @@ function resetLayout()
 			coloreBordo = "#000000";
 			dataDellaCella = null;
 
-			if (i==0 && j<primoGiorno)
+			if (i===0 && j<primoGiorno)
 			{
 				// Siamo prima del mese corrente
 				coloreBordo = "#aaaaaa";
@@ -100,7 +101,7 @@ function resetLayout()
 				height: lunghezzaCelle,
 				top: (i+1)*lunghezzaCelle,
 				left: j*larghezzaCelle,
-				text: (dataDellaCella==null?"":""+dataDellaCella.getDate()),
+				text: (dataDellaCella===null?"":""+dataDellaCella.getDate()),
 				dataDiQuestaCella: dataDellaCella,
 				textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
 			});
@@ -115,20 +116,17 @@ function resetLayout()
  */
 function creaCasellePerNomiDeiGiorni()
 {
-	var coloreBordo;
-	var spessore;
+	var spessore, coloreBordo, dataDellaCella;
 
 	casellePerNomiDeiGiorni = [];
 
 	for (var j=0; j<7; j++)
 	{
-		var spessore, coloreBordo, dataDellaCella;
-
 		spessore = 1;
 		coloreBordo = "#000000";
 
 		var cella = Ti.UI.createLabel({
-			color: (j==0?"#ff0000": "#000000"),
+			color: (j===0?"#ff0000": "#000000"),
 			borderColor: coloreBordo,
 			borderWidth: spessore,
 			text: NOMIGIORNI[j],
@@ -156,7 +154,7 @@ function creaCasellePerGiorni()
 
 			coloreTesto = "#000000";
 
-			if (j==0)
+			if (j===0)
 			{
 				// Domenica
 				coloreTesto = "#ff0000";
