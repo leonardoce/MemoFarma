@@ -15,7 +15,7 @@ var meseCorrente = 0;
 var previousWidth = 0;
 var previousHeight = 0;
 
-function resetLayout()
+function doPostlayout()
 {
 	// Se il layout e' gia' stato calcolato non fare nulla {{{
 	var larghezza = $.container.size.width;
@@ -191,11 +191,6 @@ function init()
 	creaCasellePerNomiDeiGiorni();
 	creaCasellePerGiorni();
 	configuraCellePerMeseCorrente();
-}
-
-function doPostlayout()
-{
-	resetLayout();
 }
 
 init();
