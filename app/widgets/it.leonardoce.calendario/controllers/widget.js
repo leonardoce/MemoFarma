@@ -198,6 +198,18 @@ function doMeseCambiato(e)
 	configuraCellePerMeseCorrente();
 }
 
+function doSwipe(e)
+{
+	if (e.direction==="up")
+	{
+		$.barra_mese.nextMonth();
+	}
+	else if(e.direction==="down")
+	{
+		$.barra_mese.previousMonth();
+	}
+}
+
 function init()
 {
 	var d = new Date();

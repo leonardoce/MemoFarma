@@ -2,7 +2,7 @@
 	<View layout="vertical" onPostlayout="doPostlayout">
 		<Require type="widget" src="it.leonardoce.calendario" 
 			name="barra_mese" id="barra_mese"/>
-		<View id="container"
+		<View id="container" onSwipe="doSwipe"
 			width="Ti.UI.FILL" height="Ti.UI.FILL"/>
 	</View>
 </Alloy>

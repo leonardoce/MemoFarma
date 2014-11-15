@@ -53,3 +53,5 @@ function month()
 impostaLabel();
 $.year = year;
 $.month = month;
+$.previousMonth = doPrima;
+$.nextMonth = doDopo;
