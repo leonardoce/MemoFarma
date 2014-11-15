@@ -1,0 +1,8 @@
+
+"#txtDescrizioneMese": {
+       font: {
+        fontSize: '16dp',
+        fontStyle: 'normal',
+        fontWeight: 'bold'             
+       }       
+},
