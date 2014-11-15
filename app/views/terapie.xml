@@ -6,8 +6,10 @@
 				<ItemTemplate name="terapia">
 					<View layout="vertical" class="riga"
 						height="Ti.UI.FILL" width="Ti.UI.FILL">
-						<Label bindId="nome" id="nome" class="nome"/>
-						<Label bindId="oradose" id="ora_dose" class="oradose"/>
+						<Label bindId="nome" id="nome" class="nome"
+							width="Ti.UI.FILL"/>
+						<Label bindId="oradose" id="ora_dose" class="oradose"
+							width="Ti.UI.FILL"/>
 					</View>
 				</ItemTemplate>
 			</Templates>
