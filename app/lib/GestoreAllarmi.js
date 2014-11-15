@@ -44,6 +44,7 @@ function controllaTerapieDiOggi()
     var terapie = Alloy.createCollection("terapie");
 
     var dataOggi = StringUtils.timestampToSql(new Date());
+	var oraCorrente = StringUtils.dateToOra(new Date());
 
     somministrazioni.fetch({
         query: {
@@ -53,7 +54,9 @@ function controllaTerapieDiOggi()
             ]
         }
     });
-	terapie.fetch();
+	terapie.fetch({
+		query: "select * from terapie where ora<"+StringUtils.stosingle(oraCorrente)
+	});
 
 	terapie = terapie.toJSON();
 	somministrazioni = somministrazioni.toJSON();
