@@ -179,9 +179,6 @@ function timestampToSql(d)
 	result += formatNumber(d.getDate(), 2);
 	result += formatNumber(d.getHours(), 2);
 	result += formatNumber(d.getMinutes(), 2);
-
-	Ti.API.info(d + " -> " + result);
-
 	return result;
 }
 
@@ -201,9 +198,6 @@ function sqlToTimestamp(s)
 	result.setDate(stringToNumber(s.substring(6, 8)));
 	result.setHours(stringToNumber(s.substring(8, 10)));
 	result.setMinutes(stringToNumber(s.substring(10, 12)));
-
-	Ti.API.info(s + " -> " + result);
-
 	return result;
 }
 
