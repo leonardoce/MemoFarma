@@ -6,6 +6,7 @@ var moment = require(WPATH("moment-with-locales"));
 
 var casellePerGiorni = [];
 var casellePerNomiDeiGiorni = [];
+var sfondoPerData = {};
 
 // Questo tiene traccia del mese corrente
 var annoCorrente = 0;
@@ -70,7 +71,11 @@ function doPostlayout()
  */
 function doClickSuGiorno(e)
 {
-	alert(e.source.dataDellaCella);
+	var dataDellaCella = e.source.dataDellaCella;
+	if (dataDellaCella)
+	{
+		$.widget.fireEvent("clickGiorno", {data:dataDellaCella});
+	}
 }
 
 /**
@@ -147,8 +152,9 @@ function configuraCellePerMeseCorrente()
 	{
 		for (j=0; j<7; j++)
 		{
-			var spessore, coloreBordo, dataDellaCella;
+			var spessore, coloreBordo, dataDellaCella, sfondo;
 
+			sfondo = "transparent";
 			spessore = 1;
 			coloreBordo = "#000000";
 			dataDellaCella = null;
@@ -176,6 +182,12 @@ function configuraCellePerMeseCorrente()
 					spessore = 3;
 				}
 
+				var v = moment(dataDellaCella).format("YYYY-MM-DD");
+				if (v in sfondoPerData)
+				{
+					sfondo = sfondoPerData[v];
+				}
+
 				// Giorno del mese giusto
 				giorniContati++;
 			}
@@ -183,10 +195,12 @@ function configuraCellePerMeseCorrente()
 			casellePerGiorni[i][j].applyProperties({
 				borderColor: coloreBordo,
 				borderWidth: spessore,
+				backgroundColor: sfondo,
 				text: (dataDellaCella===null?"":""+dataDellaCella.getDate()),
 				textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
 			});
 			casellePerGiorni[i][j].dataDellaCella = dataDellaCella;
+
 		}
 	}
 }
@@ -228,4 +242,12 @@ function init()
 	configuraCellePerMeseCorrente();
 }
 
+function setSfondoPerData(oggettoPerSfondi)
+{
+	sfondoPerData = oggettoPerSfondi;
+	configuraCellePerMeseCorrente();
+}
+
 init();
+
+$.setSfondoPerData = setSfondoPerData;
