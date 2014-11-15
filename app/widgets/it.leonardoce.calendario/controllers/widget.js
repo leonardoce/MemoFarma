@@ -1,6 +1,8 @@
 // Questo widget implementa un semplice calendario
 // che puo' disegnare una casella per giorno
 
+var DateUtils = require(WPATH("DateUtils"));
+
 var NOMIGIORNI = ["D", "L", "M", "M", "G", "V", "S"];
 var casellePerGiorni = [];
 
@@ -11,52 +13,6 @@ var meseCorrente = 0;
 // Questo serve per non rifare il layout tutte le volte
 var previousWidth = 0;
 var previousHeight = 0;
-
-/**
- * Primo giorno (0<x<7) del mese
- */
-function primoGiornoDelMese()
-{
-	var d = new Date();
-	d.setMonth(meseCorrente);
-	d.setDate(1);
-	d.setFullYear(annoCorrente);
-	return d.getDay();
-}
-
-/**
- * Quanti giorni ha questo mese?
- */
-function quantiGiorniHaQuestoMese()
-{
-	if (meseCorrente==0)
-	{
-		return 31;
-	}
-	else if (meseCorrente==11)
-	{
-		return 31;
-	}
-	else 
-	{
-		var d = new Date();
-		d.setDate(1);
-		d.setMonth(meseCorrente+1);
-		d.setTime(d.getTime()- (24*60*60*1000));
-		return d.getDate();
-	}
-}
-
-/**
- * Confronta due oggetti Date del javascript escludendo
- * dal confronto le ore ed i minuti
- */
-function confrontaData(d1, d2)
-{
-	return (d1.getDate()==d2.getDate()) &&
-		(d1.getMonth()==d2.getMonth()) &&
-		(d1.getFullYear()==d2.getFullYear());
-}
 
 function resetLayout()
 {
@@ -75,8 +31,8 @@ function resetLayout()
 	}
 	// }}}
 
-	var primoGiorno = primoGiornoDelMese();
-	var giorniInQuestoMese = quantiGiorniHaQuestoMese();
+	var primoGiorno = DateUtils.primoGiornoDelMese(annoCorrente, meseCorrente);
+	var giorniInQuestoMese = DateUtils.quantiGiorniHaQuestoMese(annoCorrente, meseCorrente);
 	var dataDiOggi = new Date();
 
 	$.container.removeAllChildren();
@@ -149,7 +105,7 @@ function resetLayout()
 				dataDellaCella = new Date();
 				dataDellaCella.setDate(giorniContati+1);
 
-				if (confrontaData(dataDiOggi, dataDellaCella))
+				if (DateUtils.confrontaData(dataDiOggi, dataDellaCella))
 				{
 					spessore = 3;
 				}
