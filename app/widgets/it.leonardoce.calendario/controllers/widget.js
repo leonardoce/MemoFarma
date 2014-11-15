@@ -97,7 +97,12 @@ function creaCasellePerNomiDeiGiorni()
 			borderColor: coloreBordo,
 			borderWidth: spessore,
 			text: moment.weekdaysMin()[j],
-			textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+			textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+			font: {
+				fontSize: '16dp',
+				fontStyle: 'normal',
+				fontWeight: 'bold'
+			}
 		});
 
 		$.container.add(cella);
@@ -131,6 +136,19 @@ function creaCasellePerGiorni()
 				color: coloreTesto,
 				textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
 			});
+
+			if (j===0)
+			{
+				// La domenica va in grassetto
+				cella.applyProperties({
+					font: {
+						fontSize: '16dp',
+						fontStyle: 'normal',
+						fontWeight: 'bold'
+					}
+				});
+			}
+
 			cella.addEventListener("singletap", doClickSuGiorno);
 
 			$.container.add(cella);
