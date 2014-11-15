@@ -50,6 +50,8 @@ function month()
 	return meseCorrente;
 }
 
+$.btPrima.image=WPATH("images/back.png");
+$.btDopo.image=WPATH("images/next.png");
 impostaLabel();
 $.year = year;
 $.month = month;
