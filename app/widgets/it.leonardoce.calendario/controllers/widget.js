@@ -44,8 +44,8 @@ function doPostlayout()
 	for (j=0; j<7; j++)
 	{
 		casellePerNomiDeiGiorni[j].applyProperties({
-			width: larghezzaCelle,
-			height: lunghezzaCelle,
+			width: larghezzaCelle-1,
+			height: lunghezzaCelle-1,
 			top: 0,
 			left: j*larghezzaCelle
 		});
@@ -56,13 +56,21 @@ function doPostlayout()
 		for (j=0; j<7; j++)
 		{
 			casellePerGiorni[i][j].applyProperties({
-				width: larghezzaCelle,
-				height: lunghezzaCelle,
+				width: larghezzaCelle-1,
+				height: lunghezzaCelle-1,
 				top: (i+1)*lunghezzaCelle,
 				left: j*larghezzaCelle
 			});
 		}
 	}
+}
+
+/**
+ * Click su un giorno del calendario
+ */
+function doClickSuGiorno(e)
+{
+	alert(e.source.dataDellaCella);
 }
 
 /**
@@ -118,6 +126,7 @@ function creaCasellePerGiorni()
 				color: coloreTesto,
 				textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
 			});
+			cella.addEventListener("singletap", doClickSuGiorno);
 
 			$.container.add(cella);
 			settimana.push(cella);
@@ -175,9 +184,9 @@ function configuraCellePerMeseCorrente()
 				borderColor: coloreBordo,
 				borderWidth: spessore,
 				text: (dataDellaCella===null?"":""+dataDellaCella.getDate()),
-				dataDiQuestaCella: dataDellaCella,
 				textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
 			});
+			casellePerGiorni[i][j].dataDellaCella = dataDellaCella;
 		}
 	}
 }
