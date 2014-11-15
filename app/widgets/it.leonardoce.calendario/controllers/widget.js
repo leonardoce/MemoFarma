@@ -33,9 +33,6 @@ function resetLayout()
 	// }}}
 
 	var i,j;
-	var primoGiorno = DateUtils.primoGiornoDelMese(annoCorrente, meseCorrente);
-	var giorniInQuestoMese = DateUtils.quantiGiorniHaQuestoMese(annoCorrente, meseCorrente);
-	var dataDiOggi = new Date();
 
 	// Un mese puo' stare a cavallo fra 6 settimane (vedi 11/2014)
 	// ed una riga mi serve per indicare i nomi dei giorni; per questa
@@ -44,7 +41,6 @@ function resetLayout()
 	var larghezzaCelle = larghezza / 7;
 	var lunghezzaCelle = lunghezza / 7;
 
-	// Adesso disegno i nomi dei giorni {{{
 	for (j=0; j<7; j++)
 	{
 		casellePerNomiDeiGiorni[j].applyProperties({
@@ -54,61 +50,19 @@ function resetLayout()
 			left: j*larghezzaCelle
 		});
 	}
-	// }}}
-
-	// Adesso disegno il calendario {{{
-	var giorniContati = 0;
 
 	for (i=0; i<6; i++)
 	{
 		for (j=0; j<7; j++)
 		{
-			var spessore, coloreBordo, dataDellaCella;
-
-			spessore = 1;
-			coloreBordo = "#000000";
-			dataDellaCella = null;
-
-			if (i===0 && j<primoGiorno)
-			{
-				// Siamo prima del mese corrente
-				coloreBordo = "#aaaaaa";
-			}
-			else if (giorniContati>=giorniInQuestoMese)
-			{
-				// Siamo dopo il mese corrente
-				coloreBordo = "#aaaaaa";
-			}
-			else
-			{
-
-				dataDellaCella = new Date();
-				dataDellaCella.setDate(giorniContati+1);
-
-				if (DateUtils.confrontaData(dataDiOggi, dataDellaCella))
-				{
-					spessore = 3;
-				}
-
-				// Giorno del mese giusto
-				giorniContati++;
-			}
-
 			casellePerGiorni[i][j].applyProperties({
-				borderColor: coloreBordo,
-				borderWidth: spessore,
 				width: larghezzaCelle,
 				height: lunghezzaCelle,
 				top: (i+1)*lunghezzaCelle,
-				left: j*larghezzaCelle,
-				text: (dataDellaCella===null?"":""+dataDellaCella.getDate()),
-				dataDiQuestaCella: dataDellaCella,
-				textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+				left: j*larghezzaCelle
 			});
 		}
 	}
-
-	// }}}
 }
 
 /**
@@ -173,6 +127,61 @@ function creaCasellePerGiorni()
 	}
 }
 
+function configuraCellePerMeseCorrente()
+{
+	var primoGiorno = DateUtils.primoGiornoDelMese(annoCorrente, meseCorrente);
+	var giorniInQuestoMese = DateUtils.quantiGiorniHaQuestoMese(annoCorrente, meseCorrente);
+	var dataDiOggi = new Date();
+	var giorniContati = 0;
+
+	for (i=0; i<6; i++)
+	{
+		for (j=0; j<7; j++)
+		{
+			var spessore, coloreBordo, dataDellaCella;
+
+			spessore = 1;
+			coloreBordo = "#000000";
+			dataDellaCella = null;
+
+			if (i===0 && j<primoGiorno)
+			{
+				// Siamo prima del mese corrente
+				coloreBordo = "#aaaaaa";
+			}
+			else if (giorniContati>=giorniInQuestoMese)
+			{
+				// Siamo dopo il mese corrente
+				coloreBordo = "#aaaaaa";
+			}
+			else
+			{
+
+				dataDellaCella = new Date();
+				dataDellaCella.setFullYear(annoCorrente);
+				dataDellaCella.setMonth(meseCorrente);
+				dataDellaCella.setDate(giorniContati+1);
+
+				if (DateUtils.confrontaData(dataDiOggi, dataDellaCella))
+				{
+					spessore = 3;
+				}
+
+				// Giorno del mese giusto
+				giorniContati++;
+			}
+
+			casellePerGiorni[i][j].applyProperties({
+				borderColor: coloreBordo,
+				borderWidth: spessore,
+				text: (dataDellaCella===null?"":""+dataDellaCella.getDate()),
+				dataDiQuestaCella: dataDellaCella,
+				textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+			});
+		}
+	}
+}
+
 function init()
 {
 	var d = new Date();
@@ -181,6 +190,7 @@ function init()
 
 	creaCasellePerNomiDeiGiorni();
 	creaCasellePerGiorni();
+	configuraCellePerMeseCorrente();
 }
 
 function doPostlayout()
