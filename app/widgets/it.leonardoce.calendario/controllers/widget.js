@@ -5,6 +5,7 @@ var DateUtils = require(WPATH("DateUtils"));
 
 var NOMIGIORNI = ["D", "L", "M", "M", "G", "V", "S"];
 var casellePerGiorni = [];
+var casellePerNomiDeiGiorni = [];
 
 // Questo tiene traccia del mese corrente
 var annoCorrente = 0;
@@ -35,9 +36,6 @@ function resetLayout()
 	var giorniInQuestoMese = DateUtils.quantiGiorniHaQuestoMese(annoCorrente, meseCorrente);
 	var dataDiOggi = new Date();
 
-	$.container.removeAllChildren();
-	casellePerGiorni = [];
-
 	// Un mese puo' stare a cavallo fra 6 settimane (vedi 11/2014)
 	// ed una riga mi serve per indicare i nomi dei giorni; per questa
 	// ragione mi servono 7 righe.
@@ -48,24 +46,12 @@ function resetLayout()
 	// Adesso disegno i nomi dei giorni {{{
 	for (var j=0; j<7; j++)
 	{
-		var spessore, coloreBordo, dataDellaCella;
-
-		spessore = 1;
-		coloreBordo = "#000000";
-
-		var cella = Ti.UI.createLabel({
-			color: (j==0?"#ff0000": "#000000"),
-			borderColor: coloreBordo,
-			borderWidth: spessore,
+		casellePerNomiDeiGiorni[j].applyProperties({
 			width: larghezzaCelle,
 			height: lunghezzaCelle,
 			top: 0,
-			left: j*larghezzaCelle,
-			text: NOMIGIORNI[j],
-			textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+			left: j*larghezzaCelle
 		});
-
-		$.container.add(cella);
 	}
 	// }}}
 
@@ -76,18 +62,11 @@ function resetLayout()
 	{
 		for (var j=0; j<7; j++)
 		{
-			var spessore, coloreBordo, dataDellaCella, coloreTesto;
+			var spessore, coloreBordo, dataDellaCella;
 
 			spessore = 1;
 			coloreBordo = "#000000";
-			coloreTesto = "#000000";
 			dataDellaCella = null;
-
-			if (j==0)
-			{
-				// Domenica
-				coloreTesto = "#ff0000";
-			}
 
 			if (i==0 && j<primoGiorno)
 			{
@@ -114,8 +93,7 @@ function resetLayout()
 				giorniContati++;
 			}
 
-			var cella = Ti.UI.createLabel({
-				color: coloreTesto,
+			casellePerGiorni[i][j].applyProperties({
 				borderColor: coloreBordo,
 				borderWidth: spessore,
 				width: larghezzaCelle,
@@ -126,12 +104,75 @@ function resetLayout()
 				dataDiQuestaCella: dataDellaCella,
 				textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
 			});
-
-			$.container.add(cella);
 		}
 	}
 
 	// }}}
+}
+
+/**
+ * Crea le caselle per i nomi dei giorni
+ */
+function creaCasellePerNomiDeiGiorni()
+{
+	var coloreBordo;
+	var spessore;
+
+	casellePerNomiDeiGiorni = [];
+
+	for (var j=0; j<7; j++)
+	{
+		var spessore, coloreBordo, dataDellaCella;
+
+		spessore = 1;
+		coloreBordo = "#000000";
+
+		var cella = Ti.UI.createLabel({
+			color: (j==0?"#ff0000": "#000000"),
+			borderColor: coloreBordo,
+			borderWidth: spessore,
+			text: NOMIGIORNI[j],
+			textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+		});
+
+		$.container.add(cella);
+		casellePerNomiDeiGiorni.push(cella);
+	}
+}
+
+/**
+ * Crea le caselle per i giorni
+ */
+function creaCasellePerGiorni()
+{
+	casellePerGiorni = [];
+	for (var i=0; i<6; i++)
+	{
+		var settimana = [];
+
+		for (var j=0; j<7; j++)
+		{
+			var coloreTesto;
+
+			coloreTesto = "#000000";
+
+			if (j==0)
+			{
+				// Domenica
+				coloreTesto = "#ff0000";
+			}
+
+			var cella = Ti.UI.createLabel({
+				color: coloreTesto,
+				textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+			});
+
+			$.container.add(cella);
+			settimana.push(cella);
+		}
+
+		casellePerGiorni.push(settimana);
+	}
 }
 
 function init()
@@ -139,6 +180,9 @@ function init()
 	var d = new Date();
 	meseCorrente = d.getMonth();
 	annoCorrente = d.getFullYear();
+
+	creaCasellePerNomiDeiGiorni();
+	creaCasellePerGiorni();
 }
 
 function doPostlayout()
