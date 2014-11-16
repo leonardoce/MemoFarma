@@ -34,7 +34,9 @@ function onItemClick(e)
 
 function refresh()
 {
-	Alloy.Collections.terapie.fetch();
+	Alloy.Collections.terapie.fetch({
+		query: "SELECT * FROM terapie ORDER BY ora"
+	});
 }
 
 refresh();
