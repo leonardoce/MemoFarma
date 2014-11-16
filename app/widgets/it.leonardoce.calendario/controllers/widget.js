@@ -46,8 +46,8 @@ function doPostlayout()
 	{
 		casellePerNomiDeiGiorni[j].applyProperties({
 			width: larghezzaCelle-1,
-			height: lunghezzaCelle-1,
-			top: 0,
+			height: 20,
+			top: lunghezzaCelle-30,
 			left: j*larghezzaCelle
 		});
 	}
@@ -94,8 +94,6 @@ function creaCasellePerNomiDeiGiorni()
 
 		var cella = Ti.UI.createLabel({
 			color: (j===0?"#ff0000": "#000000"),
-			borderColor: coloreBordo,
-			borderWidth: spessore,
 			text: moment.weekdaysMin()[j],
 			textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
 			font: {
