@@ -178,12 +178,14 @@ function configuraCellePerMeseCorrente()
 			if (i===0 && j<primoGiorno)
 			{
 				// Siamo prima del mese corrente
-				coloreBordo = "#aaaaaa";
+				coloreBordo = "#dddddd";
+				sfondo = "#dddddd";
 			}
 			else if (giorniContati>=giorniInQuestoMese)
 			{
 				// Siamo dopo il mese corrente
-				coloreBordo = "#aaaaaa";
+				coloreBordo = "#dddddd";
+				sfondo = "#dddddd";
 			}
 			else
 			{
