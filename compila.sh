@@ -1,1 +1,1 @@
-ti build --platform android --target device -D development
+ti build --platform android --target device -D development --skip-js-minify
