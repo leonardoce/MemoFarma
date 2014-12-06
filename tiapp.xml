@@ -43,10 +43,11 @@
         <manifest>
             <application android:theme="@style/Light"/>
             <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="19"/>
+	    <uses-permission android:name="android.permission.VIBRATE"></uses-permission>
         </manifest>
-		<services>
-			<service url="alarmservice.js" type="interval"/>
-		</services>
+	<services>
+	  <service url="alarmservice.js" type="interval"/>
+	</services>
     </android>
     <mobileweb>
         <precache/>
