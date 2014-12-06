@@ -3,30 +3,36 @@ var GestoreAllarmi = require("GestoreAllarmi");
 
 function clear()
 {
-	$.scroller.removeAllChildren();
+    $.scroller.removeAllChildren();
 }
 
 function refresh()
 {
-	var terapieDiOggi = GestoreAllarmi.controllaTerapieDiOggi();
-	var i;
+    var terapieDiOggi = GestoreAllarmi.controllaTerapieDiOggi();
+    var i;
 
-	clear();
+    if (terapieDiOggi.length===0)
+    {
+	$.promemoria_terapie.close();
+	return;
+    }
+    
+    clear();
 
-	for (i=0; i<terapieDiOggi.length; i++)
-	{
-		var riga = Alloy.createController("promemoria_dettaglio",
-			{ terapia: terapieDiOggi[i], close: refresh });
-		$.scroller.add(riga.getView());
-	}
+    for (i=0; i<terapieDiOggi.length; i++)
+    {
+	var riga = Alloy.createController("promemoria_dettaglio",
+					  { terapia: terapieDiOggi[i], close: refresh });
+	$.scroller.add(riga.getView());
+    }
 }
 
 function doOpen(e)
 {
-	refresh();
+    refresh();
 }	
 
 function doClose(e)
 {
-	clear();
+    clear();
 }
