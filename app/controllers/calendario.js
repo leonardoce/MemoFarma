@@ -16,9 +16,6 @@ function doRefresh()
     {
 	var quando = StringUtils.sqlToTimestamp(somministrazione[i].quando);
 
-	Ti.API.info("passo");
-	Ti.API.info(somministrazione[i].stato);
-	
 	if(StringUtils.string2logic(somministrazione[i].stato))
 	{
 	    sfondoPerData[moment(quando).format("YYYY-MM-DD")] = VERDE;
