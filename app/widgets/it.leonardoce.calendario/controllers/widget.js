@@ -8,6 +8,7 @@ moment.locale("IT");
 var casellePerGiorni = [];
 var casellePerNomiDeiGiorni = [];
 var sfondoPerData = {};
+var sfondoDefault = "transparent";
 
 // Questo tiene traccia del mese corrente
 var annoCorrente = 0;
@@ -19,52 +20,52 @@ var previousHeight = 0;
 
 function doPostlayout()
 {
-	// Se il layout e' gia' stato calcolato non fare nulla {{{
-	var larghezza = $.container.size.width;
-	var lunghezza = $.container.size.height;
+    // Se il layout e' gia' stato calcolato non fare nulla {{{
+    var larghezza = $.container.size.width;
+    var lunghezza = $.container.size.height;
 
-	if (larghezza==previousWidth && lunghezza==previousHeight)
-	{
-		return;
-	}
-	else
-	{
-		previousWidth=larghezza;
-		previousHeight=lunghezza;
-	}
-	// }}}
+    if (larghezza==previousWidth && lunghezza==previousHeight)
+    {
+	return;
+    }
+    else
+    {
+	previousWidth=larghezza;
+	previousHeight=lunghezza;
+    }
+    // }}}
 
-	var i,j;
+    var i,j;
 
-	// Un mese puo' stare a cavallo fra 6 settimane (vedi 11/2014)
-	// ed una riga mi serve per indicare i nomi dei giorni; per questa
-	// ragione mi servono 7 righe.
-	// Le settimane, per fortuna, sono sempre di 7 giorni
-	var larghezzaCelle = larghezza / 7;
-	var lunghezzaCelle = lunghezza / 7;
+    // Un mese puo' stare a cavallo fra 6 settimane (vedi 11/2014)
+    // ed una riga mi serve per indicare i nomi dei giorni; per questa
+    // ragione mi servono 7 righe.
+    // Le settimane, per fortuna, sono sempre di 7 giorni
+    var larghezzaCelle = larghezza / 7;
+    var lunghezzaCelle = lunghezza / 7;
 
+    for (j=0; j<7; j++)
+    {
+	casellePerNomiDeiGiorni[j].applyProperties({
+	    width: larghezzaCelle-1,
+	    height: 20,
+	    top: lunghezzaCelle-30,
+	    left: j*larghezzaCelle
+	});
+    }
+
+    for (i=0; i<6; i++)
+    {
 	for (j=0; j<7; j++)
 	{
-		casellePerNomiDeiGiorni[j].applyProperties({
-			width: larghezzaCelle-1,
-			height: 20,
-			top: lunghezzaCelle-30,
-			left: j*larghezzaCelle
-		});
+	    casellePerGiorni[i][j].applyProperties({
+		width: larghezzaCelle-1,
+		height: lunghezzaCelle-1,
+		top: (i+1)*lunghezzaCelle,
+		left: j*larghezzaCelle
+	    });
 	}
-
-	for (i=0; i<6; i++)
-	{
-		for (j=0; j<7; j++)
-		{
-			casellePerGiorni[i][j].applyProperties({
-				width: larghezzaCelle-1,
-				height: lunghezzaCelle-1,
-				top: (i+1)*lunghezzaCelle,
-				left: j*larghezzaCelle
-			});
-		}
-	}
+    }
 }
 
 /**
@@ -72,11 +73,11 @@ function doPostlayout()
  */
 function doClickSuGiorno(e)
 {
-	var dataDellaCella = e.source.dataDellaCella;
-	if (dataDellaCella)
-	{
-		$.widget.fireEvent("clickGiorno", {data:dataDellaCella});
-	}
+    var dataDellaCella = e.source.dataDellaCella;
+    if (dataDellaCella)
+    {
+	$.widget.fireEvent("clickGiorno", {data:dataDellaCella});
+    }
 }
 
 /**
@@ -84,29 +85,29 @@ function doClickSuGiorno(e)
  */
 function creaCasellePerNomiDeiGiorni()
 {
-	var spessore, coloreBordo, dataDellaCella;
+    var spessore, coloreBordo, dataDellaCella;
 
-	casellePerNomiDeiGiorni = [];
+    casellePerNomiDeiGiorni = [];
 
-	for (var j=0; j<7; j++)
-	{
-		spessore = 1;
-		coloreBordo = "#000000";
+    for (var j=0; j<7; j++)
+    {
+	spessore = 1;
+	coloreBordo = "#000000";
 
-		var cella = Ti.UI.createLabel({
-			color: (j===0?"#ff0000": "#000000"),
-			text: moment.weekdaysMin()[j],
-			textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-			font: {
-				fontSize: '16dp',
-				fontStyle: 'normal',
-				fontWeight: 'bold'
-			}
-		});
+	var cella = Ti.UI.createLabel({
+	    color: (j===0?"#ff0000": "#000000"),
+	    text: moment.weekdaysMin()[j],
+	    textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	    font: {
+		fontSize: '16dp',
+		fontStyle: 'normal',
+		fontWeight: 'bold'
+	    }
+	});
 
-		$.container.add(cella);
-		casellePerNomiDeiGiorni.push(cella);
-	}
+	$.container.add(cella);
+	casellePerNomiDeiGiorni.push(cella);
+    }
 }
 
 /**
@@ -114,159 +115,166 @@ function creaCasellePerNomiDeiGiorni()
  */
 function creaCasellePerGiorni()
 {
-	casellePerGiorni = [];
-	for (var i=0; i<6; i++)
+    casellePerGiorni = [];
+    for (var i=0; i<6; i++)
+    {
+	var settimana = [];
+
+	for (var j=0; j<7; j++)
 	{
-		var settimana = [];
+	    var coloreTesto;
 
-		for (var j=0; j<7; j++)
-		{
-			var coloreTesto;
+	    coloreTesto = "#000000";
 
-			coloreTesto = "#000000";
+	    if (j===0)
+	    {
+		// Domenica
+		coloreTesto = "#ff0000";
+	    }
 
-			if (j===0)
-			{
-				// Domenica
-				coloreTesto = "#ff0000";
-			}
+	    var cella = Ti.UI.createLabel({
+		color: coloreTesto,
+		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+	    });
 
-			var cella = Ti.UI.createLabel({
-				color: coloreTesto,
-				textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
-			});
+	    if (j===0)
+	    {
+		// La domenica va in grassetto
+		cella.applyProperties({
+		    font: {
+			fontSize: '16dp',
+			fontStyle: 'normal',
+			fontWeight: 'bold'
+		    }
+		});
+	    }
 
-			if (j===0)
-			{
-				// La domenica va in grassetto
-				cella.applyProperties({
-					font: {
-						fontSize: '16dp',
-						fontStyle: 'normal',
-						fontWeight: 'bold'
-					}
-				});
-			}
+	    cella.addEventListener("singletap", doClickSuGiorno);
 
-			cella.addEventListener("singletap", doClickSuGiorno);
-
-			$.container.add(cella);
-			settimana.push(cella);
-		}
-
-		casellePerGiorni.push(settimana);
+	    $.container.add(cella);
+	    settimana.push(cella);
 	}
+
+	casellePerGiorni.push(settimana);
+    }
 }
 
 function configuraCellePerMeseCorrente()
 {
-	var primoGiorno = DateUtils.primoGiornoDelMese(annoCorrente, meseCorrente);
-	var giorniInQuestoMese = DateUtils.quantiGiorniHaQuestoMese(annoCorrente, meseCorrente);
-	var dataDiOggi = new Date();
-	var giorniContati = 0;
+    var primoGiorno = DateUtils.primoGiornoDelMese(annoCorrente, meseCorrente);
+    var giorniInQuestoMese = DateUtils.quantiGiorniHaQuestoMese(annoCorrente, meseCorrente);
+    var dataDiOggi = new Date();
+    var giorniContati = 0;
 
-	for (i=0; i<6; i++)
+    for (i=0; i<6; i++)
+    {
+	for (j=0; j<7; j++)
 	{
-		for (j=0; j<7; j++)
+	    var spessore, coloreBordo, dataDellaCella, sfondo;
+
+	    sfondo = sfondoDefault;
+	    spessore = 1;
+	    coloreBordo = "#000000";
+	    dataDellaCella = null;
+
+	    if (i===0 && j<primoGiorno)
+	    {
+		// Siamo prima del mese corrente
+		coloreBordo = "#dddddd";
+		sfondo = "#dddddd";
+	    }
+	    else if (giorniContati>=giorniInQuestoMese)
+	    {
+		// Siamo dopo il mese corrente
+		coloreBordo = "#dddddd";
+		sfondo = "#dddddd";
+	    }
+	    else
+	    {
+
+		dataDellaCella = new Date();
+		dataDellaCella.setFullYear(annoCorrente);
+		dataDellaCella.setMonth(meseCorrente);
+		dataDellaCella.setDate(giorniContati+1);
+
+		if (DateUtils.confrontaData(dataDiOggi, dataDellaCella))
 		{
-			var spessore, coloreBordo, dataDellaCella, sfondo;
-
-			sfondo = "transparent";
-			spessore = 1;
-			coloreBordo = "#000000";
-			dataDellaCella = null;
-
-			if (i===0 && j<primoGiorno)
-			{
-				// Siamo prima del mese corrente
-				coloreBordo = "#dddddd";
-				sfondo = "#dddddd";
-			}
-			else if (giorniContati>=giorniInQuestoMese)
-			{
-				// Siamo dopo il mese corrente
-				coloreBordo = "#dddddd";
-				sfondo = "#dddddd";
-			}
-			else
-			{
-
-				dataDellaCella = new Date();
-				dataDellaCella.setFullYear(annoCorrente);
-				dataDellaCella.setMonth(meseCorrente);
-				dataDellaCella.setDate(giorniContati+1);
-
-				if (DateUtils.confrontaData(dataDiOggi, dataDellaCella))
-				{
-					spessore = 3;
-				}
-
-				var v = moment(dataDellaCella).format("YYYY-MM-DD");
-				if (v in sfondoPerData)
-				{
-					sfondo = sfondoPerData[v];
-				}
-
-				// Giorno del mese giusto
-				giorniContati++;
-			}
-
-			casellePerGiorni[i][j].applyProperties({
-				borderColor: coloreBordo,
-				borderWidth: spessore,
-				backgroundColor: sfondo,
-				text: (dataDellaCella===null?"":""+dataDellaCella.getDate()),
-				textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
-			});
-			casellePerGiorni[i][j].dataDellaCella = dataDellaCella;
-
+		    spessore = 3;
 		}
+
+		var v = moment(dataDellaCella).format("YYYY-MM-DD");
+		if (v in sfondoPerData)
+		{
+		    sfondo = sfondoPerData[v];
+		}
+
+		// Giorno del mese giusto
+		giorniContati++;
+	    }
+
+	    casellePerGiorni[i][j].applyProperties({
+		borderColor: coloreBordo,
+		borderWidth: spessore,
+		backgroundColor: sfondo,
+		text: (dataDellaCella===null?"":""+dataDellaCella.getDate()),
+		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+	    });
+	    casellePerGiorni[i][j].dataDellaCella = dataDellaCella;
+
 	}
+    }
 }
 
 function doMeseCambiato(e)
 {
-	annoCorrente = e.year;
-	meseCorrente = e.month;
-	configuraCellePerMeseCorrente();
+    annoCorrente = e.year;
+    meseCorrente = e.month;
+    configuraCellePerMeseCorrente();
 }
 
 function doSwipe(e)
 {
-	if (e.direction==="up")
-	{
-		$.barra_mese.nextMonth();
-	}
-	else if(e.direction==="down")
-	{
-		$.barra_mese.previousMonth();
-	}
+    if (e.direction==="up")
+    {
+	$.barra_mese.nextMonth();
+    }
+    else if(e.direction==="down")
+    {
+	$.barra_mese.previousMonth();
+    }
 }
 
 function init()
 {
-	var d = new Date();
-	meseCorrente = d.getMonth();
-	annoCorrente = d.getFullYear();
+    var d = new Date();
+    meseCorrente = d.getMonth();
+    annoCorrente = d.getFullYear();
 
-	// Barra del mese
-	$.barra_mese.getView().applyProperties({
-		width: Ti.UI.FILL,
-		height: '50dp'
-	});
-	$.barra_mese.getView().addEventListener("mese_cambiato", doMeseCambiato);
+    // Barra del mese
+    $.barra_mese.getView().applyProperties({
+	width: Ti.UI.FILL,
+	height: '50dp'
+    });
+    $.barra_mese.getView().addEventListener("mese_cambiato", doMeseCambiato);
 
-	creaCasellePerNomiDeiGiorni();
-	creaCasellePerGiorni();
-	configuraCellePerMeseCorrente();
+    creaCasellePerNomiDeiGiorni();
+    creaCasellePerGiorni();
+    configuraCellePerMeseCorrente();
 }
 
 function setSfondoPerData(oggettoPerSfondi)
 {
-	sfondoPerData = oggettoPerSfondi;
-	configuraCellePerMeseCorrente();
+    sfondoPerData = oggettoPerSfondi;
+    configuraCellePerMeseCorrente();
+}
+
+function setSfondoDefault(sfondo)
+{
+    sfondoDefault = sfondo;
+    configuraCellePerMeseCorrente();
 }
 
 init();
 
 $.setSfondoPerData = setSfondoPerData;
+$.setSfondoDefault = setSfondoDefault;

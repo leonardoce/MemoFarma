@@ -14,7 +14,7 @@
 		</Menu>
 
 		<Tab titoloPrincipale="Calendario" icon="/images/calendario.png">
-			<Require type="view" src="calendario"/>
+			<Require type="view" src="calendario" id="calendario"/>
 		</Tab>
 		<Tab titoloPrincipale="Farmaci" icon="/images/terapia.png">
 			<Require type="view" src="terapie" id="terapie"/>
