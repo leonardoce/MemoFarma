@@ -18,20 +18,20 @@ var serviceIntent = null;
  */
 function attivaGestioneAllarmi()
 {
-	if (serviceIntent==null)
-	{
-		Ti.API.info("Attivo la gestione degli allarmi");
+    if (serviceIntent==null)
+    {
+	Ti.API.info("Attivo la gestione degli allarmi");
 
-		serviceIntent = Titanium.Android.createServiceIntent({
-			url: 'alarmservice.js'
-		});
-		serviceIntent.putExtra('interval', INTERVALLO_MINUTI*MINUTES);
-		Ti.Android.startService(serviceIntent);
-	}
-	else
-	{
-		Ti.API.info("La gestione degli allarmi e' gia' attivata");
-	}
+	serviceIntent = Titanium.Android.createServiceIntent({
+	    url: 'alarmservice.js'
+	});
+	serviceIntent.putExtra('interval', INTERVALLO_MINUTI*MINUTES);
+	Ti.Android.startService(serviceIntent);
+    }
+    else
+    {
+	Ti.API.info("La gestione degli allarmi e' gia' attivata");
+    }
 }
 
 /**
@@ -44,7 +44,7 @@ function controllaTerapieDiOggi()
     var terapie = Alloy.createCollection("terapie");
 
     var dataOggi = StringUtils.timestampToSql(new Date());
-	var oraCorrente = StringUtils.dateToOra(new Date());
+    var oraCorrente = StringUtils.dateToOra(new Date());
 
     somministrazioni.fetch({
         query: {
@@ -54,12 +54,12 @@ function controllaTerapieDiOggi()
             ]
         }
     });
-	terapie.fetch({
-		query: "select * from terapie where ora<"+StringUtils.stosingle(oraCorrente)
-	});
+    terapie.fetch({
+	query: "select * from terapie where ora<"+StringUtils.stosingle(oraCorrente)
+    });
 
-	terapie = terapie.toJSON();
-	somministrazioni = somministrazioni.toJSON();
+    terapie = terapie.toJSON();
+    somministrazioni = somministrazioni.toJSON();
 
     var terapieNonPrese = [];
     for(var i=0; i<terapie.length; i++)
@@ -70,7 +70,7 @@ function controllaTerapieDiOggi()
         }
     }
 
-	Ti.API.info("Ci sono " + terapieNonPrese.length + " terapie non prese");
+    Ti.API.info("Ci sono " + terapieNonPrese.length + " terapie non prese");
 
     return terapieNonPrese;
 }
