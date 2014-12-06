@@ -1,4 +1,5 @@
 var StringUtils = require("StringUtils");
+var moment = require("moment-with-locales");
 var args = arguments[0] || {};
 
 function doTransform(model) 
@@ -16,8 +17,14 @@ function onChiusiDettagli(e)
 }
 
 function onAggiungiTerapia() {
+    var nuovoModello = Alloy.createModel("terapie");
+    var oggi = new Date();
+    var fraUnAnno = moment().add(1, 'year').toDate();
+    
+    nuovoModello.set({data_inizio: StringUtils.timestampToSql(new Date()),
+		      data_fine: StringUtils.timestampToSql(fraUnAnno)});
     var wnd = Alloy
-	.createController("dettagli_terapia", {modello: Alloy.createModel("terapie")})
+	.createController("dettagli_terapia", {modello: nuovoModello})
 	.getView();
     wnd.addEventListener("close", onChiusiDettagli);
     wnd.open();

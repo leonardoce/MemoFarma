@@ -11,6 +11,16 @@
 			<TextField id="tf_nome" hintText="Inserisci il nome" width="Ti.UI.FILL"/>
 			<TextField id="tf_dose" hintText="Dose" width="Ti.UI.FILL"/>
 			<Picker id="pk_ora" type="Ti.UI.PICKER_TYPE_TIME"/>
+			<View layout="horizontal" height="50dp">
+				<Label text="Data inizio:"/>
+ 				<Label id="lb_data_inizio"/>
+				<Button title="Data" onClick="doScegliDataInizio"/>
+			</View>
+			<View layout="horizontal" height="50dp">
+				<Label text="Data fine:"/>
+ 				<Label id="lb_data_fine"/>
+				<Button title="Data" onClick="doScegliDataFine"/>
+			</View>
 		</ScrollView>
 	</Window>
 </Alloy>
