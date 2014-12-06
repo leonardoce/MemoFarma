@@ -1,4 +1,5 @@
 var StringUtils = require("StringUtils");
+var moment = require("moment-with-locales");
 
 var MINUTES = 60*1000;
 var ID_ALLARME = 1223;
@@ -44,6 +45,7 @@ function controllaTerapieDiOggi()
     var terapie = Alloy.createCollection("terapie");
 
     var dataOggi = StringUtils.timestampToSql(new Date());
+    var dataDomani = StringUtils.timestampToSql(moment().add(1, 'day').toDate());
     var oraCorrente = StringUtils.dateToOra(new Date());
 
     somministrazioni.fetch({
@@ -55,7 +57,13 @@ function controllaTerapieDiOggi()
         }
     });
     terapie.fetch({
-	query: "select * from terapie where ora<"+StringUtils.stosingle(oraCorrente)
+	query: "select * from terapie where ora<? and data_inizio>=? and data_fine<?",
+	params: [
+	    oraCorrente,
+	    dataOggi,
+	    dataDomani
+	]
+	// qua deve essere fatto il controllo del giorno
     });
 
     terapie = terapie.toJSON();
