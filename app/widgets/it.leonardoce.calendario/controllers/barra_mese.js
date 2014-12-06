@@ -1,4 +1,6 @@
 var moment = require(WPATH("moment-with-locales"));
+moment.locale("IT");
+
 var annoCorrente = moment().year();
 var meseCorrente = moment().month();
 

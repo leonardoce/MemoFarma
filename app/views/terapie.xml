@@ -1,23 +1,36 @@
 <Alloy>
-	<Window class="container" title="Farmaci" layout="vertical">
+  <Window class="container" title="Farmaci" layout="vertical">
 
-		<ListView id="list" width="Ti.UI.FILL" height="Ti.UI.FILL" onItemclick="onItemClick">
-			<Templates>
-				<ItemTemplate name="terapia">
-					<View layout="vertical" class="riga"
-						height="Ti.UI.FILL" width="Ti.UI.FILL">
-						<Label bindId="nome" id="nome" class="nome"
-							width="Ti.UI.FILL"/>
-						<Label bindId="oradose" id="ora_dose" class="oradose"
-							width="Ti.UI.FILL"/>
-					</View>
-				</ItemTemplate>
-			</Templates>
+    <ListView id="list" width="Ti.UI.FILL" height="Ti.UI.FILL" onItemclick="onItemClick">
+      <Templates>
+	<ItemTemplate name="terapia">
+	  <View layout="vertical" class="riga"
+		height="Ti.UI.FILL" width="Ti.UI.FILL">
 
-			<ListSection id="section" dataCollection="terapie" dataTransform="doTransform">
-				<ListItem template="terapia" nome:text="{nome}" oradose:text="{dose}"
-					terapia_id="{terapia_id}"/>
-			</ListSection>
-		</ListView>
-	</Window>
+	    <View layout="horizontal" height="20dp" width="Ti.UI.FILL">
+	      <Label text="Nome Farmaco:" class="titoloCella"/>
+	      <Label bindId="nome" height="20dp"/>
+	    </View>
+	    <View layout="horizontal" height="20dp" width="Ti.UI.FILL">
+	      <Label text="Dose:" class="titoloCella"/>
+	      <Label bindId="ora_dose" height="20dp"/>
+	    </View>
+	    <View layout="horizontal" height="20dp" width="Ti.UI.FILL">
+	      <Label text="Data Inizio:" class="titoloCella"/>
+	      <Label bindId="inizio" height="20dp"/>
+	    </View>
+	    <View layout="horizontal" height="20dp" width="Ti.UI.FILL">
+	      <Label text="Data Fine:" class="titoloCella"/>
+	      <Label bindId="fine" height="20dp"/>
+	    </View>
+	  </View>
+	</ItemTemplate>
+      </Templates>
+
+      <ListSection id="section" dataCollection="terapie" dataTransform="doTransform">
+	<ListItem template="terapia" nome:text="{nome}" oradose:text="{dose}"
+		  terapia_id="{terapia_id}"/>
+      </ListSection>
+    </ListView>
+  </Window>
 </Alloy>

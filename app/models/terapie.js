@@ -4,7 +4,9 @@ exports.definition = {
 		    "nome": "text",
 		    "ora": "text",
 		    "dose": "text",
-			"terapia_id": "integer primary key autoincrement"
+		    "terapia_id": "integer primary key autoincrement",
+		    "data_inizio": "text",
+		    "data_fine": "text"
 		},
 		adapter: {
 			type: "sql",

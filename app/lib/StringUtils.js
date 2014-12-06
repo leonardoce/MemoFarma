@@ -1,3 +1,6 @@
+var moment = require("moment-with-locales");
+moment.locale("IT");
+
 /**
  * Formatta un numero intero, eventualmente aggiungendo
  * cifre "0" in testa, finche' non ha la lunghezza specificata
@@ -201,6 +204,14 @@ function sqlToTimestamp(s)
 	return result;
 }
 
+/**
+ * Prende un oggetto date e formatta solo la data
+ */
+function formattaData(d)
+{
+    return moment(d).format("L");
+}
+
 exports.dateToOra = dateToOra;
 exports.oraToDate = oraToDate;
 exports.oraToList = oraToList;
@@ -214,3 +225,4 @@ exports.stringIsInteger = stringIsInteger;
 exports.formattaDataOra = formattaDataOra;
 exports.timestampToSql = timestampToSql;
 exports.sqlToTimestamp = sqlToTimestamp;
+exports.formattaData = formattaData;

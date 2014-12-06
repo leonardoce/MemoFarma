@@ -3,6 +3,7 @@
 
 var DateUtils = require(WPATH("DateUtils"));
 var moment = require(WPATH("moment-with-locales"));
+moment.locale("IT");
 
 var casellePerGiorni = [];
 var casellePerNomiDeiGiorni = [];
