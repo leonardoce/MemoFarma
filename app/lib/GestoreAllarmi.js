@@ -45,7 +45,7 @@ function controllaTerapieDiOggi()
     var terapie = Alloy.createCollection("terapie");
 
     var dataOggi = StringUtils.timestampToSql(new Date());
-    var dataDomani = StringUtils.timestampToSql(moment().add(1, 'day').toDate());
+    var dataIeri = StringUtils.timestampToSql(moment().subtract(1, 'day').toDate());
     var oraCorrente = StringUtils.dateToOra(new Date());
 
     somministrazioni.fetch({
@@ -56,15 +56,7 @@ function controllaTerapieDiOggi()
             ]
         }
     });
-    terapie.fetch({
-	query: "select * from terapie where ora<? and data_inizio>=? and data_fine<?",
-	params: [
-	    oraCorrente,
-	    dataOggi,
-	    dataDomani
-	]
-	// qua deve essere fatto il controllo del giorno
-    });
+    terapie.fetch();
 
     terapie = terapie.toJSON();
     somministrazioni = somministrazioni.toJSON();
@@ -72,7 +64,25 @@ function controllaTerapieDiOggi()
     var terapieNonPrese = [];
     for(var i=0; i<terapie.length; i++)
     {
-        if (!controllaSeSomministrata(terapie[i], somministrazioni))
+	/*
+	  Ti.API.info(terapie[i].ora);
+	  Ti.API.info(terapie[i].data_inizio);
+	  Ti.API.info(terapie[i].data_fine);
+	*/
+
+	if (terapie[i].ora>oraCorrente)
+	{
+	    // nop()
+	}
+	else if(moment(StringUtils.sqlToTimestamp(terapie[i].data_inizio)).hours(0).minutes(0).isAfter(dataOggi))
+	{
+	    // nop()
+	}
+	else if(moment(StringUtils.sqlToTimestamp(terapie[i].data_fine)).hours(23).minutes(59).isBefore(dataOggi))
+	{
+	    // nop()
+	}
+	else if (!controllaSeSomministrata(terapie[i], somministrazioni))
         {
             terapieNonPrese.push(terapie[i]);
         }
