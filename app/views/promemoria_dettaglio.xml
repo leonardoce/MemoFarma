@@ -6,11 +6,11 @@
 		</View>
 		<View layout="vertical" width="Ti.UI.FILL">
 			<View layout="horizontal" height="20dp">
-				<Label class="titolo" text="Ora"/>
+				<Label class="titolo" text="Ora" width="80dp"/>
 				<Label id="ora" width="100dp"/>
 			</View>
 			<View layout="horizontal" height="20dp">
-				<Label class="titolo" text="Farmaco"/>
+				<Label class="titolo" text="Farmaco" width="80dp"/>
 				<Label id="farmaco" width="100dp"/>
 			</View>
 		</View>
