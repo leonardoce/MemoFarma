@@ -13,7 +13,7 @@
 	    </View>
 	    <View layout="horizontal" height="20dp" width="Ti.UI.FILL">
 	      <Label text="Dose:" class="titoloCella"/>
-	      <Label bindId="ora_dose" height="20dp"/>
+	      <Label bindId="dose" height="20dp"/>
 	    </View>
 	    <View layout="horizontal" height="20dp" width="Ti.UI.FILL">
 	      <Label text="Data Inizio:" class="titoloCella"/>
@@ -28,8 +28,8 @@
       </Templates>
 
       <ListSection id="section" dataCollection="terapie" dataTransform="doTransform">
-	<ListItem template="terapia" nome:text="{nome}" oradose:text="{dose}"
-		  terapia_id="{terapia_id}"/>
+	<ListItem template="terapia" nome:text="{nome}" dose:text="{dose}"
+		  terapia_id="{terapia_id}" inizio:text="{inizio}" fine:text="{fine}"/>
       </ListSection>
     </ListView>
   </Window>
