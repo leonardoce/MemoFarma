@@ -1,5 +1,5 @@
 <Alloy>
-	<View class="container" layout="horizontal" height="Ti.UI.SIZE" width="Ti.UI.FILL">
+	<View class="container" layout="horizontal" height="125dp" width="Ti.UI.FILL">
 		<View layout="vertical" width="150dp">
 			<Button title="Presa" width="100dp" onClick="doPresa"/>
 			<Button title="Non la prendo" width="100dp" onClick="doNonLaPrendo"/>

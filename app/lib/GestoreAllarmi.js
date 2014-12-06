@@ -3,7 +3,7 @@ var moment = require("moment-with-locales");
 
 var MINUTES = 60*1000;
 var ID_ALLARME = 1223;
-var INTERVALLO_MINUTI = 5;
+var INTERVALLO_MINUTI = 1;
 
 var serviceIntent = null;
 
@@ -27,12 +27,14 @@ function attivaGestioneAllarmi()
 	    url: 'alarmservice.js'
 	});
 	serviceIntent.putExtra('interval', INTERVALLO_MINUTI*MINUTES);
-	Ti.Android.startService(serviceIntent);
     }
     else
     {
 	Ti.API.info("La gestione degli allarmi e' gia' attivata");
     }
+
+    Ti.Android.stopService(serviceIntent);
+    Ti.Android.startService(serviceIntent);
 }
 
 /**
