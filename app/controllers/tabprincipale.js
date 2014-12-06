@@ -95,9 +95,4 @@ function doSwipe(e)
     {
 	TabGroupUtils.setActiveTabIndex($.tabprincipale, activeIdx);
     }
-    
-    if (activeIdx==INDICE_CALENDARIO)
-    {
-	$.calendario.doRefresh();
-    }
 }

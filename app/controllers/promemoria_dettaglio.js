@@ -8,18 +8,20 @@ function salva(stato)
 		return;
 	}
 
+    Ti.API.info(stato);
+
 	Alloy.createModel("somministrazione", {
 		quando: StringUtils.timestampToSql(new Date()),
 		nome: args.terapia.nome,
 		dose: args.terapia.dose,
 		ora_richiesta: args.terapia.ora,
-		stato: StringUtils.logic2string(true)
+		stato: StringUtils.logic2string(stato)
 	}).save();
 }
 
 function doPresa()
 {
-	salva(false);
+	salva(true);
 	if (args.close)
 	{
 		args.close();
@@ -28,7 +30,7 @@ function doPresa()
 
 function doNonLaPrendo()
 {
-	salva(true);
+	salva(false);
 	if (args.close)
 	{
 		args.close();
