@@ -4,6 +4,15 @@ var args = arguments[0] || {};
 var ROSSO = "#ffc2c2";
 var VERDE = "#79e579";
 
+function doClickSuGiorno(evt)
+{
+    Ti.API.info(evt.data);
+
+    var somministrazioni = Alloy.createController("somministrazioni");
+    somministrazioni.caricaTutte();
+    somministrazioni.getView().open();
+}
+
 function doRefresh()
 {
     var somministrazione = Alloy.createCollection("somministrazione");
@@ -28,3 +37,5 @@ function doRefresh()
 
     $.cal.setSfondoPerData(sfondoPerData);
 }
+
+$.cal.getView().addEventListener("clickGiorno", doClickSuGiorno);

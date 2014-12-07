@@ -13,6 +13,7 @@
 Alloy.Collections.terapie = Alloy.createCollection("terapie");
 Alloy.Collections.pressione = Alloy.createCollection("pressione");
 Alloy.Collections.glicemia = Alloy.createCollection("glicemia");
+Alloy.Collections.somministrazione = Alloy.createCollection("somministrazione");
 
 // Queste sono le due schermate principali possibili
 var GestoreAllarmi = require("GestoreAllarmi");
