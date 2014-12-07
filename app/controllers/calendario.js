@@ -10,7 +10,15 @@ function doClickSuGiorno(evt)
 
     var somministrazioni = Alloy.createController("somministrazioni");
     somministrazioni.caricaGiorno(evt.data);
-    somministrazioni.getView().open();
+
+    if (Alloy.Collections.somministrazione.length===0)
+    {
+	alert("Nessuna somministrazione presente");
+    }
+    else
+    {
+	somministrazioni.getView().open();
+    }
 }
 
 function doClickSuMese(evt)
@@ -19,6 +27,16 @@ function doClickSuMese(evt)
 
     var somministrazioni = Alloy.createController("somministrazioni");
     somministrazioni.caricaMese(evt.data);
+
+    if (Alloy.Collections.somministrazione.length===0)
+    {
+	alert("Nessuna somministrazione presente");
+    }
+    else
+    {
+	somministrazioni.getView().open();
+    }
+
     somministrazioni.getView().open();
 }
 

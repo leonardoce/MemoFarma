@@ -52,16 +52,19 @@ function caricaTutte()
     });
 }
 
-function caricaMese(anno, mese)
+function caricaMese(data)
 {
     Alloy.Collections.somministrazione.fetch({
 	query: {
 	    statement: 'select * from somministrazione where quando like ? order by quando',
 	    params: [
-		StringUtils.timestampToSql(moment([anno, mese, 1]).toDate()).substring(0, 6) + "%"
+		StringUtils.timestampToSql(data).substring(0, 6) + "%"
 	    ]
 	}
     });
+
+    Ti.API.info(data);
+    $.somministrazioni.title = "Somministrazioni: " + moment(data).format("MMMM YYYY");
 }
 
 function caricaGiorno(data)
@@ -74,6 +77,8 @@ function caricaGiorno(data)
 	    ]
 	}
     });
+
+    $.somministrazioni.title = "Somministrazioni: " + moment(data).format("LL");
 }
 
 $.doReport = doReport;
