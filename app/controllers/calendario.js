@@ -9,7 +9,16 @@ function doClickSuGiorno(evt)
     Ti.API.info(evt.data);
 
     var somministrazioni = Alloy.createController("somministrazioni");
-    somministrazioni.caricaTutte();
+    somministrazioni.caricaGiorno(evt.data);
+    somministrazioni.getView().open();
+}
+
+function doClickSuMese(evt)
+{
+    Ti.API.info(evt.data);
+
+    var somministrazioni = Alloy.createController("somministrazioni");
+    somministrazioni.caricaMese(evt.data);
     somministrazioni.getView().open();
 }
 
@@ -39,3 +48,4 @@ function doRefresh()
 }
 
 $.cal.getView().addEventListener("clickGiorno", doClickSuGiorno);
+$.cal.getView().addEventListener("clickMese", doClickSuMese);

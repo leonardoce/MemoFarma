@@ -2,7 +2,8 @@
 	<View layout="horizontal" onPostlayout="doPostlayout">
 		<Button onClick="doPrima" height="Ti.UI.FILL"
 			width="Ti.UI.SIZE" id="btPrima"/>
-		<Label id="txtDescrizioneMese" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER"/>
+		<Label id="txtDescrizioneMese" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER"
+		       onClick="doClickMese"/>
 		<Button onClick="doDopo" height="Ti.UI.FILL"
 			width="Ti.UI.SIZE" id="btDopo"/>
 	</View>

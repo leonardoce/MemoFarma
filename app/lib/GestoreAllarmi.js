@@ -3,7 +3,7 @@ var moment = require("moment-with-locales");
 
 var MINUTES = 60*1000;
 var ID_ALLARME = 1223;
-var INTERVALLO_MINUTI = 1;
+var INTERVALLO_MINUTI = 2;
 
 var serviceIntent = null;
 

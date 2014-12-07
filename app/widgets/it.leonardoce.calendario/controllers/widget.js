@@ -244,6 +244,11 @@ function doSwipe(e)
     }
 }
 
+function doClickMese(e)
+{
+    $.widget.fireEvent("clickMese", {data:moment([e.year, e.month, 1]).toDate()});
+}
+
 function init()
 {
     var d = new Date();
@@ -256,6 +261,7 @@ function init()
 	height: '50dp'
     });
     $.barra_mese.getView().addEventListener("mese_cambiato", doMeseCambiato);
+    $.barra_mese.getView().addEventListener("click_mese", doClickMese);
 
     creaCasellePerNomiDeiGiorni();
     creaCasellePerGiorni();

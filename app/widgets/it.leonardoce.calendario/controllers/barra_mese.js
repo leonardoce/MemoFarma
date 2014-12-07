@@ -6,50 +6,56 @@ var meseCorrente = moment().month();
 
 function doPostlayout()
 {
-	var larghezza = $.barra_mese.size.width;
-	larghezza = larghezza - $.btPrima.size.width;
-	larghezza = larghezza - $.btDopo.size.width;
+    var larghezza = $.barra_mese.size.width;
+    larghezza = larghezza - $.btPrima.size.width;
+    larghezza = larghezza - $.btDopo.size.width;
 
-	$.txtDescrizioneMese.width = larghezza;
+    $.txtDescrizioneMese.width = larghezza;
 }
 
 function doPrima()
 {
-	var cambio = moment([annoCorrente, meseCorrente-1, 1]);
-	annoCorrente = cambio.year();
-	meseCorrente = cambio.month();
-	impostaLabel();
-	lanciaEvento();
+    var cambio = moment([annoCorrente, meseCorrente-1, 1]);
+    annoCorrente = cambio.year();
+    meseCorrente = cambio.month();
+    impostaLabel();
+    lanciaEvento();
 }
 
 function doDopo()
 {
-	var cambio = moment([annoCorrente, meseCorrente+1, 1]);
-	annoCorrente = cambio.year();
-	meseCorrente = cambio.month();
-	impostaLabel();
-	lanciaEvento();
+    var cambio = moment([annoCorrente, meseCorrente+1, 1]);
+    annoCorrente = cambio.year();
+    meseCorrente = cambio.month();
+    impostaLabel();
+    lanciaEvento();
+}
+
+function doClickMese()
+{
+    Ti.API.info("qua arrivo");
+    $.barra_mese.fireEvent('click_mese', {year: annoCorrente, month: meseCorrente});
 }
 
 function lanciaEvento()
 {
-	$.barra_mese.fireEvent('mese_cambiato', {year: annoCorrente, month: meseCorrente});
+    $.barra_mese.fireEvent('mese_cambiato', {year: annoCorrente, month: meseCorrente});
 }
 
 function impostaLabel()
 {
-	$.txtDescrizioneMese.text = moment.months()[meseCorrente] + " " + 
-		annoCorrente;
+    $.txtDescrizioneMese.text = moment.months()[meseCorrente] + " " + 
+	annoCorrente;
 }
 
 function year()
 {
-	return annoCorrente;
+    return annoCorrente;
 }
 
 function month()
 {
-	return meseCorrente;
+    return meseCorrente;
 }
 
 $.btPrima.image=WPATH("images/back.png");

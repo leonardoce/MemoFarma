@@ -2,6 +2,7 @@ var args = arguments[0] || {};
 var StringUtils = require("StringUtils");
 var GestoreReport = require("GestoreReport");
 var EmailUtils = require("EmailUtils");
+var moment = require("moment-with-locales");
 
 function doReport()
 {
@@ -51,6 +52,32 @@ function caricaTutte()
     });
 }
 
+function caricaMese(anno, mese)
+{
+    Alloy.Collections.somministrazione.fetch({
+	query: {
+	    statement: 'select * from somministrazione where quando like ? order by quando',
+	    params: [
+		StringUtils.timestampToSql(moment([anno, mese, 1]).toDate()).substring(0, 6) + "%"
+	    ]
+	}
+    });
+}
+
+function caricaGiorno(data)
+{
+    Alloy.Collections.somministrazione.fetch({
+	query: {
+	    statement: 'select * from somministrazione where quando like ? order by quando',
+	    params: [
+		StringUtils.timestampToSql(data).substring(0, 8) + "%"
+	    ]
+	}
+    });
+}
+
 $.doReport = doReport;
 $.doReportHTML = doReportHTML;
 $.caricaTutte = caricaTutte;
+$.caricaMese = caricaMese;
+$.caricaGiorno = caricaGiorno;
