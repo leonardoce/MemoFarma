@@ -1,4 +1,6 @@
 var StringUtils = require("StringUtils");
+var GestoreReport = require("GestoreReport");
+var EmailUtils = require("EmailUtils");
 var moment = require("moment-with-locales");
 var args = arguments[0] || {};
 var ROSSO = "#ffc2c2";
@@ -65,5 +67,51 @@ function doRefresh()
     $.cal.setSfondoPerData(sfondoPerData);
 }
 
+function doReport()
+{
+    var anno = $.cal.getAnnoCorrente();
+    var mese = $.cal.getMeseCorrente();
+
+    var somministrazione = Alloy.createCollection("somministrazione");
+    somministrazione.fetch({
+	query: {
+	    statement: 'select * from somministrazione where quando like ? order by quando',
+	    params: [
+		StringUtils.timestampToSql(moment([anno, mese, 1]).toDate()).substring(0, 6) + "%"
+	    ]
+	}
+    });
+    somministrazione = somministrazione.toJSON();
+
+    var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_somministrazione.csv');
+    f.write(GestoreReport.generaReportSomministrazioniCSV(somministrazione));
+
+    EmailUtils.inviaMail("Report somministrazioni, formato CSV", "Allego quanto in oggetto", f);
+}
+
+function doReportHTML()
+{
+    var anno = $.cal.getAnnoCorrente();
+    var mese = $.cal.getMeseCorrente();
+
+    var somministrazione = Alloy.createCollection("somministrazione");
+    somministrazione.fetch({
+	query: {
+	    statement: 'select * from somministrazione where quando like ? order by quando',
+	    params: [
+		StringUtils.timestampToSql(moment([anno, mese, 1]).toDate()).substring(0, 6) + "%"
+	    ]
+	}
+    });
+    somministrazione = somministrazione.toJSON();
+
+    var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_somministrazione.html');
+    f.write(GestoreReport.generaReportSomministrazioniHTML(somministrazione));
+
+    EmailUtils.inviaMail("Report somministrazioni, formato HTML", "Allego quanto in oggetto", f);
+}
+
 $.cal.getView().addEventListener("clickGiorno", doClickSuGiorno);
 $.cal.getView().addEventListener("clickMese", doClickSuMese);
+$.doReport = doReport;
+$.doReportHTML = doReportHTML;

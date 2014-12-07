@@ -36,6 +36,10 @@ function doReport()
     {
 	$.glicemia.doReport();
     }
+    else if (activeIdx===INDICE_CALENDARIO)
+    {
+	$.calendario.doReport();
+    }
 }
 
 function doReportHTML()
@@ -50,6 +54,10 @@ function doReportHTML()
     else if (activeIdx==INDICE_GLICEMIE)
     {
 	$.glicemia.doReportHTML();
+    }
+    else if (activeIdx===INDICE_CALENDARIO)
+    {
+	$.calendario.doReportHTML();
     }
 }
 

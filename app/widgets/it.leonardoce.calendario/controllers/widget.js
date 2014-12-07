@@ -280,7 +280,19 @@ function setSfondoDefault(sfondo)
     configuraCellePerMeseCorrente();
 }
 
+function getAnnoCorrente()
+{
+    return annoCorrente;
+}
+
+function getMeseCorrente()
+{
+    return meseCorrente;
+}
+
 init();
 
 $.setSfondoPerData = setSfondoPerData;
 $.setSfondoDefault = setSfondoDefault;
+$.getAnnoCorrente = getAnnoCorrente;
+$.getMeseCorrente = getMeseCorrente;
