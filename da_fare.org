@@ -2,6 +2,7 @@
 ** TODO tasto "richiedi"
 ** TODO listener sul boot
 ** DONE manca lo spazio per il nome del farmaco nella lista delle terapie
-** TODO la data di fine deve essere opzionale
+** DONE la data di fine deve essere opzionale
 ** DONE nella lista delle terapie la scritta "mg" ha il "g" tagliato
 ** DONE cancellare notifiche esistenti se non sono necessarie
+** TODO nuova colonna sonora
