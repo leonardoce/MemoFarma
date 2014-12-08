@@ -5,4 +5,4 @@
 ** DONE la data di fine deve essere opzionale
 ** DONE nella lista delle terapie la scritta "mg" ha il "g" tagliato
 ** DONE cancellare notifiche esistenti se non sono necessarie
-** TODO nuova colonna sonora
+** DONE nuova colonna sonora
