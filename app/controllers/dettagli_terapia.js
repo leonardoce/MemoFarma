@@ -15,6 +15,8 @@ function onSalva()
 	return;
     }
 
+    Ti.API.info("Quando salvo: " + args.modello.get("considera_data_fine"));
+
     if (args.modello)
     {
 	args.modello.set({ 
@@ -47,8 +49,26 @@ function doRefreshDataInizio()
 
 function doRefreshDataFine()
 {
-    var data = StringUtils.sqlToTimestamp(args.modello.get("data_fine"));
-    $.lb_data_fine.text = StringUtils.formattaData(data); 
+    Ti.API.info("data fine: " + args.modello.get("considera_data_fine"));
+    $.sw_considera_data_fine.value = args.modello.get("considera_data_fine")!==0;
+
+    if ($.sw_considera_data_fine.value)
+    {
+	var data = StringUtils.sqlToTimestamp(args.modello.get("data_fine"));
+	$.lb_data_fine.text = StringUtils.formattaData(data); 
+	$.bt_scegli_data_fine.show();
+    }
+    else
+    {
+	$.lb_data_fine.text = "N.A.";
+	$.bt_scegli_data_fine.hide();
+    }
+}
+
+function doClickConsideraDataFine()
+{
+    args.modello.set({considera_data_fine: $.sw_considera_data_fine.value?1:0});
+    doRefreshDataFine();
 }
 
 function doScegliDataInizio()

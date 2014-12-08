@@ -7,7 +7,17 @@ function doTransform(model)
     var o = model.toJSON();
     o.nome = o.nome.toUpperCase() + " (" + o.ora + ")";
     o.inizio = StringUtils.formattaData(StringUtils.sqlToTimestamp(o.data_inizio));
-    o.fine = StringUtils.formattaData(StringUtils.sqlToTimestamp(o.data_fine));
+
+    if (o.considera_data_fine!==0)
+    {
+	o.fine = StringUtils.formattaData(StringUtils.sqlToTimestamp(o.data_fine));
+	o.visualizza_fine = true;
+    }
+    else
+    {
+	o.fine = "N.A.";
+	o.visualizza_fine = false;
+    }
     return o;
 }
 

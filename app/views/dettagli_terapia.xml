@@ -1,26 +1,26 @@
 <Alloy>
-	<Window class="container">
-		<ActionBar platform="android"/>
-		<Menu>
-			<MenuItem id="aggiungiItem" title="Salva" onClick="onSalva" 
-				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
-			<MenuItem id="cancellaItem" title="Elimina" onClick="onCancella" 
-				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
-		</Menu>
-		<ScrollView width="Ti.UI.FILL" height="Ti.UI.FILL" layout="vertical">
-			<TextField id="tf_nome" hintText="Inserisci il nome" width="Ti.UI.FILL"/>
-			<TextField id="tf_dose" hintText="Dose" width="Ti.UI.FILL"/>
-			<Picker id="pk_ora" type="Ti.UI.PICKER_TYPE_TIME"/>
-			<View layout="horizontal" height="50dp">
-				<Label text="Data inizio:"/>
- 				<Label id="lb_data_inizio"/>
-				<Button title="Data" onClick="doScegliDataInizio"/>
-			</View>
-			<View layout="horizontal" height="50dp">
-				<Label text="Data fine:"/>
- 				<Label id="lb_data_fine"/>
-				<Button title="Data" onClick="doScegliDataFine"/>
-			</View>
-		</ScrollView>
-	</Window>
+  <Window class="container">
+    <ActionBar platform="android"/>
+    <Menu>
+      <MenuItem id="aggiungiItem" title="Salva" onClick="onSalva" 
+		showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
+      <MenuItem id="cancellaItem" title="Elimina" onClick="onCancella" 
+		showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
+    </Menu>
+    <ScrollView width="Ti.UI.FILL" height="Ti.UI.FILL" layout="vertical">
+      <TextField id="tf_nome" hintText="Inserisci il nome" width="Ti.UI.FILL"/>
+      <TextField id="tf_dose" hintText="Dose" width="Ti.UI.FILL"/>
+      <Picker id="pk_ora" type="Ti.UI.PICKER_TYPE_TIME"/>
+      <View layout="horizontal" height="50dp">
+	<Label text="Data inizio:"/>
+ 	<Label id="lb_data_inizio"/>
+	<Button title="Scegli" onClick="doScegliDataInizio"/>
+      </View>
+      <View layout="horizontal" height="50dp">
+	<Switch id="sw_considera_data_fine" onClick="doClickConsideraDataFine" titleOff="Data fine: OFF" titleOn="Data fine: "/>
+ 	<Label id="lb_data_fine"/>
+	<Button id="bt_scegli_data_fine" title="Scegli" onClick="doScegliDataFine"/>
+      </View>
+    </ScrollView>
+  </Window>
 </Alloy>

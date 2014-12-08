@@ -6,7 +6,11 @@ exports.definition = {
 	    "dose": "text",
 	    "terapia_id": "integer primary key autoincrement",
 	    "data_inizio": "text",
-	    "data_fine": "text"
+	    "data_fine": "text",
+	    "considera_data_fine": "integer"
+	},
+	defaults: {
+	    "considera_data_fine": 0
 	},
 	adapter: {
 	    type: "sql",

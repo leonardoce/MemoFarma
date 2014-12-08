@@ -18,7 +18,7 @@
 	      <Label text="Data Inizio:" class="titoloCella"/>
 	      <Label bindId="inizio" height="25dp"/>
 	    </View>
-	    <View layout="horizontal" height="25dp" width="Ti.UI.FILL">
+	    <View layout="horizontal" height="25dp" width="Ti.UI.FILL" bindId="rigaFine">
 	      <Label text="Data Fine:" class="titoloCella"/>
 	      <Label bindId="fine" height="25dp"/>
 	    </View>
@@ -28,7 +28,8 @@
 
       <ListSection id="section" dataCollection="terapie" dataTransform="doTransform">
 	<ListItem template="terapia" nome:text="{nome}" dose:text="{dose}"
-		  terapia_id="{terapia_id}" inizio:text="{inizio}" fine:text="{fine}"/>
+		  terapia_id="{terapia_id}" inizio:text="{inizio}" fine:text="{fine}"
+		  rigaFine:visible="{visualizza_fine}"/>
       </ListSection>
     </ListView>
   </Window>

@@ -66,12 +66,6 @@ function controllaTerapieDiOggi()
     var terapieNonPrese = [];
     for(var i=0; i<terapie.length; i++)
     {
-	/*
-	  Ti.API.info(terapie[i].ora);
-	  Ti.API.info(terapie[i].data_inizio);
-	  Ti.API.info(terapie[i].data_fine);
-	*/
-
 	if (terapie[i].ora>oraCorrente)
 	{
 	    // nop()
@@ -80,7 +74,7 @@ function controllaTerapieDiOggi()
 	{
 	    // nop()
 	}
-	else if(moment(StringUtils.sqlToTimestamp(terapie[i].data_fine)).hours(23).minutes(59).isBefore(dataOggi))
+	else if(terapie[i].considera_data_fine!==0 && moment(StringUtils.sqlToTimestamp(terapie[i].data_fine)).hours(23).minutes(59).isBefore(dataOggi))
 	{
 	    // nop()
 	}
