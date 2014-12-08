@@ -48,3 +48,8 @@ if (terapieNonPrese.length>0)
     // Send the notification.
     Titanium.Android.NotificationManager.notify(1, notification);
 }
+else
+{
+    // La notifica adesso non serve piu'
+    Titanium.Android.NotificationManager.cancelAll();
+}
