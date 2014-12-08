@@ -39,10 +39,9 @@ if (terapieNonPrese.length>0)
 	contentTitle: 'MemoFarma',
 	contentText : contenutoNotifica,
 	contentIntent: pending,
-	ledOnMS: 2000,
-	ledOffMS: 2000,
-	defaults: Ti.Android.DEFAULT_ALL,
-	icon: '/images/terapia_bianca.png'
+	defaults: Ti.Android.DEFAULT_LIGHTS | Ti.Android.DEFAULT_VIBRATE,
+	icon: '/images/terapia_bianca.png',
+	sound: Ti.Filesystem.getResRawDirectory() + "marimba_loop.mp3"
     });
 
     // Send the notification.
