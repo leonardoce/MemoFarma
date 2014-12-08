@@ -7,21 +7,20 @@
 	  <View layout="vertical" class="riga"
 		height="Ti.UI.FILL" width="Ti.UI.FILL">
 
-	    <View layout="horizontal" height="20dp" width="Ti.UI.FILL">
-	      <Label text="Nome Farmaco:" class="titoloCella"/>
-	      <Label bindId="nome" height="20dp"/>
+	    <View layout="horizontal" height="25dp" width="Ti.UI.FILL">
+	      <Label bindId="nome" height="25dp"/>
 	    </View>
-	    <View layout="horizontal" height="20dp" width="Ti.UI.FILL">
+	    <View layout="horizontal" height="25dp" width="Ti.UI.FILL">
 	      <Label text="Dose:" class="titoloCella"/>
-	      <Label bindId="dose" height="20dp"/>
+	      <Label bindId="dose" height="25dp"/>
 	    </View>
-	    <View layout="horizontal" height="20dp" width="Ti.UI.FILL">
+	    <View layout="horizontal" height="25dp" width="Ti.UI.FILL">
 	      <Label text="Data Inizio:" class="titoloCella"/>
-	      <Label bindId="inizio" height="20dp"/>
+	      <Label bindId="inizio" height="25dp"/>
 	    </View>
-	    <View layout="horizontal" height="20dp" width="Ti.UI.FILL">
+	    <View layout="horizontal" height="25dp" width="Ti.UI.FILL">
 	      <Label text="Data Fine:" class="titoloCella"/>
-	      <Label bindId="fine" height="20dp"/>
+	      <Label bindId="fine" height="25dp"/>
 	    </View>
 	  </View>
 	</ItemTemplate>
