@@ -29,11 +29,11 @@ function doTransform(model)
     var o = model.toJSON();
     if (StringUtils.string2logic(o.stato))
     {
-	o.stato = "/images/bt_ok.png";
+	o.stato = "/images/ok.png";
     }
     else
     {
-	o.stato = "/images/bt_cancel.png";
+	o.stato = "/images/ko.png";
     }
 
     o.testo_data = StringUtils.formattaDataOra(StringUtils.sqlToTimestamp(o.quando));
