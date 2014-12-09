@@ -1,4 +1,5 @@
 var StringUtils = require("StringUtils");
+var Alloy = require("alloy");
 var moment = require("moment-with-locales");
 
 var MINUTES = 60*1000;
