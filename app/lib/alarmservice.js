@@ -3,6 +3,17 @@
 var GestoreAllarmi = require("GestoreAllarmi");
 var ID_NOTIFICATION = 1335;
 
+// Qua dobbiamo assicurarci che alloy sia
+// correttamente caricato.
+if (typeof Alloy != 'undefined')
+{
+    var Alloy = require("alloy");
+}
+else
+{
+    Ti.API.info("Alloy risulta caricato correttamente");
+}
+
 Ti.API.info("controllo se ci sono farmaci da prendere");
 
 var terapieNonPrese = GestoreAllarmi.controllaTerapieDiOggi();
