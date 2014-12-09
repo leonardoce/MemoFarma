@@ -1,0 +1,17 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 2
+description: leo_bootreceiver
+author: Your Name
+license: Specify your license
+copyright: Copyright (c) 2014 by Your Company
+
+# these should not be edited
+name: leo_bootreceiver
+moduleid: it.interfree.leonardoce.bootreceiver
+guid: 50e79d83-1b69-4b3f-9aca-c763fc7c1a02
+platform: android
+minsdk: 3.4.1.GA
