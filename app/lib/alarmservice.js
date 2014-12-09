@@ -5,9 +5,10 @@ var ID_NOTIFICATION = 1335;
 
 // Qua dobbiamo assicurarci che alloy sia
 // correttamente caricato.
-if (typeof Alloy != 'undefined')
+if (typeof Alloy == 'undefined')
 {
     var Alloy = require("alloy");
+    Ti.API.info("Devo caricare Alloy");
 }
 else
 {
