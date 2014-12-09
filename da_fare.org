@@ -6,3 +6,5 @@
 ** DONE nella lista delle terapie la scritta "mg" ha il "g" tagliato
 ** DONE cancellare notifiche esistenti se non sono necessarie
 ** DONE nuova colonna sonora
+** DONE Errore che ha trovato il babbo (GestoreAllarmi.js Alloy is not defined)
+   Provare
