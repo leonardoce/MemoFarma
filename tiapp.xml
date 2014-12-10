@@ -43,7 +43,7 @@
         <manifest>
             <application android:theme="@style/Light">
 	      <receiver android:enabled="true" android:name="it.interfree.leonardoce.bootreceiver.BootReceiver">
-		<meta-data android:name="interval_sec" android:value="180"/>
+		<meta-data android:name="interval_sec" android:value="60"/>
 		<meta-data android:name="class_name" android:value="it.interfree.leonardoce.memofarma.AlarmserviceService"/>
 		<intent-filter>
                   <action android:name="android.intent.action.BOOT_COMPLETED" />
