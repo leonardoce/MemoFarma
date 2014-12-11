@@ -1,12 +1,12 @@
 var StringUtils = require("StringUtils");
 var Alloy = require("alloy");
 var moment = require("moment-with-locales");
+var alarmModule = require('bencoding.alarmmanager');
+var alarmManager = alarmModule.createAlarmManager();
 
 var MINUTES = 60*1000;
 var ID_ALLARME = 1223;
 var INTERVALLO_MINUTI = 1;
-
-var serviceIntent = null;
 
 /**
  * Viene attivato un allarme eseguito ogni 5 minuti ed alla
@@ -20,22 +20,40 @@ var serviceIntent = null;
  */
 function attivaGestioneAllarmi()
 {
-    if (serviceIntent==null)
+    // Schedulo gli allarmi
+    Ti.API.info("Gestione degli allarmi in corso...");
+    var terapie = Alloy.createCollection("terapie");
+    for(var i=0; i<terapie.length; i++)
     {
-	Ti.API.info("Attivo la gestione degli allarmi");
-
-	serviceIntent = Titanium.Android.createServiceIntent({
-	    url: 'alarmservice.js'
+	alarmManager.cancelAlarmService(terapie[i].terapia_id);
+	alarmManager.addAlarmService({
+	    service: "it.interfree.leonardoce.memofarma.AlarmserviceService",
+	    requestCode: terapie[i].terapia_id,
+	    second: 0,
+	    minute: minute,
+	    hour: hour,
+	    repeat: "daily",
+	    interval: INTERVALLO_MINUTI * MINUTES
 	});
-	serviceIntent.putExtra('interval', INTERVALLO_MINUTI*MINUTES);
     }
-    else
-    {
-	Ti.API.info("La gestione degli allarmi e' gia' attivata");
-    }
+
+    // Avvio il servizio se non e' avviato
+    Ti.API.info("Gestione del servizio in cordo...");
+    var serviceIntent = Titanium.Android.createServiceIntent({
+	url: 'alarmservice.js'
+    });
+    serviceIntent.putExtra('interval', INTERVALLO_MINUTI*MINUTES);
 
     Ti.Android.stopService(serviceIntent);
     Ti.Android.startService(serviceIntent);
+}
+
+/**
+ * Cancella un allarme per una certa terapia
+ */
+function cancellaAllarmePerTerapia(terapia)
+{
+    alarmManager.cancelAlarmService(terapia.get('terapia_id'));
 }
 
 /**
@@ -107,4 +125,5 @@ function controllaSeSomministrata(terapia, somministrazioni)
 }
 
 exports.attivaGestioneAllarmi = attivaGestioneAllarmi;
+exports.cancellaAllarmePerTerapia = cancellaAllarmePerTerapia;
 exports.controllaTerapieDiOggi = controllaTerapieDiOggi;

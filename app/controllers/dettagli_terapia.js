@@ -1,5 +1,6 @@
 var args = arguments[0] || {};
 var StringUtils = require("StringUtils");
+var GestoreAllarmi = require("GestoreAllarmi");
 
 function onSalva()
 {
@@ -25,6 +26,8 @@ function onSalva()
 	    ora: StringUtils.dateToOra($.pk_ora.value)
 	});
 
+	GestoreAllarmi.attivaGestioneAllarmi();
+
 	args.modello.save();
     }	
 
@@ -35,6 +38,7 @@ function onCancella()
 {
     if (args.modello)
     {
+	GestoreAllarmi.cancellaAllarmePerTerapia(args.modello);
 	args.modello.destroy();
     }
 
