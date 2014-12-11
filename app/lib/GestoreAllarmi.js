@@ -23,15 +23,19 @@ function attivaGestioneAllarmi()
     // Schedulo gli allarmi
     Ti.API.info("Gestione degli allarmi in corso...");
     var terapie = Alloy.createCollection("terapie");
+    terapie.fetch();
+    terapie = terapie.toJSON();
+    
     for(var i=0; i<terapie.length; i++)
     {
+	var ora = terapie[i].ora.split(":").map(function (x) {return parseInt(x,10);});
 	alarmManager.cancelAlarmService(terapie[i].terapia_id);
 	alarmManager.addAlarmService({
 	    service: "it.interfree.leonardoce.memofarma.AlarmserviceService",
 	    requestCode: terapie[i].terapia_id,
 	    second: 0,
-	    minute: minute,
-	    hour: hour,
+	    minute: ora[1],
+	    hour: ora[0],
 	    repeat: "daily",
 	    interval: INTERVALLO_MINUTI * MINUTES
 	});
