@@ -28,17 +28,19 @@ function attivaGestioneAllarmi()
     
     for(var i=0; i<terapie.length; i++)
     {
-	var ora = terapie[i].ora.split(":").map(function (x) {return parseInt(x,10);});
-	alarmManager.cancelAlarmService(terapie[i].terapia_id);
-	alarmManager.addAlarmService({
-	    service: "it.interfree.leonardoce.memofarma.AlarmserviceService",
-	    requestCode: terapie[i].terapia_id,
-	    second: 0,
-	    minute: ora[1],
-	    hour: ora[0],
-	    repeat: "daily",
-	    interval: INTERVALLO_MINUTI * MINUTES
-	});
+		var ora = terapie[i].ora.split(":").map(function (x) {return parseInt(x,10);});
+		alarmManager.cancelAlarmService(terapie[i].terapia_id);
+		alarmManager.addAlarmService({
+		    service: "it.interfree.leonardoce.memofarma.AlarmserviceService",
+		    requestCode: terapie[i].terapia_id,
+		    second: 0,
+		    minute: ora[1],
+		    hour: ora[0],
+		    year: moment().year(),
+		    repeat: "daily",
+		    interval: INTERVALLO_MINUTI * MINUTES
+		});
+    	Ti.API.info("Attivo allarme " + terapie[i].terapia_id + " per " + ora[0] + ":" + ora[1]);
     }
 
     // Avvio il servizio se non e' avviato
