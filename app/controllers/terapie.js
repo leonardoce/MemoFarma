@@ -1,6 +1,7 @@
 var StringUtils = require("StringUtils");
 var moment = require("moment-with-locales");
 var args = arguments[0] || {};
+var GestoreAllarmi = require("GestoreAllarmi");
 
 function doTransform(model) 
 {
@@ -24,6 +25,7 @@ function doTransform(model)
 function onChiusiDettagli(e) 
 {
     e.source.removeEventListener("close", onChiusiDettagli);
+    GestoreAllarmi.attivaGestioneAllarmi();
     refresh();
 }
 
