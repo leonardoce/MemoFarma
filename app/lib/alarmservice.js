@@ -23,16 +23,16 @@ if (terapieNonPrese.length>0)
     var contenutoNotifica = "";
     if (terapieNonPrese.length==1)
     {
-	contenutoNotifica = terapieNonPrese[0].nome + " (" + terapieNonPrese[0].dose + ")";
+        contenutoNotifica = terapieNonPrese[0].nome + " (" + terapieNonPrese[0].dose + ")";
     }
     else
     {
-	contenutoNotifica = "Ci sono " + terapieNonPrese.length + " terapie da prendere";
-    }	
+        contenutoNotifica = "Ci sono " + terapieNonPrese.length + " terapie da prendere";
+    }        
 
     // Intent object to launch the application 
     var intent = Ti.Android.createIntent({
-	className : 'it.interfree.leonardoce.memofarma.MemofarmaActivity',
+        className : 'it.interfree.leonardoce.memofarma.MemofarmaActivity',
     });
     intent.flags |= Ti.Android.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED | Ti.Android.FLAG_ACTIVITY_SINGLE_TOP;
     intent.addCategory(Ti.Android.CATEGORY_LAUNCHER);
@@ -40,20 +40,20 @@ if (terapieNonPrese.length>0)
 
     // Create a PendingIntent to tie together the Activity and Intent
     var pending = Titanium.Android.createPendingIntent({
-	intent: intent,
-	flags: Titanium.Android.FLAG_UPDATE_CURRENT
+        intent: intent,
+        flags: Titanium.Android.FLAG_UPDATE_CURRENT
     });
 
     // Create the notification
     var notification = Titanium.Android.createNotification({
-	// icon is passed as an Android resource ID -- see Ti.App.Android.R.
-	// icon: Ti.App.Android.R.drawable.app_icon,
-	contentTitle: 'MemoFarma',
-	contentText : contenutoNotifica,
-	contentIntent: pending,
-	defaults: Ti.Android.DEFAULT_LIGHTS | Ti.Android.DEFAULT_VIBRATE,
-	icon: '/images/terapia_bianca.png',
-	sound: Ti.Filesystem.getResRawDirectory() + "notifica.mp3"
+        // icon is passed as an Android resource ID -- see Ti.App.Android.R.
+        // icon: Ti.App.Android.R.drawable.app_icon,
+        contentTitle: 'MemoFarma',
+        contentText : contenutoNotifica,
+        contentIntent: pending,
+        defaults: Ti.Android.DEFAULT_LIGHTS | Ti.Android.DEFAULT_VIBRATE,
+        icon: '/images/terapia_bianca.png',
+        sound: Ti.Filesystem.getResRawDirectory() + "notifica.mp3"
     });
 
     // Send the notification.
