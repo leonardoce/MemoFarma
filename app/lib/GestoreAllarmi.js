@@ -121,7 +121,7 @@ function controllaSeSomministrata(terapia, somministrazioni)
 {
     for (var i=0; i<somministrazioni.length; i++)
     {
-        if (somministrazioni[i].ora_richiesta==terapia.ora)
+        if (somministrazioni[i].ora_richiesta==terapia.ora && somministrazioni[i].nome==terapia.nome)
         {
             return true;
         }
