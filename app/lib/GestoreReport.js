@@ -172,7 +172,7 @@ function generaReportSomministrazioniHTML(somministrazioni)
     result += "<table>";
     result += "<tr>";
     result += "<th>Data</th>";
-    result += "<th>Nome e dose farmaco</th>";
+    result += "<th>Nome</th>";
     result += "<th>Dose</th>";
     result += "<th>Preso correttamente</th>";
     result += "</tr>";
@@ -186,8 +186,7 @@ function generaReportSomministrazioniHTML(somministrazioni)
 	result += StringUtils.formattaDataOra(StringUtils.sqlToTimestamp(record.quando)) + ",";
 	result += "</td>";
 	result += "<td>";
-	result += record.nome + ",";
-	result += record.dose;
+	result += record.nome;
 	result += "</td>";
 	result += "<td>";
 	result += record.dose;
