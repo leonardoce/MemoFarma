@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="bt_salva">Save</string>
+	<string name="bt_elimina">Delete</string>
+	<string name="bt_scegli_data">Date</string>
+	<string name="bt_scegli_ora">Time</string>
+	
+	<!-- Glicemia -->
+	<string name="hint_tf_glicemia">Blood sugar level</string>
+	<string name="hint_ta_nota">Notes</string>
+	<string name="alert_glicemia">Please insert the blood sugar level correctly</string>
+</resources>

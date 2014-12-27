@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="bt_salva">Salva</string>
+	<string name="bt_elimina">Elimina</string>
+	<string name="bt_scegli_data">Data</string>
+	<string name="bt_scegli_ora">Ora</string>
+		
+	<!-- Glicemia -->
+	<string name="hint_tf_glicemia">Rilevazione glicemica</string>
+	<string name="hint_ta_nota">Nota</string>
+	<string name="alert_glicemia">Inserire correttamente la rilevazione glicemica</string>
+</resources>
