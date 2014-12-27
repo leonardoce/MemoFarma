@@ -92,4 +92,5 @@ function doOpen()
 
 		doRefreshData();
 	}
+	$.dettagli_glicemia.activity.invalidateOptionsMenu();
 }

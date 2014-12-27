@@ -112,5 +112,6 @@ function doOpen()
 
 		doRefreshData();
 	}
+	$.dettagli_pressioni.activity.invalidateOptionsMenu();
 }
 
