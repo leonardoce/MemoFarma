@@ -7,12 +7,6 @@ function doSalva()
 	var minima = $.tf_minima.value.trim();
 	var frequenza = $.tf_frequenza.value.trim();
 	var automisurazione = $.cb_automisurazione.value;
-	var rilevazione_data = $.pk_rilevazione_data.value;
-	var rilevazione_ora = $.pk_rilevazione_ora.value;
-
-	var rilevazione = new Date(rilevazione_data);
-	rilevazione.setHours(rilevazione.getHours());
-	rilevazione.setMinutes(rilevazione.getMinutes());
 
 	if (!StringUtils.stringIsInteger(massima))
 	{
@@ -38,7 +32,6 @@ function doSalva()
 			minima: minima,
 			frequenza: frequenza,
 			automisurazione: StringUtils.logic2string(automisurazione),
-			rilevazione: StringUtils.timestampToSql(rilevazione),
 			nota: $.ta_nota.value
 		});
 
