@@ -22,7 +22,7 @@ function doReport()
 {
 	var dati = Alloy.Collections.glicemia.toJSON();
 	
-	if (dati===0)
+	if (dati.length===0)
 	{
 		alert("Il report e' vuoto");
 	}
@@ -43,7 +43,7 @@ function doReportHTML()
 	
 	if (dati.length===0)
 	{
-		alert("Il report e' vuoto'");
+		alert("Il report e' vuoto");
 	}
 	else
 	{
