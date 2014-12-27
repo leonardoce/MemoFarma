@@ -7,7 +7,7 @@ function doSalva()
 
 	if (!StringUtils.stringIsInteger(glicemia))
 	{
-		alert("Inserire correttamente la rilevazione glicemica");
+		alert(L("alert_glicemia"));
 		return;
 	}
 

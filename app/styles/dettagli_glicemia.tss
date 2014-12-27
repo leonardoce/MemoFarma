@@ -1,4 +1,31 @@
-
 ".container" : {
   
+}
+
+"#aggiungiItem" : {
+	title: L("bt_salva")
+}
+
+"#cancellaItem": {
+	title: L("bt_elimina")
+}
+
+"#tf_glicemia": {
+	hintText: L("hint_tf_glicemia")
+}
+
+"#ta_nota": {
+	hintText: L("hint_ta_nota")
+}
+
+"#lb_rilevazione": {
+	
+}
+
+"#bt_scegli_data": {
+	title: L("bt_scegli_data")
+}
+
+"#bt_scegli_ora": {
+	title: L("bt_scegli_ora")
 }
