@@ -18,6 +18,8 @@ Alloy.Collections.somministrazione = Alloy.createCollection("somministrazione");
 // Queste sono le due schermate principali possibili
 var GestoreAllarmi = require("GestoreAllarmi");
 
+Ti.API.info("Ti.Locale.currentLanguage = " + Ti.Locale.currentLanguage);
+
 // Adesso vediamo se siamo stati attivati da una
 // notifica
 var currActivity = Ti.Android.currentActivity;
