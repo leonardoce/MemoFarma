@@ -9,4 +9,12 @@
 	<string name="hint_tf_glicemia">Blood sugar level</string>
 	<string name="hint_ta_nota">Notes</string>
 	<string name="alert_glicemia">Please insert the blood sugar level correctly</string>
+	
+	<!-- Pressioni -->
+	<string name="hint_tf_massima">Systolic blood pressure</string>
+	<string name="hint_tf_minima">Diastolic blood pressure</string>
+	<string name="hint_tf_frequenza">Hearth rate</string>
+	<string name="cb_automisurazione">Auto-measurement</string>	
+	<string name="alert_pressione_massima">Please insert the systolic blood pressure</string>
+	<string name="alert_pressione_minima">Please insert the diastolic blood pressure</string>
 </resources>

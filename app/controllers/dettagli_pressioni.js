@@ -10,13 +10,13 @@ function doSalva()
 
 	if (!StringUtils.stringIsInteger(massima))
 	{
-		alert("Inserire correttamente la pressione massima");
+		alert(L("alert_pressione_massima"));
 		return;
 	}
 
 	if (!StringUtils.stringIsInteger(minima))
 	{
-		alert("Inserire correttamente la pressione minima");
+		alert(L("alert_pressione_minima"));
 		return;
 	}
 

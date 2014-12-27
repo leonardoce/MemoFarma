@@ -9,4 +9,12 @@
 	<string name="hint_tf_glicemia">Rilevazione glicemica</string>
 	<string name="hint_ta_nota">Nota</string>
 	<string name="alert_glicemia">Inserire correttamente la rilevazione glicemica</string>
+	
+	<!-- Pressioni -->
+	<string name="hint_tf_massima">Pressione massima</string>
+	<string name="hint_tf_minima">Pressione minima</string>
+	<string name="hint_tf_frequenza">Frequenza cardiaca</string>
+	<string name="cb_automisurazione">Automisurazione</string>
+	<string name="alert_pressione_massima">Inserire correttamente la pressione massima</string>
+	<string name="alert_pressione_minima">Inserire correttamente la pressione minima</string>
 </resources>
