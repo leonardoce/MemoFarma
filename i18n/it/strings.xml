@@ -4,6 +4,14 @@
 	<string name="bt_elimina">Elimina</string>
 	<string name="bt_scegli_data">Data</string>
 	<string name="bt_scegli_ora">Ora</string>
+	
+	<!-- Tab principale -->
+	<string name="tab_calendario">Calendario</string>
+	<string name="tab_terapie">Terapie</string>
+	<string name="tab_pressioni">Pressioni</string>
+	<string name="tab_glicemia">Glicemia</string>
+	<string name="menu_export_csv">Esporta in foglio di calcolo</string>
+	<string name="menu_export_html">Esporta in documento</string>
 		
 	<!-- Glicemia -->
 	<string name="hint_tf_glicemia">Rilevazione glicemica</string>

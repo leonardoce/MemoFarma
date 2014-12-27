@@ -5,6 +5,14 @@
 	<string name="bt_scegli_data">Date</string>
 	<string name="bt_scegli_ora">Time</string>
 	
+	<!-- Tab principale -->
+	<string name="tab_calendario">Agenda</string>
+	<string name="tab_terapie">Therapy</string>
+	<string name="tab_pressioni">Blood Pressure</string>
+	<string name="tab_glicemia">Blood Sugar</string>
+	<string name="menu_export_csv">Export as spreadsheet</string>
+	<string name="menu_export_html">Export as document</string>
+	
 	<!-- Glicemia -->
 	<string name="hint_tf_glicemia">Blood sugar level</string>
 	<string name="hint_ta_nota">Notes</string>

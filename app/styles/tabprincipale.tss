@@ -2,3 +2,43 @@
 ".container" : {
   
 }
+
+"#calendario": {
+	
+}
+
+"#terapie": {
+	
+}
+
+"#pressioni": {
+	
+}
+
+"#glicemia": {
+	
+}
+
+"#tab_calendario": {
+	titoloPrincipale: L("tab_calendario")
+}
+
+"#tab_terapie": {
+	titoloPrincipale: L("tab_terapie")
+}
+
+"#tab_pressioni": {
+	titoloPrincipale: L("tab_pressioni")
+}
+
+"#tab_glicemia": {
+	titoloPrincipale: L("tab_glicemia")
+}
+
+"#export_csv": {
+	title: L("menu_export_csv")
+}
+
+"#export_html": {
+	title: L("menu_export_html")
+}

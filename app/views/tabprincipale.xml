@@ -1,6 +1,6 @@
 <Alloy>
 	<TabGroup class="container" onFocus="doFocus" onSwipe="doSwipe">
-		<ActionBar id="actionbar" platform="android" title="MemoFarma"/>
+		<ActionBar platform="android" title="MemoFarma"/>
 		<Menu>
 			<MenuItem onClick="doAggiungi" 
 				icon="/images/aggiungi.png"
@@ -8,22 +8,22 @@
 			<MenuItem title="Aiuto" onClick="doAiuto" 
 				icon="/images/aiuto.png"
 				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
-			<MenuItem title="Esporta in foglio di calcolo" onClick="doReport" 
+			<MenuItem id="export_csv" onClick="doReport" 
 				showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
-			<MenuItem title="Esporta in documento" onClick="doReportHTML" 
+			<MenuItem id="export_html" onClick="doReportHTML" 
 				showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
 		</Menu>
 
-		<Tab titoloPrincipale="Calendario" icon="/images/calendario.png">
+		<Tab id="tab_calendario" icon="/images/calendario.png">
 			<Require type="view" src="calendario" id="calendario"/>
 		</Tab>
-		<Tab titoloPrincipale="Farmaci" icon="/images/terapia.png">
+		<Tab id="tab_terapie" icon="/images/terapia.png">
 			<Require type="view" src="terapie" id="terapie"/>
 		</Tab>
-		<Tab titoloPrincipale="Pressione" icon="/images/pressione.png">
+		<Tab id="tab_pressioni" icon="/images/pressione.png">
 			<Require type="view" src="pressioni" id="pressioni"/>
 		</Tab>
-		<Tab titoloPrincipale="Glicemia" icon="/images/glicemia.png">
+		<Tab id="tab_glicemia" icon="/images/glicemia.png">
 			<Require type="view" src="glicemia" id="glicemia"/>
 		</Tab>
 	</TabGroup>
