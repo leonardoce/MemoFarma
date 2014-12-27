@@ -17,7 +17,6 @@ Alloy.Collections.somministrazione = Alloy.createCollection("somministrazione");
 
 // Queste sono le due schermate principali possibili
 var GestoreAllarmi = require("GestoreAllarmi");
-GestoreAllarmi.attivaGestioneAllarmi();
 
 // Adesso vediamo se siamo stati attivati da una
 // notifica
@@ -36,4 +35,5 @@ else
     // Sono stato avviato dal launcher e quindi mi apro
     // normalmente
     Alloy.createController("tabprincipale").getView().open();
+	GestoreAllarmi.attivaGestioneAllarmi();
 }
