@@ -44,7 +44,7 @@ function attivaGestioneAllarmi()
     }
 
     // Avvio il servizio se non e' avviato
-    Ti.API.info("Gestione del servizio in cordo...");
+    Ti.API.info("Gestione del servizio in corso...");
     var serviceIntent = Titanium.Android.createServiceIntent({
 	url: 'alarmservice.js'
     });
