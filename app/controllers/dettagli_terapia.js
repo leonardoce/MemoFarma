@@ -128,6 +128,7 @@ function onOpen() {
 		doRefreshDataInizio();
 		doRefreshDataFine();
 	}
+	$.dettagli_terapia.activity.invalidateOptionsMenu();
 }
 
 $.dettagli_terapia.addEventListener("open", onOpen);
