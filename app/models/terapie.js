@@ -28,7 +28,7 @@ exports.definition = {
 		    " nome=" + StringUtils.stosingle(this.get("nome")) + 
 		    " ora=" + StringUtils.stosingle(this.get("ora")) + 
 		    " dose=" + StringUtils.stosingle(this.get("dose")) + 
-		    "/>"
+		    "/>";
 	    }
 
 	    // extended functions and properties go here
