@@ -20,22 +20,40 @@ function doAggiungiGlicemia()
 
 function doReport()
 {
-	var testo = GestoreReport.generaReportGlicemiaCSV(Alloy.Collections.glicemia.toJSON());
-	var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_glicemia.csv')
-	Ti.API.info(testo);
-	f.write(testo);
-
-	EmailUtils.inviaMail("Report glicemia, formato CSV", "Allego quanto in oggetto", f);
+	var dati = Alloy.Collections.glicemia.toJSON();
+	
+	if (dati===0)
+	{
+		alert("Il report e' vuoto");
+	}
+	else
+	{	
+		var testo = GestoreReport.generaReportGlicemiaCSV(dati);
+		var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_glicemia.csv')
+		Ti.API.info(testo);
+		f.write(testo);
+	
+		EmailUtils.inviaMail("Report glicemia, formato CSV", "Allego quanto in oggetto", f);
+	}
 }
 
 function doReportHTML()
 {
-	var testo = GestoreReport.generaReportGlicemiaCSV(Alloy.Collections.glicemia.toJSON());
-	var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_glicemia.html')
-	Ti.API.info(testo);
-	f.write(testo);
-
-	EmailUtils.inviaMail("Report glicemia, formato HTML", "Allego quanto in oggetto", f);
+	var dati = Alloy.Collections.glicemia.toJSON();
+	
+	if (dati.length===0)
+	{
+		alert("Il report e' vuoto'");
+	}
+	else
+	{
+		var testo = GestoreReport.generaReportGlicemiaCSV(dati);
+		var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_glicemia.html')
+		Ti.API.info(testo);
+		f.write(testo);
+	
+		EmailUtils.inviaMail("Report glicemia, formato HTML", "Allego quanto in oggetto", f);
+	}
 }
 
 function doItemClick(e) 

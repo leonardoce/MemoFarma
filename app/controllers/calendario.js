@@ -83,10 +83,17 @@ function doReport()
     });
     somministrazione = somministrazione.toJSON();
 
-    var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_somministrazione.csv');
-    f.write(GestoreReport.generaReportSomministrazioniCSV(somministrazione));
-
-    EmailUtils.inviaMail("Report somministrazioni, formato CSV", "Allego quanto in oggetto", f);
+	if (somministrazione.length===0) 
+	{
+		alert("Il report e' vuoto");
+	} 
+	else
+	{
+	    var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_somministrazione.csv');
+	    f.write(GestoreReport.generaReportSomministrazioniCSV(somministrazione));
+	
+	    EmailUtils.inviaMail("Report somministrazioni, formato CSV", "Allego quanto in oggetto", f);
+	}
 }
 
 function doReportHTML()
@@ -105,10 +112,17 @@ function doReportHTML()
     });
     somministrazione = somministrazione.toJSON();
 
-    var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_somministrazione.html');
-    f.write(GestoreReport.generaReportSomministrazioniHTML(somministrazione));
-
-    EmailUtils.inviaMail("Report somministrazioni, formato HTML", "Allego quanto in oggetto", f);
+	if(somministrazione.length===0)
+	{
+		alert("Il report e' vuoto");
+	}
+	else
+	{
+	    var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_somministrazione.html');
+	    f.write(GestoreReport.generaReportSomministrazioniHTML(somministrazione));
+	
+	    EmailUtils.inviaMail("Report somministrazioni, formato HTML", "Allego quanto in oggetto", f);
+	}
 }
 
 $.cal.getView().addEventListener("clickGiorno", doClickSuGiorno);

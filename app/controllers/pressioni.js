@@ -20,22 +20,40 @@ function doAggiungiPressioni()
 
 function doReport()
 {
-	var testo = GestoreReport.generaReportPressioniCSV(Alloy.Collections.pressione.toJSON());
-	var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_pressione.csv');
-	Ti.API.info(testo);
-	f.write(testo);
-
-	EmailUtils.inviaMail("Report pressioni, formato CSV", "Allego quanto in oggetto", f);
+	var dati = Alloy.Collections.pressione.toJSON();
+	
+	if (dati.length===0)
+	{
+		alert("Il report e' vuoto");
+	}
+	else
+	{
+		var testo = GestoreReport.generaReportPressioniCSV(dati);
+		var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_pressione.csv');
+		Ti.API.info(testo);
+		f.write(testo);
+	
+		EmailUtils.inviaMail("Report pressioni, formato CSV", "Allego quanto in oggetto", f);
+	}
 }
 
 function doReportHTML()
 {
-	var testo = GestoreReport.generaReportPressioniHTML(Alloy.Collections.pressione.toJSON());
-	var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_pressione.html');
-	Ti.API.info(testo);
-	f.write(testo);
-
-	EmailUtils.inviaMail("Report pressioni, formato HTML", "Allego quanto in oggetto", f);
+	var dati = Alloy.Collections.pressione.toJSON();
+	
+	if (dati.length===0)
+	{
+		alert("Il report e' vuoto");
+	}
+	else
+	{
+		var testo = GestoreReport.generaReportPressioniHTML(dati);
+		var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_pressione.html');
+		Ti.API.info(testo);
+		f.write(testo);
+	
+		EmailUtils.inviaMail("Report pressioni, formato HTML", "Allego quanto in oggetto", f);
+	}
 }
 
 function doItemClick(e) 
@@ -78,7 +96,7 @@ function doRefresh()
 	});
 }
 
-doRefresh()
+doRefresh();
 $.doAggiungiPressioni = doAggiungiPressioni;
 $.doReport = doReport;
 $.doReportHTML = doReportHTML;
