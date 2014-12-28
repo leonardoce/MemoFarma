@@ -29,7 +29,7 @@ function doReport()
 	else
 	{	
 		var testo = GestoreReport.generaReportGlicemiaCSV(dati);
-		var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_glicemia.csv')
+		var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_glicemia.csv');
 		Ti.API.info(testo);
 		f.write(testo);
 	
@@ -48,7 +48,7 @@ function doReportHTML()
 	else
 	{
 		var testo = GestoreReport.generaReportGlicemiaCSV(dati);
-		var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_glicemia.html')
+		var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_glicemia.html');
 		Ti.API.info(testo);
 		f.write(testo);
 	
@@ -81,7 +81,7 @@ function doRefresh()
 	});
 }
 
-doRefresh()
+doRefresh();
 $.doAggiungiGlicemia = doAggiungiGlicemia;
 $.doReport = doReport;
 $.doReportHTML = doReportHTML;
