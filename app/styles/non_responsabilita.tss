@@ -1,0 +1,8 @@
+
+"#wnd" : {
+	title: L("title_non_responsabilita")  
+}
+
+"#bt_vai_memofarma": {
+	title: L("bt_vai_memofarma")
+}

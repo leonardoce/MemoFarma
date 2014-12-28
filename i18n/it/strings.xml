@@ -25,4 +25,8 @@
 	<string name="cb_automisurazione">Automisurazione</string>
 	<string name="alert_pressione_massima">Inserire correttamente la pressione massima</string>
 	<string name="alert_pressione_minima">Inserire correttamente la pressione minima</string>
+	
+	<!-- Esclusione di responsabilita -->
+	<string name="bt_vai_memofarma">Vai a Memofarma</string>
+	<string name="title_non_responsabilita">Limitazione di Responsabilità</string>
 </resources>

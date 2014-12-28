@@ -25,4 +25,8 @@
 	<string name="cb_automisurazione">Auto-measurement</string>	
 	<string name="alert_pressione_massima">Please insert the systolic blood pressure</string>
 	<string name="alert_pressione_minima">Please insert the diastolic blood pressure</string>
+	
+	<!-- Esclusione di responsabilita -->
+	<string name="bt_vai_memofarma">Open Memofarma</string>
+	<string name="title_non_responsabilita">Limitation of Liability</string>
 </resources>

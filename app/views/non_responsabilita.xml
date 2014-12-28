@@ -1,0 +1,6 @@
+<Alloy>
+	<Window id="wnd" layout="vertical">
+		<WebView id="paginaweb" width="Ti.UI.FILL" height="90%" url="/tutorial/tutorial.html" />
+		<Button id="bt_vai_memofarma" height="10%" width="100%" onClick="doVaiMemofarma"/>
+	</Window>
+</Alloy>

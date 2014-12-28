@@ -32,10 +32,15 @@ if (tipologia=="terapie_non_somministrate")
     // la pagina delle notifiche
     Alloy.createController("promemoria_terapie").getView().open();
 }
+else if (!Ti.App.Properties.getBool("non_responsabilita_aperto", false))
+{
+	GestoreAllarmi.attivaGestioneAllarmi();
+    Alloy.createController("non_responsabilita").getView().open();
+}
 else
 {
     // Sono stato avviato dal launcher e quindi mi apro
     // normalmente
-    Alloy.createController("tabprincipale").getView().open();
 	GestoreAllarmi.attivaGestioneAllarmi();
+    Alloy.createController("tabprincipale").getView().open();
 }
