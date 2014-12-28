@@ -13,7 +13,7 @@ function refresh()
 
     if (terapieDiOggi.length===0)
     {
-	$.promemoria_terapie.close();
+	$.lb_promemoria_terapie.close();
 	return;
     }
     
