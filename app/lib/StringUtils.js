@@ -1,5 +1,5 @@
 var moment = require("moment-with-locales");
-moment.locale("IT");
+moment.locale(Ti.Locale.currentLanguage.toUpperCase());
 
 /**
  * Formatta un numero intero, eventualmente aggiungendo
