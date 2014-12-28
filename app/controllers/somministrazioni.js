@@ -4,25 +4,6 @@ var GestoreReport = require("GestoreReport");
 var EmailUtils = require("EmailUtils");
 var moment = require("moment-with-locales");
 
-function doReport()
-{
-    var testo = GestoreReport.generaReportPressioniCSV(Alloy.Collections.pressione.toJSON());
-    var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_pressione.csv');
-    Ti.API.info(testo);
-    f.write(testo);
-
-    EmailUtils.inviaMail("Report pressioni, formato CSV", "Allego quanto in oggetto", f);
-}
-
-function doReportHTML()
-{
-    var testo = GestoreReport.generaReportPressioniHTML(Alloy.Collections.pressione.toJSON());
-    var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_pressione.html');
-    Ti.API.info(testo);
-    f.write(testo);
-
-    EmailUtils.inviaMail("Report pressioni, formato HTML", "Allego quanto in oggetto", f);
-}
 
 function doTransform(model)
 {
@@ -64,7 +45,7 @@ function caricaMese(data)
     });
 
     Ti.API.info(data);
-    $.somministrazioni.title = "Somministrazioni: " + moment(data).format("MMMM YYYY");
+    $.somministrazioni.title = L("lb_somministrazioni") + moment(data).format("MMMM YYYY");
 }
 
 function caricaGiorno(data)
@@ -78,11 +59,9 @@ function caricaGiorno(data)
 	}
     });
 
-    $.somministrazioni.title = "Somministrazioni: " + moment(data).format("LL");
+    $.somministrazioni.title = L("lb_somministrazioni") + moment(data).format("LL");
 }
 
-$.doReport = doReport;
-$.doReportHTML = doReportHTML;
 $.caricaTutte = caricaTutte;
 $.caricaMese = caricaMese;
 $.caricaGiorno = caricaGiorno;

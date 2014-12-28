@@ -8,13 +8,13 @@
 	    <ImageView height="40dp" width="40dp" bindId="stato"/>
 	    <View layout="vertical" width="Ti.UI.FILL" left="10dp">
 	      <Label bindId="data" width="Ti.UI.FILL" height="20dp" class="titolo"/>
-	      <View layout="horizontal" height="20dp" width="Ti.UI.FILL">
-		<Label text="Nome:" class="titoloCella" width="60dp"/>
-		<Label bindId="nome" height="20dp"/>
+	      <View layout="horizontal" height="25dp" width="Ti.UI.FILL">
+		<Label id="lb_nome" class="titoloCella" width="60dp"/>
+		<Label bindId="nome" height="25dp"/>
 	      </View>
-	      <View layout="horizontal" height="20dp" width="Ti.UI.FILL">
-		<Label text="Dose:" class="titoloCella" width="60dp"/>
-		<Label bindId="dose" height="20dp"/>
+	      <View layout="horizontal" height="25dp" width="Ti.UI.FILL">
+		<Label id="lb_dose" class="titoloCella" width="60dp"/>
+		<Label bindId="dose" height="25dp"/>
 	      </View>
 	    </View>
 	  </View>

@@ -8,6 +8,8 @@
 	<string name="lb_data_inizio">Data inizio:</string>
 	<string name="lb_data_fine">Data fine: </string>
 	<string name="lb_data_fine_off">Data fine: OFF</string>	
+	<string name="lb_nome">Nome:</string>
+	<string name="lb_dose">Dose:</string>	
 	
 	
 	<!-- Tab principale -->
@@ -57,5 +59,6 @@
 	<string name="lb_allego_quanto_in_oggetto">Allego quanto in oggetto</string>
 	<string name="lb_report_somministrazioni_html">Report somministrazioni, formato HTML</string>
 	<string name="lb_report_somministrazioni_csv">Report somministrazioni, formato CSV</string>
+	<string name="lb_somministrazioni">Somministrazioni: </string>
 	
 </resources>

@@ -1,0 +1,12 @@
+
+".container" : {
+  
+}
+
+"#lb_nome":{
+	text: L("lb_nome")
+}
+
+"#lb_dose":{
+	text: L("lb_dose")
+}
