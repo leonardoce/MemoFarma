@@ -1,8 +1,8 @@
 <Alloy>
 	<View class="container" layout="horizontal" height="125dp" width="Ti.UI.FILL">
 		<View layout="vertical" width="150dp">
-			<Button title="Presa" width="100dp" onClick="doPresa"/>
-			<Button title="Non la prendo" width="100dp" onClick="doNonLaPrendo"/>
+			<Button id="lb_presa" width="100dp" onClick="doPresa"/>
+			<Button id="lb_non_presa" width="100dp" onClick="doNonLaPrendo"/>
 		</View>
 		<View layout="vertical" width="Ti.UI.FILL">
 			<View layout="horizontal" height="20dp">

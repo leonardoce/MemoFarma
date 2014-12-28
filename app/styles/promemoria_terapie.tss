@@ -2,3 +2,11 @@
 ".container" : {
   
 }
+
+"#lb_promemoria_terapie":{
+	title: L("lb_promemoria_terapie")
+}
+
+"#scroller":{
+	
+}

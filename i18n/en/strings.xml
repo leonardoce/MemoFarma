@@ -8,9 +8,14 @@
 	<string name="lb_data_inizio">Start date:</string>
 	<string name="lb_data_fine">End date: </string>
 	<string name="lb_data_fine_off">End date: OFF</string>	
+	
+	<!-- terapie -->
+	<string name="lb_presa">Taken</string>
+	<string name="lb_non_presa">Will not take</string>
 	<string name="lb_nome">Name:</string>
 	<string name="lb_dose">Dose:</string>
 	<string name="lb_N_A">N.A.</string>
+	<string name="lb_promemoria_terapie">Reminder drugs</string>
 
 	<!-- Tab principale -->
 	<string name="tab_calendario">Agenda</string>

@@ -2,3 +2,23 @@
 ".container" : {
   
 }
+
+"#lb_presa":{
+	title: L("lb_presa")
+}
+
+"#lb_non_presa":{
+	title: L("lb_non_presa")
+}
+
+"#ora":{
+	
+}
+
+"#scroller":{
+	
+}
+
+"#farmaco":{
+	
+}
