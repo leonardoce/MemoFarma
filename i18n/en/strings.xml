@@ -41,4 +41,12 @@
 	<string name="hint_dettagli_dose">Dose</string>
 	<string name="lb_nuovo_farmaco">New drug</string>
 	<string name="lb_dettagli_farmaco">Drug details</string>
+	
+	<!-- calendario -->
+	<string name="lb_nessuna_somministrazione">No administration</string>
+	<string name="alert_report_vuoto">The report is empty</string>
+	<string name="lb_allego_quanto_in_oggetto">I enclose the subject matter</string>
+	<string name="lb_report_sommonistrazioni_html">Report administration, HTML format</string>
+	<string name="lb_report_sommonistrazioni_csv">Report administration , CSV format</string>
+	
 </resources>

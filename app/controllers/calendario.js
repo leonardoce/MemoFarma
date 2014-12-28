@@ -15,7 +15,7 @@ function doClickSuGiorno(evt)
 
     if (Alloy.Collections.somministrazione.length===0)
     {
-	alert("Nessuna somministrazione presente");
+	alert(L("lb_nessuna_somministrazione"));
     }
     else
     {
@@ -32,14 +32,12 @@ function doClickSuMese(evt)
 
     if (Alloy.Collections.somministrazione.length===0)
     {
-	alert("Nessuna somministrazione presente");
+	alert(L("lb_nessuna_somministrazione"));
     }
     else
     {
 	somministrazioni.getView().open();
     }
-
-    somministrazioni.getView().open();
 }
 
 function doRefresh()
@@ -85,14 +83,14 @@ function doReport()
 
 	if (somministrazione.length===0) 
 	{
-		alert("Il report e' vuoto");
+		alert(L("alert_report_vuoto"));
 	} 
 	else
 	{
 	    var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_somministrazione.csv');
 	    f.write(GestoreReport.generaReportSomministrazioniCSV(somministrazione));
 	
-	    EmailUtils.inviaMail("Report somministrazioni, formato CSV", "Allego quanto in oggetto", f);
+	    EmailUtils.inviaMail(L("lb_report_sommonistrazioni_csv"), L("lb_allego_quanto_in_oggetto"), f);
 	}
 }
 
@@ -114,14 +112,14 @@ function doReportHTML()
 
 	if(somministrazione.length===0)
 	{
-		alert("Il report e' vuoto");
+		alert(L("alert_report_vuoto"));
 	}
 	else
 	{
 	    var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_somministrazione.html');
 	    f.write(GestoreReport.generaReportSomministrazioniHTML(somministrazione));
 	
-	    EmailUtils.inviaMail("Report somministrazioni, formato HTML", "Allego quanto in oggetto", f);
+	    EmailUtils.inviaMail(L("lb_report_sommonistrazioni_html"), L("lb_allego_quanto_in_oggetto"), f);
 	}
 }
 

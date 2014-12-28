@@ -9,6 +9,7 @@
 	<string name="lb_data_fine">Data fine: </string>
 	<string name="lb_data_fine_off">Data fine: OFF</string>	
 	
+	
 	<!-- Tab principale -->
 	<string name="tab_calendario">Calendario</string>
 	<string name="tab_terapie">Terapie</string>
@@ -41,4 +42,12 @@
 	<string name="hint_dettagli_dose">Dose</string>
 	<string name="lb_nuovo_farmaco">Nuovo farmaco</string>
 	<string name="lb_dettagli_farmaco">Dettagli farmaco</string>
+	
+	<!-- calendario -->
+	<string name="lb_nessuna_somministrazione">Nessuna somministrazione presente</string>
+	<string name="alert_report_vuoto">Il report è vuoto</string>
+	<string name="lb_allego_quanto_in_oggetto">Allego quanto in oggetto</string>
+	<string name="lb_report_sommonistrazioni_html">Report somministrazioni, formato HTML</string>
+	<string name="lb_report_sommonistrazioni_csv">Report somministrazioni, formato CSV</string>
+	
 </resources>

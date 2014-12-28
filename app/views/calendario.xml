@@ -1,5 +1,5 @@
 <Alloy>
-	<Window class="container" title="Calendario" onFocus="doRefresh">
+	<Window class="container" onFocus="doRefresh">
 		<Require type="widget" 
 		  src="it.leonardoce.calendario" 
 		  id="cal"
