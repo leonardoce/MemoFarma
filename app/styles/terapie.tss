@@ -10,3 +10,15 @@
         fontWeight: 'bold'		
 	}	
 }
+
+"#lb_dose":{
+	text: L("lb_dose")
+}
+
+"#lb_data_inizio":{
+	text: L("lb_data_inizio")
+}
+
+"#lb_data_fine":{
+	text: L("lb_data_fine")
+}

@@ -16,7 +16,7 @@ function doTransform(model)
     }
     else
     {
-	o.fine = "N.A.";
+	o.fine = L("lb_N_A");
 	o.visualizza_fine = false;
     }
     return o;

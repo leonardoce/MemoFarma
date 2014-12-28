@@ -10,6 +10,7 @@
 	<string name="lb_data_fine_off">Data fine: OFF</string>	
 	<string name="lb_nome">Nome:</string>
 	<string name="lb_dose">Dose:</string>	
+	<string name="lb_N_A">N.A.</string>
 	
 	
 	<!-- Tab principale -->

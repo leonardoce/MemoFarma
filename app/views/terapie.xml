@@ -11,15 +11,15 @@
 	      <Label bindId="nome" height="25dp"/>
 	    </View>
 	    <View layout="horizontal" height="25dp" width="Ti.UI.FILL">
-	      <Label text="Dose:" class="titoloCella"/>
+	      <Label id="lb_dose" class="titoloCella"/>
 	      <Label bindId="dose" height="25dp"/>
 	    </View>
 	    <View layout="horizontal" height="25dp" width="Ti.UI.FILL">
-	      <Label text="Data Inizio:" class="titoloCella"/>
+	      <Label id="lb_data_inizio" class="titoloCella"/>
 	      <Label bindId="inizio" height="25dp"/>
 	    </View>
 	    <View layout="horizontal" height="25dp" width="Ti.UI.FILL" bindId="rigaFine">
-	      <Label text="Data Fine:" class="titoloCella"/>
+	      <Label id="lb_data_fine" class="titoloCella"/>
 	      <Label bindId="fine" height="25dp"/>
 	    </View>
 	  </View>

@@ -10,6 +10,7 @@
 	<string name="lb_data_fine_off">End date: OFF</string>	
 	<string name="lb_nome">Name:</string>
 	<string name="lb_dose">Dose:</string>
+	<string name="lb_N_A">N.A.</string>
 
 	<!-- Tab principale -->
 	<string name="tab_calendario">Agenda</string>
