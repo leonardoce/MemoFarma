@@ -4,11 +4,14 @@
 },
 
 "#tf_nome": {
-	autocorrect: false
+	autocorrect: false,
+	hintText: L("hint_dettagli_nome_farmaco")
 },
 
 "#tf_dose": {
-	autocorrect: false
+	autocorrect: false,
+	keyboardType: Titanium.UI.KEYBOARD_DECIMAL_PAD,
+	hintText: L("hint_dettagli_dose")
 }
 
 "#aggiungiItem": {
@@ -21,14 +24,6 @@
 
 "#cancellaItem":{
 	title: L("bt_elimina")
-}
-
-"#tf_nome":{
-	hintText: L("hint_dettagli_nome_farmaco")
-}
-
-"#tf_dose":{
-	hintText: L("hint_dettagli_dose")
 }
 
 "#bt_scegli_data_inizio":{
