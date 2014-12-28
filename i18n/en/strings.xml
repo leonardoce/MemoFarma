@@ -29,4 +29,7 @@
 	<!-- Esclusione di responsabilita -->
 	<string name="bt_vai_memofarma">Open Memofarma</string>
 	<string name="title_non_responsabilita">Limitation of Liability</string>
+	
+	<!-- Dettagli terapia -->
+	<string name="alert_dettagli_nome_farmaco">Please insert the name of the drug</string>
 </resources>

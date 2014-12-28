@@ -29,4 +29,7 @@
 	<!-- Esclusione di responsabilita -->
 	<string name="bt_vai_memofarma">Vai a Memofarma</string>
 	<string name="title_non_responsabilita">Limitazione di Responsabilità</string>
+	
+	<!-- Dettagli terapia -->
+	<string name="alert_dettagli_nome_farmaco">Inserisci il nome della farmaco</string>
 </resources>

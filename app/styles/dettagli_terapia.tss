@@ -10,3 +10,11 @@
 "#tf_dose": {
 	autocorrect: false
 }
+
+"#aggiungiItem": {
+	title: L("bt_salva")
+}
+
+"#pk_ora": {
+	
+}

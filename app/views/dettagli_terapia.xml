@@ -2,7 +2,7 @@
   <Window class="container">
     <ActionBar platform="android"/>
     <Menu>
-      <MenuItem id="aggiungiItem" title="Salva" onClick="onSalva" 
+      <MenuItem id="aggiungiItem" onClick="onSalva" 
 		showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
       <MenuItem id="cancellaItem" title="Elimina" onClick="onCancella" 
 		showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
