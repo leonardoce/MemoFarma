@@ -14,8 +14,8 @@
 				height="80dp"/>
 			<View layout="horizontal" height="50dp">
 				<Label id="lb_rilevazione"/>
-				<Button id="bt_scegli_data" title="Data" onClick="doScegliData"/>
-				<Button id="bt_scegli_ora" title="Ora" onClick="doScegliOra"/>
+				<Button id="bt_scegli_data" onClick="doScegliData"/>
+				<Button id="bt_scegli_ora" onClick="doScegliOra"/>
 			</View>
 		</ScrollView>
 	</Window>
