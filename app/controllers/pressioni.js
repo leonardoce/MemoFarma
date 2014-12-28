@@ -2,6 +2,7 @@ var args = arguments[0] || {};
 var StringUtils = require("StringUtils");
 var GestoreReport = require("GestoreReport");
 var EmailUtils = require("EmailUtils");
+var moment = require("moment-with-locales");
 
 function doChiudiDettagli(e) 
 {
@@ -92,7 +93,10 @@ function doTransform(model)
 function doRefresh()
 {
 	Alloy.Collections.pressione.fetch({
-		query: 'select * from pressione order by rilevazione desc'
+		query: {
+			statement:'select * from pressione where rilevazione>=? order by rilevazione desc',
+			params:[StringUtils.timestampToSql(moment().subtract(2,'month').toDate())]
+		}
 	});
 }
 
