@@ -22,6 +22,9 @@
 	<string name="hint_tf_glicemia">Rilevazione glicemica</string>
 	<string name="hint_ta_nota">Nota</string>
 	<string name="alert_glicemia">Inserire correttamente la rilevazione glicemica</string>
+	<string name="lb_glicemia">Glicemia:</string>
+	<string name="lb_report_glicemia_html">Report glicemia, formato HTML</string>
+	<string name="lb_report_glicemia_csv">Report glicemia, formato CSV</string>
 	
 	<!-- Pressioni -->
 	<string name="hint_tf_massima">Pressione massima</string>
@@ -47,7 +50,7 @@
 	<string name="lb_nessuna_somministrazione">Nessuna somministrazione presente</string>
 	<string name="alert_report_vuoto">Il report è vuoto</string>
 	<string name="lb_allego_quanto_in_oggetto">Allego quanto in oggetto</string>
-	<string name="lb_report_sommonistrazioni_html">Report somministrazioni, formato HTML</string>
-	<string name="lb_report_sommonistrazioni_csv">Report somministrazioni, formato CSV</string>
+	<string name="lb_report_somministrazioni_html">Report somministrazioni, formato HTML</string>
+	<string name="lb_report_somministrazioni_csv">Report somministrazioni, formato CSV</string>
 	
 </resources>

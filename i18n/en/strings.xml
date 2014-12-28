@@ -21,6 +21,9 @@
 	<string name="hint_tf_glicemia">Blood sugar level</string>
 	<string name="hint_ta_nota">Notes</string>
 	<string name="alert_glicemia">Please insert the blood sugar level correctly</string>
+	<string name="lb_glicemia">Blood sugar:</string>
+	<string name="lb_report_glicemia_html">Report blood sugar, HTML format</string>
+	<string name="lb_report_glicemia_csv">Report blood sugar, CSV format</string>
 	
 	<!-- Pressioni -->
 	<string name="hint_tf_massima">Systolic blood pressure</string>

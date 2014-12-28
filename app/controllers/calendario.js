@@ -90,7 +90,7 @@ function doReport()
 	    var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_somministrazione.csv');
 	    f.write(GestoreReport.generaReportSomministrazioniCSV(somministrazione));
 	
-	    EmailUtils.inviaMail(L("lb_report_sommonistrazioni_csv"), L("lb_allego_quanto_in_oggetto"), f);
+	    EmailUtils.inviaMail(L("lb_report_somministrazioni_csv"), L("lb_allego_quanto_in_oggetto"), f);
 	}
 }
 
@@ -119,7 +119,7 @@ function doReportHTML()
 	    var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_somministrazione.html');
 	    f.write(GestoreReport.generaReportSomministrazioniHTML(somministrazione));
 	
-	    EmailUtils.inviaMail(L("lb_report_sommonistrazioni_html"), L("lb_allego_quanto_in_oggetto"), f);
+	    EmailUtils.inviaMail(L("lb_report_somministrazioni_html"), L("lb_allego_quanto_in_oggetto"), f);
 	}
 }
 
