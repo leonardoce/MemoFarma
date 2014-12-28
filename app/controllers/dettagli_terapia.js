@@ -4,12 +4,12 @@ var GestoreAllarmi = require("GestoreAllarmi");
 
 function onSalva() {
 	if ($.tf_nome.value.length == 0) {
-		alert("Inserisci il nome della farmaco");
+		alert(L("alert_dettagli_nome_farmaco"));
 		return;
 	}
 
 	if ($.tf_dose.value.length == 0) {
-		alert("Inserisci la dose che devi assumere");
+		alert(L("alert_dettagli_dose_farmaco"));
 		return;
 	}
 
@@ -120,9 +120,9 @@ function onOpen() {
 		}
 
 		if (!args.modello.get("terapia_id")) {
-			$.dettagli_terapia.activity.actionBar.title = "Nuovo farmaco";
+			$.dettagli_terapia.activity.actionBar.title = L("lb_nuovo_farmaco");
 		} else {
-			$.dettagli_terapia.activity.actionBar.title = "Dettagli farmaco";
+			$.dettagli_terapia.activity.actionBar.title = L("lb_dettagli_farmaco");
 		}
 
 		doRefreshDataInizio();

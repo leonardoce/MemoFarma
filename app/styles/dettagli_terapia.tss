@@ -18,3 +18,40 @@
 "#pk_ora": {
 	
 }
+
+"#cancellaItem":{
+	title: L("bt_elimina")
+}
+
+"#tf_nome":{
+	hintText: L("hint_dettagli_nome_farmaco")
+}
+
+"#tf_dose":{
+	hintText: L("hint_dettagli_dose")
+}
+
+"#bt_scegli_data_inizio":{
+	title: L("bt_scegli")
+}
+
+"#bt_scegli_data_fine":{
+	title: L("bt_scegli")
+}
+
+"#sw_considera_data_fine":{
+	titleOff: L("lb_data_fine_off"),
+	titleOn: L("lb_data_fine")
+}
+
+"#lb_text_data_inizio": {
+	
+}
+
+"#lb_data_inizio": {
+	
+}
+
+"#lb_data_fine": {
+	
+}

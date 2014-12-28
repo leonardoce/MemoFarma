@@ -4,6 +4,10 @@
 	<string name="bt_elimina">Delete</string>
 	<string name="bt_scegli_data">Date</string>
 	<string name="bt_scegli_ora">Time</string>
+	<string name="bt_scegli">Choose</string>
+	<string name="lb_data_inizio">Start date:</string>
+	<string name="lb_data_fine">End date: </string>
+	<string name="lb_data_fine_off">End date: OFF</string>	
 	
 	<!-- Tab principale -->
 	<string name="tab_calendario">Agenda</string>
@@ -32,4 +36,9 @@
 	
 	<!-- Dettagli terapia -->
 	<string name="alert_dettagli_nome_farmaco">Please insert the name of the drug</string>
+	<string name="alert_dettagli_dose_farmaco">Enter the dose you need to take</string>
+	<string name="hint_dettagli_nome_farmaco">Please insert the name</string>
+	<string name="hint_dettagli_dose">Dose</string>
+	<string name="lb_nuovo_farmaco">New drug</string>
+	<string name="lb_dettagli_farmaco">Drug details</string>
 </resources>
