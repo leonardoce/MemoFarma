@@ -3,3 +3,10 @@
   
 }
 
+"#lb_pressione":{
+	text: L("lb_pressione")
+}
+
+"#lb_frequenza":{
+	text: L("lb_frequenza")
+}

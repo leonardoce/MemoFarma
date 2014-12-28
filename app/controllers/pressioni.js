@@ -25,7 +25,7 @@ function doReport()
 	
 	if (dati.length===0)
 	{
-		alert("Il report e' vuoto");
+		alert(L("alert_report_vuoto"));
 	}
 	else
 	{
@@ -34,7 +34,7 @@ function doReport()
 		Ti.API.info(testo);
 		f.write(testo);
 	
-		EmailUtils.inviaMail("Report pressioni, formato CSV", "Allego quanto in oggetto", f);
+		EmailUtils.inviaMail(L("lb_report_pressione_csv"), L("lb_allego_quanto_in_oggetto"), f);
 	}
 }
 
@@ -44,7 +44,7 @@ function doReportHTML()
 	
 	if (dati.length===0)
 	{
-		alert("Il report e' vuoto");
+		alert(L("alert_report_vuoto"));
 	}
 	else
 	{
@@ -53,7 +53,7 @@ function doReportHTML()
 		Ti.API.info(testo);
 		f.write(testo);
 	
-		EmailUtils.inviaMail("Report pressioni, formato HTML", "Allego quanto in oggetto", f);
+		EmailUtils.inviaMail(L("lb_report_pressione_html"), L("lb_allego_quanto_in_oggetto"), f);
 	}
 }
 
@@ -74,11 +74,11 @@ function doTransform(model)
 	o.testo_pressione = o.massima + " / " + o.minima;
 	if (StringUtils.string2logic(o.automisurazione))
 	{
-		o.tipo = "Automisurazione";
+		o.tipo = L("cb_automisurazione");
 	}
 	else
 	{
-		o.tipo = "Rilevata da altri";
+		o.tipo = L("lb_rilevata_altri");
 	}
 
 	if (o.nota)
