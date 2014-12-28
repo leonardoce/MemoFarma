@@ -10,3 +10,4 @@ tmp
 Thumbs.db
 *.swp
 *~
+dist_playstore/

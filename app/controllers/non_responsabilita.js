@@ -3,7 +3,6 @@ var args = arguments[0] || {};
 function doVaiMemofarma(e)
 {
     Alloy.createController("tabprincipale").getView().open();
-    $.non_responsabilita.close();
     Ti.App.Properties.setBool("non_responsabilita_aperto", true);
 }
 
