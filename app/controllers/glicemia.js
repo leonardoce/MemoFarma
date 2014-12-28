@@ -25,7 +25,7 @@ function doReport()
 	
 	if (dati.length===0)
 	{
-		alert("Il report e' vuoto");
+		alert(L("alert_report_vuoto"));
 	}
 	else
 	{	
@@ -34,7 +34,7 @@ function doReport()
 		Ti.API.info(testo);
 		f.write(testo);
 	
-		EmailUtils.inviaMail("Report glicemia, formato CSV", "Allego quanto in oggetto", f);
+		EmailUtils.inviaMail(L("lb_report_glicemia_csv"), L("lb_allego_quanto_in_oggetto"), f);
 	}
 }
 
@@ -44,7 +44,7 @@ function doReportHTML()
 	
 	if (dati.length===0)
 	{
-		alert("Il report e' vuoto");
+		alert(L("alert_report_vuoto"));
 	}
 	else
 	{
@@ -53,7 +53,7 @@ function doReportHTML()
 		Ti.API.info(testo);
 		f.write(testo);
 	
-		EmailUtils.inviaMail("Report glicemia, formato HTML", "Allego quanto in oggetto", f);
+		EmailUtils.inviaMail(L("lb_report_glicemia_html"), L("lb_allego_quanto_in_oggetto"), f);
 	}
 }
 

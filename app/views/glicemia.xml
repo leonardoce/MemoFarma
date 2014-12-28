@@ -6,7 +6,7 @@
 					<View class="riga" layout="vertical">
 						<Label bindId="data" width="Ti.UI.FILL" height="20dp" class="titolo"/>
 						<View layout="horizontal" height="20dp" width="Ti.UI.FILL">
-							<Label text="Glicemia:" class="titoloCella"/>
+							<Label id="lb_glicemia" text="Glicemia:" class="titoloCella"/>
 							<Label bindId="glicemia" height="20dp"/>
 						</View>
 						<Label bindId="nota" width="Ti.UI.FILL" height="Ti.UI.SIZE"/>

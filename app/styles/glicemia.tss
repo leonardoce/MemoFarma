@@ -2,3 +2,15 @@
 ".container" : {
   
 }
+
+"#lb_glicemia":{
+	text: L("lb_glicemia")
+}
+
+"#list":{
+	
+}
+
+"#section":{
+	
+}
