@@ -33,6 +33,11 @@
 	<string name="cb_automisurazione">Automisurazione</string>
 	<string name="alert_pressione_massima">Inserire correttamente la pressione massima</string>
 	<string name="alert_pressione_minima">Inserire correttamente la pressione minima</string>
+	<string name="lb_report_pressione_html">Report pressione, formato HTML</string>
+	<string name="lb_report_pressione_csv">Report pressione, formato CSV</string>
+	<string name="lb_pressione">Pressione:</string>
+	<string name="lb_frequenza">Frequenza:</string>
+	<string name="lb_rilevata_altri">Rilevata da altri</string>
 	
 	<!-- Esclusione di responsabilita -->
 	<string name="bt_vai_memofarma">Vai a Memofarma</string>
