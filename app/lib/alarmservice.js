@@ -1,6 +1,7 @@
 // Questo codice dovrebbe essere eseguito direttamente
 // dall'allarme che viene generato dall'inserimento delle terapie
 var GestoreAllarmi = require("GestoreAllarmi");
+var moment = require("moment-with-locales");
 var ID_NOTIFICATION = 1335;
 
 // Qua dobbiamo assicurarci che alloy sia
@@ -15,7 +16,7 @@ else
     Ti.API.info("Alloy risulta caricato correttamente");
 }
 
-Ti.API.info("controllo se ci sono farmaci da prendere");
+Ti.API.info("controllo se ci sono farmaci da prendere (" + moment().format() + ")" );
 
 var terapieNonPrese = GestoreAllarmi.controllaTerapieDiOggi();
 if (terapieNonPrese.length>0)
