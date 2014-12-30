@@ -37,21 +37,10 @@ function attivaGestioneAllarmi() {
 			minute : ora[1],
 			hour : ora[0],
 			year : moment().year(),
-			repeat : "daily",
-			interval : INTERVALLO_MINUTI * MINUTES
+			repeat : "daily"
 		});
 		Ti.API.info("Attivo allarme " + terapie[i].terapia_id + " per " + ora[0] + ":" + ora[1]);
 	}
-
-	// Avvio il servizio se non e' avviato
-	Ti.API.info("Gestione del servizio in corso...");
-	var serviceIntent = Titanium.Android.createServiceIntent({
-		url : 'alarmservice.js'
-	});
-	serviceIntent.putExtra('interval', INTERVALLO_MINUTI * MINUTES);
-
-	Ti.Android.stopService(serviceIntent);
-	Ti.Android.startService(serviceIntent);
 }
 
 /**
