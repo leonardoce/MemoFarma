@@ -37,7 +37,8 @@ function attivaGestioneAllarmi() {
 			minute : ora[1],
 			hour : ora[0],
 			year : moment().year(),
-			repeat : "daily"
+			repeat : "daily",
+			forceRestart: true
 		});
 		Ti.API.info("Attivo allarme " + terapie[i].terapia_id + " per " + ora[0] + ":" + ora[1]);
 	}
