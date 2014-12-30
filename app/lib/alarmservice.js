@@ -42,28 +42,28 @@ function aggiungiNotifica() {
  * Suona il file finche' il servizio non viene terminato
  */
 function suonaFortePerSempre() {
-  Ti.API.info("Via all'audio");
-  
-  var audioPlayer = Ti.Media.createAudioPlayer({ 
-    url: Ti.Filesystem.getResRawDirectory() + "notifica.mp3",
-    allowBackground: true,
-    volume: 1
-  });           
-
-  audioPlayer.addEventListener('complete', function(e) {
-    audioPlayer.release();
+    Ti.API.info("Via all'audio");
+    
+    var audioPlayer = Ti.Media.createAudioPlayer({ 
+        url: Ti.Filesystem.getResRawDirectory() + "notifica.mp3",
+        allowBackground: true,
+        volume: 1
+    });           
+    
+    audioPlayer.addEventListener('complete', function(e) {
+        audioPlayer.release();
+        audioPlayer.start();
+    });
+    
     audioPlayer.start();
-  });
-  
-  audioPlayer.start();
 }
 
 function main() {
-  // Intanto mando la notifica
-  aggiungiNotifica();
-
-  // Adesso suono a tutta canna!
-  suonaFortePerSempre();
+    // Intanto mando la notifica
+    aggiungiNotifica();
+    
+    // Adesso suono a tutta canna!
+    suonaFortePerSempre();
 }
 
 Ti.API.info("Il servizio inizia la sua esecuzione");
