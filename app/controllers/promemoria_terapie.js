@@ -1,9 +1,7 @@
 var args = arguments[0] || {};
 var GestoreAllarmi = require("GestoreAllarmi");
 var leoModule = require("it.interfree.leonardoce.bootreceiver");
-
-// TODO: Metti un numero con un po' di senso
-var RIPETIZIONE_ALLARME_MINUTI = 2;
+var RIPETIZIONE_ALLARME_MINUTI = 15;
 
 function clear()
 {
