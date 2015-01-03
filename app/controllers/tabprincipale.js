@@ -81,31 +81,3 @@ function doDonazione(e)
 {
     Alloy.createController("donazione").getView().open();
 }
-
-function doSwipe(e)
-{
-    var TabGroupUtils = require("TabGroupUtils");
-    var activeIdx = TabGroupUtils.getActiveTabIndex($.tabprincipale);
-    if (activeIdx==(-1))
-    {
-	return;
-    }
-
-    if (e.direction=="left")
-    {
-	activeIdx++;
-    }
-    else if(e.direction=="right")
-    {
-	activeIdx--;
-    }
-    else
-    {
-	return;
-    }
-
-    if (activeIdx>=0 && activeIdx<$.tabprincipale.tabs.length)
-    {
-	TabGroupUtils.setActiveTabIndex($.tabprincipale, activeIdx);
-    }
-}
