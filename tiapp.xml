@@ -42,23 +42,12 @@
     <android xmlns:android="http://schemas.android.com/apk/res/android">
         <manifest>
             <application android:theme="@style/Light">
-                <!--receiver android:enabled="true" android:name="it.interfree.leonardoce.bootreceiver.BootReceiver">
-                    <meta-data android:name="interval_sec" android:value="60"/>
-                    <meta-data android:name="class_name" android:value="it.interfree.leonardoce.memofarma.AlarmserviceService"/>
-                    <intent-filter>
-                        <action android:name="android.intent.action.BOOT_COMPLETED" />
-                    </intent-filter>
-                </receiver-->
                 <service name="it.interfree.leonardoce.bootreceiver.AlarmKlaxon"/>
     	    </application>
             <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="19"/>
             <uses-permission android:name="android.permission.VIBRATE"/>
             <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
         </manifest>
-        <!--services>
-            <service url="service.js" type="standard"/>
-            <service name="it.interfree.leonardoce.bootreceiver.AlarmKlaxon"/>
-        </services-->
     </android>
     <mobileweb>
         <precache/>
