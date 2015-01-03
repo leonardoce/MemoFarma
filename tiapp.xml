@@ -68,7 +68,6 @@
     </mobileweb>
     <modules>
       <module platform="android">it.interfree.leonardoce.bootreceiver</module>
-      <module platform="android">bencoding.alarmmanager</module>
     </modules>
     <deployment-targets>
         <target device="android">true</target>
