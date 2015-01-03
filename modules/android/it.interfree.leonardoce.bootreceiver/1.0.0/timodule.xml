@@ -9,6 +9,11 @@
 	<android xmlns:android="http://schemas.android.com/apk/res/android">
         <manifest>
             <application>
+                <receiver android:enabled="true" android:name="it.interfree.leonardoce.bootreceiver.BootReceiver">
+                    <intent-filter>
+                        <action android:name="android.intent.action.BOOT_COMPLETED" />
+                    </intent-filter>
+                </receiver>
             	<receiver android:name="it.interfree.leonardoce.bootreceiver.AlarmListener" />
                 <service name="it.interfree.leonardoce.bootreceiver.AlarmKlaxon"/>
             </application>

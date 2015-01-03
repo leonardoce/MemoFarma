@@ -32,6 +32,22 @@ if (tipologia=="terapie_non_somministrate")
     // la pagina delle notifiche
     Alloy.createController("promemoria_terapie").getView().open();
 }
+else if(tipologia=="controllo_al_boot")
+{
+	// Questo e' il controllo al boot.
+	// Devo vedere se ci sono terapie da prendere e, se ce ne sono, attivo
+	// un allarme che fra 5 minuti suonera'!
+	Ti.API.info("Controllo al boot in corso...");
+	var da_prendere = GestoreAllarmi.controllaTerapieDiOggi();
+	if (da_prendere.length>0) {
+		Ti.API.info("Fra 5 minuti suonera'...");
+		var leoModule = require("it.interfree.leonardoce.bootreceiver");
+	    leoModule.ripetiAllarmeFraMinuti(5);
+	}
+
+	var activity = Titanium.Android.currentActivity;
+	activity.finish();
+}
 else if (!Ti.App.Properties.getBool("non_responsabilita_aperto", false))
 {
 	GestoreAllarmi.attivaGestioneAllarmi();
