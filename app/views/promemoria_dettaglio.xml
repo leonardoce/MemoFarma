@@ -1,10 +1,6 @@
 <Alloy>
-	<View class="container" layout="horizontal" height="125dp" width="Ti.UI.FILL">
-		<View layout="vertical" width="150dp">
-			<Button id="lb_presa" width="100dp" onClick="doPresa"/>
-			<Button id="lb_non_presa" width="100dp" onClick="doNonLaPrendo"/>
-		</View>
-		<View layout="vertical" width="Ti.UI.FILL">
+	<View class="container" layout="vertical" height="125dp" width="Ti.UI.FILL" onPostlayout="doPostLayout">
+		<View layout="vertical" height="45dp" width="Ti.UI.FILL">
 			<View layout="horizontal" height="20dp">
 				<Label class="titolo" text="Ora" width="40dp"/>
 				<Label id="ora" width="100dp"/>
@@ -13,6 +9,11 @@
 				<Label class="titolo" text="Farmaco" width="40dp"/>
 				<Label id="farmaco" width="100dp"/>
 			</View>
+		</View>
+		<View layout="horizontal" height="90dp" width="Ti.UI.FILL" id="contenitore">
+			<Button id="lb_presa" width="100dp" onClick="doPresa"/>
+			<Label id="spaziatore" width="20dp"/>
+			<Button id="lb_non_presa" width="200dp" onClick="doNonLaPrendo"/>
 		</View>
 	</View>
 </Alloy>

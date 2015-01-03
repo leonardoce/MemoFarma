@@ -37,6 +37,15 @@ function doNonLaPrendo()
 	}
 }
 
+function doPostLayout()
+{
+    var larghezza = $.contenitore.size.width;
+    larghezza = larghezza - $.lb_presa.size.width;
+    larghezza = larghezza - $.lb_non_presa.size.width;
+
+    $.spaziatore.width = larghezza;
+}
+
 if (args.terapia)
 {
 	$.ora.text = args.terapia.ora;
