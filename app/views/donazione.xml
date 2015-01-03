@@ -1,5 +1,5 @@
 <Alloy>
-	<Window class="container" layout="vertical">
+	<Window class="container" layout="vertical" onAndroidback="doAndroidBack">
 		<ActionBar platform="android" homeButtonEnabled="true" displayHomeAsUp="true" onHomeIconItemSelected="onHomeIcon"/>
 		<WebView id="paginaweb" width="Ti.UI.FILL" height="Ti.UI.FILL" url="/tutorial/tutorial.html" />
 	</Window>

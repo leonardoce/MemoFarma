@@ -4,6 +4,14 @@ function onHomeIcon(e) {
 	$.donazione.close();
 }
 
+function doAndroidBack() {
+	if ($.paginaweb.canGoBack()) {
+		$.paginaweb.goBack();
+	} else {
+		$.donazione.close();
+	}
+}
+
 var currentLocale = Titanium.Locale.currentLanguage;
 if(currentLocale!=="it" && currentLocale!=="en") 
 {
