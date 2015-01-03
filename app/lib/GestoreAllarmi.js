@@ -24,8 +24,6 @@ function attivaGestioneAllarmi() {
 	terapie.fetch();
 	terapie = terapie.toJSON();
 
-	leoModule.clearAllAlarms();
-
 	for (var i = 0; i < terapie.length; i++) {
 		var ora = terapie[i].ora.split(":").map(function(x) {
 			return parseInt(x, 10);
@@ -39,7 +37,7 @@ function attivaGestioneAllarmi() {
  * Cancella un allarme per una certa terapia
  */
 function cancellaAllarmePerTerapia(terapia) {
-	attivaGestioneAllarmi();
+	leoModule.clearAlarm(terapia.get("terapia_id"));
 }
 
 /**
