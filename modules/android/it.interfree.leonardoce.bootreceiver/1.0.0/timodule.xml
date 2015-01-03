@@ -10,12 +10,10 @@
         <manifest>
             <application>
             	<receiver android:name="it.interfree.leonardoce.bootreceiver.AlarmListener" />
+                <service name="it.interfree.leonardoce.bootreceiver.AlarmKlaxon"/>
             </application>
             <uses-permission android:name="android.permission.WAKE_LOCK" />
         </manifest>
-        <services>
-		    <service android:name="it.interfree.leonardoce.bootreceiver.AlarmKlaxon"/>
-		</services>
 	</android>
 	<mobileweb>
 	</mobileweb>

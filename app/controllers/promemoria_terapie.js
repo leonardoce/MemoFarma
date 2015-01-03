@@ -2,6 +2,9 @@ var args = arguments[0] || {};
 var GestoreAllarmi = require("GestoreAllarmi");
 var leoModule = require("it.interfree.leonardoce.bootreceiver");
 
+// TODO: Metti un numero con un po' di senso
+var RIPETIZIONE_ALLARME_MINUTI = 2;
+
 function clear()
 {
     $.scroller.removeAllChildren();
@@ -30,8 +33,15 @@ function refresh()
 
 function doOpen(e)
 {
+    leoModule.cancellaAllarmePerRipetizione();
     refresh();
 }	
+
+function doRipeti() {
+    // TODO: Metti un numero con un po' di senso
+    leoModule.ripetiAllarmeFraMinuti(2);
+    $.lb_promemoria_terapie.close();
+}
 
 function doClose(e)
 {

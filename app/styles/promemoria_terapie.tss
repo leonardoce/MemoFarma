@@ -8,5 +8,9 @@
 }
 
 "#scroller":{
-	
+	top: 10	
+}
+
+"#bt_ripeti": {
+	title: L("bt_ripeti")
 }

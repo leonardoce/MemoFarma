@@ -16,6 +16,7 @@
 	<string name="lb_dose">Dose:</string>
 	<string name="lb_N_A">N.A.</string>
 	<string name="lb_promemoria_terapie">Reminder drugs</string>
+	<string name="bt_ripeti">Remind me in 15 minutes</string>
 
 	<!-- Tab principale -->
 	<string name="tab_calendario">Agenda</string>
