@@ -8,6 +8,8 @@
 			<MenuItem title="Aiuto" onClick="doAiuto" 
 				icon="/images/aiuto.png"
 				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
+			<MenuItem id="donazione" onClick="doDonazione" 
+				showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
 			<MenuItem id="export_csv" onClick="doReport" 
 				showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
 			<MenuItem id="export_html" onClick="doReportHTML" 

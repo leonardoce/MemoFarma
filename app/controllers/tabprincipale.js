@@ -77,6 +77,11 @@ function doFocus(e)
     $.tabprincipale.title = titolo;
 }
 
+function doDonazione(e) 
+{
+    Alloy.createController("donazione").getView().open();
+}
+
 function doSwipe(e)
 {
     var TabGroupUtils = require("TabGroupUtils");

@@ -42,3 +42,7 @@
 "#export_html": {
 	title: L("menu_export_html")
 }
+
+"#donazione": {
+	title: L("menu_donazione")
+}

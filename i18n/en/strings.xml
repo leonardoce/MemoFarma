@@ -25,6 +25,7 @@
 	<string name="tab_glicemia">Blood Sugar</string>
 	<string name="menu_export_csv">Export as spreadsheet</string>
 	<string name="menu_export_html">Export as document</string>
+	<string name="menu_donazione">Buy me a coffee</string>
 	
 	<!-- Glicemia -->
 	<string name="hint_tf_glicemia">Blood sugar level</string>
