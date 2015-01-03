@@ -1,5 +1,6 @@
 var args = arguments[0] || {};
 var GestoreAllarmi = require("GestoreAllarmi");
+var leoModule = require("it.interfree.leonardoce.bootreceiver");
 
 function clear()
 {
@@ -13,8 +14,8 @@ function refresh()
 
     if (terapieDiOggi.length===0)
     {
-	$.lb_promemoria_terapie.close();
-	return;
+    	$.lb_promemoria_terapie.close();
+    	return;
     }
     
     clear();
@@ -35,4 +36,5 @@ function doOpen(e)
 function doClose(e)
 {
     clear();
+    leoModule.interrompiSuoneria();
 }
