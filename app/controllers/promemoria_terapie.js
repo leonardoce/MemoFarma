@@ -36,8 +36,7 @@ function doOpen(e)
 }	
 
 function doRipeti() {
-    // TODO: Metti un numero con un po' di senso
-    leoModule.ripetiAllarmeFraMinuti(2);
+    leoModule.ripetiAllarmeFraMinuti(RIPETIZIONE_ALLARME_MINUTI);
     $.lb_promemoria_terapie.close();
 }
 
