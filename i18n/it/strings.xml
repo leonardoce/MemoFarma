@@ -25,7 +25,7 @@
 	<string name="tab_glicemia">Glicemia</string>
 	<string name="menu_export_csv">Esporta in foglio di calcolo</string>
 	<string name="menu_export_html">Esporta in documento</string>
-	<string name="menu_donazione">Offrici un caffe'</string>
+	<string name="menu_donazione">Offrici un caffè</string>
 		
 	<!-- Glicemia -->
 	<string name="hint_tf_glicemia">Rilevazione glicemica</string>
