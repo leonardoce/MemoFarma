@@ -1,0 +1,27 @@
+
+".container" : {
+  
+},
+
+"#tf_nome": {
+	autocorrect: false,
+	hintText: L("hint_dettagli_nome_farmaco")
+},
+
+"#tf_dose": {
+	autocorrect: false,
+	keyboardType: Titanium.UI.KEYBOARD_DECIMAL_PAD,
+	hintText: L("hint_dettagli_dose")
+}
+
+"#aggiungiItem": {
+	title: L("bt_salva")
+}
+
+"#pk_ora": {
+	
+}
+
+"#cancellaItem":{
+	title: L("bt_elimina")
+}

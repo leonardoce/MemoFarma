@@ -21,6 +21,11 @@ function doAggiungi()
     {
 	$.glicemia.doAggiungiGlicemia();
     }
+    else if (activeIdx==INDICE_CALENDARIO)
+    {
+    	var nuovoModello = Alloy.createModel("somministrazione");
+    	Alloy.createController("dettagli_somministrazione", {modello: nuovoModello}).getView().open();
+    }
 }
 
 function doReport()
