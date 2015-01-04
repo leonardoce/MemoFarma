@@ -26,7 +26,7 @@
 	<string name="menu_export_csv">Export as spreadsheet</string>
 	<string name="menu_export_html">Export as document</string>
 	<string name="menu_donazione">Buy me a coffee</string>
-	<string name="menu_contattaci">Contact us...</string>
+	<string name="menu_contattaci">Contact us</string>
 	
 	<!-- Glicemia -->
 	<string name="hint_tf_glicemia">Blood sugar level</string>
