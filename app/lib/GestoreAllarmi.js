@@ -3,21 +3,31 @@ var Alloy = require("alloy");
 var moment = require("moment-with-locales");
 var leoModule = require('it.interfree.leonardoce.bootreceiver');
 
-var MINUTES = 60 * 1000;
-var ID_ALLARME = 1223;
-var INTERVALLO_MINUTI = 1;
-
 /**
- * Viene attivato un allarme eseguito ogni 5 minuti ed alla
- * ricezione l'applicazione controlla se ci sono delle terapie che dovono
- * essere ancora prese. Se ci sono allora viene messa una notifica in modo
- * che l'utente se ne accorga.
+ * Carica tutte le somministrazioni di oggi in formato JSON
  */
+function dammiSomministrazioniDiOggi() {
+	var dataOggi = StringUtils.timestampToSql(new Date());	
+	var somministrazioni = Alloy.createCollection("somministrazione");
+
+	somministrazioni.fetch({
+		query : {
+			statement : "select * from somministrazione where quando like ? order by quando",
+			params : [dataOggi.substring(0, 8) + '%']
+		}
+	});
+
+	somministrazioni = somministrazioni.toJSON();
+	return somministrazioni;
+}
 
 /**
  * Attiva la gestione degli allarmi
  */
 function attivaGestioneAllarmi() {
+	// Vediamo quello che e' stato preso oggi
+	var somministrazioni = dammiSomministrazioniDiOggi();
+
 	// Schedulo gli allarmi
 	Ti.API.info("Gestione degli allarmi in corso...");
 	var terapie = Alloy.createCollection("terapie");
@@ -28,8 +38,17 @@ function attivaGestioneAllarmi() {
 		var ora = terapie[i].ora.split(":").map(function(x) {
 			return parseInt(x, 10);
 		});
-		leoModule.addAlarm(ora[0], ora[1], terapie[i].terapia_id);
-		Ti.API.info("Attivo allarme " + terapie[i].terapia_id + " per " + ora[0] + ":" + ora[1]);
+
+		if (terapie[i].considera_data_fine !== 0 && moment(StringUtils.sqlToTimestamp(terapie[i].data_fine)).hours(23).minutes(59).isBefore(moment())) {
+			Ti.API.info("La terapia con ID " + StringUtils.box(terapie[i].terapia_id) + " e' finita");
+			leoModule.clearAlarm(terapie[i].terapia_id);
+		} else if (controllaSeSomministrata(terapie[i], somministrazioni)) {
+			Ti.API.info("La terapia con ID " + StringUtils.box(terapie[i].terapia_id) + " e' gia' stata somministrata. Inizio da domani.");
+			leoModule.addAlarmDomani(ora[0], ora[1], terapie[i].terapia_id);
+		} else {
+			Ti.API.info("La terapia con ID " + StringUtils.box(terapie[i].terapia_id) + " NON e' gia' stata somministrata. Inizio da oggi.");
+			leoModule.addAlarmOggi(ora[0], ora[1], terapie[i].terapia_id);
+		}
 	}
 }
 
@@ -45,23 +64,15 @@ function cancellaAllarmePerTerapia(terapia) {
  * non sono state prese
  */
 function controllaTerapieDiOggi() {
-	var somministrazioni = Alloy.createCollection("somministrazione");
 	var terapie = Alloy.createCollection("terapie");
 
-	var dataOggi = StringUtils.timestampToSql(new Date());
 	var dataIeri = StringUtils.timestampToSql(moment().subtract(1, 'day').toDate());
 	var oraCorrente = StringUtils.dateToOra(new Date());
 
-	somministrazioni.fetch({
-		query : {
-			statement : "select * from somministrazione where quando like ? order by quando",
-			params : [dataOggi.substring(0, 8) + '%']
-		}
-	});
 	terapie.fetch();
 
 	terapie = terapie.toJSON();
-	somministrazioni = somministrazioni.toJSON();
+	somministrazioni = dammiSomministrazioniDiOggi();
 
 	var terapieNonPrese = [];
 	for (var i = 0; i < terapie.length; i++) {
