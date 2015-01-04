@@ -3,17 +3,6 @@ var Alloy = require("alloy");
 var moment = require("moment-with-locales");
 var leoModule = require('it.interfree.leonardoce.bootreceiver');
 
-var MINUTES = 60 * 1000;
-var ID_ALLARME = 1223;
-var INTERVALLO_MINUTI = 1;
-
-/**
- * Viene attivato un allarme eseguito ogni 5 minuti ed alla
- * ricezione l'applicazione controlla se ci sono delle terapie che dovono
- * essere ancora prese. Se ci sono allora viene messa una notifica in modo
- * che l'utente se ne accorga.
- */
-
 /**
  * Attiva la gestione degli allarmi
  */
