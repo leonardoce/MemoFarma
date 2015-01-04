@@ -40,11 +40,16 @@ else if(tipologia=="controllo_al_boot")
 	Ti.API.info("Controllo al boot in corso...");
 	var da_prendere = GestoreAllarmi.controllaTerapieDiOggi();
 	if (da_prendere.length>0) {
-		Ti.API.info("Fra 5 minuti suonera'...");
+		Ti.API.info("Fra 2 minuti suonera'...");
 		var leoModule = require("it.interfree.leonardoce.bootreceiver");
-	    leoModule.ripetiAllarmeFraMinuti(5);
+	    leoModule.ripetiAllarmeFraMinuti(2);
 	}
 
+	// Oltre a questo alcuni telefoni (vedi Samsung Galaxy Grand) perdono
+	// tutti gli allarmi al boot. Son misteri.
+	GestoreAllarmi.attivaGestioneAllarmi();	
+
+	// Ho finito i miei controlli
 	var activity = Titanium.Android.currentActivity;
 	activity.finish();
 }
