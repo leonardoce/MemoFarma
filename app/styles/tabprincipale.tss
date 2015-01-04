@@ -46,3 +46,7 @@
 "#donazione": {
 	title: L("menu_donazione")
 }
+
+"#contattaci": {
+	title: L("menu_contattaci")
+}

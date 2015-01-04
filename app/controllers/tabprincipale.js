@@ -81,3 +81,21 @@ function doDonazione(e)
 {
     Alloy.createController("donazione").getView().open();
 }
+
+function doContattaci(e) 
+{
+    var datiTecnici = "--\n";
+    datiTecnici += "Dati per supporto tecnico:";
+    datiTecnici += "\n";
+    datiTecnici += "MemoFarma\n";
+    datiTecnici += "Versione: " + Ti.App.version + "\n";
+    datiTecnici += "Produttore: " + Ti.Platform.manufacturer + "\n";
+    datiTecnici += "Modello: " + Ti.Platform.model + "\n";
+    datiTecnici += "Sistema operativo: " + Ti.Platform.osname + " " + Ti.Platform.ostype + " " + Ti.Platform.version + "\n";
+    datiTecnici += "Processori: " + Ti.Platform.processorCount + "\n";
+    datiTecnici += "JS Runtime: " + Ti.Platform.runtime + "\n";
+    datiTecnici += "--\n\n";
+
+    var EmailUtils = require("EmailUtils");
+    EmailUtils.inviaMailConDestinatario("MemoFarma", "graphmouse@gmail.com", datiTecnici);
+}
