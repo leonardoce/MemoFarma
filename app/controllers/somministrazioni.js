@@ -3,7 +3,8 @@ var StringUtils = require("StringUtils");
 var GestoreReport = require("GestoreReport");
 var EmailUtils = require("EmailUtils");
 var moment = require("moment-with-locales");
-
+var carica = "";
+var caricaData = null;
 
 function doTransform(model)
 {
@@ -38,7 +39,20 @@ function onItemClick(e) {
 
 function onChiusiDettagli(e) {
 	e.source.removeEventListener("close", onChiusiDettagli);
-	caricaTutte(); // TODO
+	
+	if(carica === "caticaTutte"){
+		caricaTutte();
+	}
+	else if(carica === "caricaMese"){
+		if(caricaData != null){
+			caricaMese(caricaData);
+		}
+	}
+	else if(carica === "caricaGiorno"){
+		if(caricaData != null){
+			caricaGiorno(caricaData);
+		}
+	}
 }
 
 function caricaTutte()
@@ -46,6 +60,9 @@ function caricaTutte()
     Alloy.Collections.somministrazione.fetch({
 	query: 'select * from somministrazione order by quando desc'
     });
+    
+    carica = "caricaTutte";
+    caricaData = null;
 }
 
 function caricaMese(data)
@@ -61,6 +78,9 @@ function caricaMese(data)
 
     Ti.API.info(data);
     $.somministrazioni.title = L("lb_somministrazioni") + moment(data).format("MMMM YYYY");
+    
+    carica = "caricaMese";
+    caricaData = data;
 }
 
 function caricaGiorno(data)
@@ -75,6 +95,8 @@ function caricaGiorno(data)
     });
 
     $.somministrazioni.title = L("lb_somministrazioni") + moment(data).format("LL");
+    carica = "caricaGiorno";
+    caricaData = data;
 }
 
 $.caricaTutte = caricaTutte;
