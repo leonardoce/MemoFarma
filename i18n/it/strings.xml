@@ -72,5 +72,7 @@
 	<string name="lb_report_somministrazioni_html">Report somministrazioni, formato HTML</string>
 	<string name="lb_report_somministrazioni_csv">Report somministrazioni, formato CSV</string>
 	<string name="lb_somministrazioni">Somministrazioni: </string>
+	<string name="lb_nuova_somministrazione">Nuova somministrazione</string>
+	<string name="lb_dettagli_somministrazione">Dettagli somministrazione</string>
 	
 </resources>

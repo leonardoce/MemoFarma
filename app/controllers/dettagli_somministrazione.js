@@ -2,15 +2,15 @@ var args = arguments[0] || {};
 var StringUtils = require("StringUtils");
 
 function onSalva() {
-	/*if (args.modello) {
-		args.modello.set({
-			nome : $.tf_nome.value,
-			dose : $.tf_dose.value,
-			ora : StringUtils.dateToOra($.pk_ora.value)
-		});
+	if ($.tf_nome.value.length == 0) {
+		alert(L("alert_dettagli_nome_farmaco"));
+		return;
+	}
 
-		args.modello.save();
-	}*/
+	if ($.tf_dose.value.length == 0) {
+		alert(L("alert_dettagli_dose_farmaco"));
+		return;
+	}
 	
 	Alloy.createModel("somministrazione", {
 		quando: StringUtils.timestampToSql($.pk_ora.value),
@@ -37,9 +37,9 @@ function onOpen() {
 		}
 		
 		if (!args.modello.get("somministrazione_id")) {
-			$.dettagli_somministrazione.activity.actionBar.title = L("lb_nuovo_farmaco");
+			$.dettagli_somministrazione.activity.actionBar.title = L("lb_nuova_somministrazione");
 		} else {
-			$.dettagli_somministrazione.activity.actionBar.title = L("lb_dettagli_farmaco");
+			$.dettagli_somministrazione.activity.actionBar.title = L("lb_dettagli_somministrazione");
 		}
 	}	
 	$.dettagli_somministrazione.activity.invalidateOptionsMenu();

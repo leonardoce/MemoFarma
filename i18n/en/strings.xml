@@ -72,5 +72,7 @@
 	<string name="lb_report_sommonistrazioni_html">Report administration, HTML format</string>
 	<string name="lb_report_sommonistrazioni_csv">Report administration , CSV format</string>
 	<string name="lb_somministrazioni">Administrations: </string>
+	<string name="lb_nuova_somministrazione">New administration</string>
+	<string name="lb_dettagli_somministrazione">Administration details</string>
 	
 </resources>
