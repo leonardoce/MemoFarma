@@ -26,6 +26,21 @@ function doHomeClick()
     $.somministrazioni.close();
 }
 
+function onItemClick(e) {
+	var somministrazione_id = $.list.getSections()[e.sectionIndex].items[e.itemIndex].properties.somministrazione_id;
+	var item = Alloy.Collections.somministrazione.get(somministrazione_id);
+	var wnd = Alloy.createController("dettagli_somministrazione", {
+		modello : item
+	}).getView();
+	wnd.addEventListener("close", onChiusiDettagli);
+	wnd.open();
+}
+
+function onChiusiDettagli(e) {
+	e.source.removeEventListener("close", onChiusiDettagli);
+	caricaTutte(); // TODO
+}
+
 function caricaTutte()
 {
     Alloy.Collections.somministrazione.fetch({

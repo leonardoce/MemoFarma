@@ -1,7 +1,7 @@
 <Alloy>
   <Window class="container">
     <ActionBar platform="android" displayHomeAsUp="true" onHomeIconItemSelected="doHomeClick"/>
-    <ListView id="list" width="Ti.UI.FILL" height="Ti.UI.FILL">
+    <ListView id="list" width="Ti.UI.FILL" height="Ti.UI.FILL" onItemclick="onItemClick">
       <Templates>
 	<ItemTemplate name="somministrazione">
 	  <View class="riga" layout="horizontal" height="65dp">
@@ -23,7 +23,7 @@
 
       <ListSection id="section" dataCollection="somministrazione" dataTransform="doTransform">
 	<ListItem template="somministrazione" nome:text="{nome}" dose:text="{dose}"
-		  data:text="{testo_data}"
+		  data:text="{testo_data}" somministrazione_id="{somministrazione_id}" 
 		  stato:image="{stato}"/>
       </ListSection>
     </ListView>

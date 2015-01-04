@@ -3,6 +3,7 @@ var INDICE_CALENDARIO = 0;
 var INDICE_TERAPIE = 1;
 var INDICE_PRESSIONI = 2;
 var INDICE_GLICEMIE = 3;
+var StringUtils = require("StringUtils");
 
 function doAggiungi()
 {
@@ -24,6 +25,9 @@ function doAggiungi()
     else if (activeIdx==INDICE_CALENDARIO)
     {
     	var nuovoModello = Alloy.createModel("somministrazione");
+    	nuovoModello.set({
+			quando : StringUtils.timestampToSql(new Date()),
+		});
     	Alloy.createController("dettagli_somministrazione", {modello: nuovoModello}).getView().open();
     }
 }

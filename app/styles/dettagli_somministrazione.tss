@@ -18,8 +18,16 @@
 	title: L("bt_salva")
 }
 
-"#pk_ora": {
+"#lb_rilevazione": {
 	
+}
+
+"#bt_scegli_data": {
+	title: L("bt_scegli_data")
+}
+
+"#bt_scegli_ora": {
+	title: L("bt_scegli_ora")
 }
 
 "#cancellaItem":{

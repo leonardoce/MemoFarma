@@ -10,7 +10,11 @@
     <ScrollView width="Ti.UI.FILL" height="Ti.UI.FILL" layout="vertical">
       <TextField id="tf_nome" width="Ti.UI.FILL"/>
       <TextField id="tf_dose" width="Ti.UI.FILL"/>
-      <Picker id="pk_ora" type="Ti.UI.PICKER_TYPE_TIME"/>
+      <View layout="horizontal" height="50dp">
+		<Label id="lb_rilevazione"/>
+		<Button id="bt_scegli_data" onClick="doScegliData"/>
+		<Button id="bt_scegli_ora" onClick="doScegliOra"/>
+	  </View>
     </ScrollView>
   </Window>
 </Alloy>
