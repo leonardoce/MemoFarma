@@ -108,3 +108,8 @@ function doContattaci(e)
     var EmailUtils = require("EmailUtils");
     EmailUtils.inviaMailConDestinatario("MemoFarma", "graphmouse@gmail.com", datiTecnici);
 }
+
+function doOpen() 
+{
+    $.tabprincipale.activity.invalidateOptionsMenu();
+}

@@ -1,5 +1,5 @@
 <Alloy>
-	<TabGroup class="container" onFocus="doFocus">
+	<TabGroup class="container" onFocus="doFocus" onOpen="doOpen">
 		<ActionBar platform="android" title="MemoFarma"/>
 		<Menu>
 			<MenuItem onClick="doAggiungi" 
