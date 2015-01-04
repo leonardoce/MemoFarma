@@ -35,6 +35,8 @@
 	<string name="lb_glicemia">Glicemia:</string>
 	<string name="lb_report_glicemia_html">Report glicemia, formato HTML</string>
 	<string name="lb_report_glicemia_csv">Report glicemia, formato CSV</string>
+	<string name="lb_nuova_glicemia">Nuova glicemia</string>
+	<string name="lb_dettagli_glicemia">Dettagli glicemia</string>
 	
 	<!-- Pressioni -->
 	<string name="hint_tf_massima">Pressione massima</string>
@@ -48,6 +50,8 @@
 	<string name="lb_pressione">Pressione:</string>
 	<string name="lb_frequenza">Frequenza:</string>
 	<string name="lb_rilevata_altri">Rilevata da altri</string>
+	<string name="lb_nuova_pressione">Nuova pressione</string>
+	<string name="lb_dettagli_pressione">Dettagli pressione</string>
 	
 	<!-- Esclusione di responsabilita -->
 	<string name="bt_vai_memofarma">Vai a Memofarma</string>

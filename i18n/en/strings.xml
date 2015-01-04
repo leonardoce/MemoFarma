@@ -35,6 +35,8 @@
 	<string name="lb_glicemia">Blood sugar:</string>
 	<string name="lb_report_glicemia_html">Report blood sugar, HTML format</string>
 	<string name="lb_report_glicemia_csv">Report blood sugar, CSV format</string>
+	<string name="lb_nuova_glicemia">New blood sugar</string>
+	<string name="lb_dettagli_glicemia">Blood sugar details</string>
 	
 	<!-- Pressioni -->
 	<string name="hint_tf_massima">Systolic blood pressure</string>
@@ -48,6 +50,8 @@
 	<string name="lb_pressione">Blood pressure:</string>
 	<string name="lb_frequenza">Hearth rate:</string>
 	<string name="lb_rilevata_altri">Detected by other</string>
+	<string name="lb_nuova_pressione">New blood pressure</string>
+	<string name="lb_dettagli_pressione">Blood pressure details</string>
 	
 	<!-- Esclusione di responsabilita -->
 	<string name="bt_vai_memofarma">Open Memofarma</string>

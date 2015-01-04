@@ -90,6 +90,12 @@ function doOpen()
 		$.tf_glicemia.value = args.modello.get("glicemia");
 		$.ta_nota.value = args.modello.get("nota");
 
+		if (!args.modello.get("glicemia_id")) {
+			$.dettagli_glicemia.activity.actionBar.title = L("lb_nuova_glicemia");
+		} else {
+			$.dettagli_glicemia.activity.actionBar.title = L("lb_dettagli_glicemia");
+		}
+
 		doRefreshData();
 	}
 	$.dettagli_glicemia.activity.invalidateOptionsMenu();

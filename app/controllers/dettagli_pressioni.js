@@ -109,7 +109,13 @@ function doOpen()
 		$.tf_frequenza.value = args.modello.get("frequenza");
 		$.cb_automisurazione.value = StringUtils.string2logic(args.modello.get("automisurazione"));
 		$.ta_nota.value = args.modello.get("nota");
-
+		
+		if (!args.modello.get("pressione_id")) {
+			$.dettagli_pressioni.activity.actionBar.title = L("lb_nuova_pressione");
+		} else {
+			$.dettagli_pressioni.activity.actionBar.title = L("lb_dettagli_pressione");
+		}
+		
 		doRefreshData();
 	}
 	$.dettagli_pressioni.activity.invalidateOptionsMenu();
