@@ -64,10 +64,18 @@ function cancellaAllarmePerTerapia(terapia) {
  * non sono state prese
  */
 function controllaTerapieDiOggi() {
+	var oraCorrente = StringUtils.dateToOra(new Date());
+	return controllaTerapieDiOggiPerOra(oraCorrente);
+}
+
+/**
+ * Controlla se oggi ci sono delle terapie che
+ * non sono state prese
+ */
+function controllaTerapieDiOggiPerOra(oraCorrente) {
 	var terapie = Alloy.createCollection("terapie");
 
 	var dataIeri = StringUtils.timestampToSql(moment().subtract(1, 'day').toDate());
-	var oraCorrente = StringUtils.dateToOra(new Date());
 
 	terapie.fetch();
 
@@ -108,3 +116,4 @@ function controllaSeSomministrata(terapia, somministrazioni) {
 exports.attivaGestioneAllarmi = attivaGestioneAllarmi;
 exports.cancellaAllarmePerTerapia = cancellaAllarmePerTerapia;
 exports.controllaTerapieDiOggi = controllaTerapieDiOggi;
+exports.controllaTerapieDiOggiPerOra = controllaTerapieDiOggiPerOra;
