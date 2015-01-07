@@ -127,3 +127,4 @@ $.cal.getView().addEventListener("clickGiorno", doClickSuGiorno);
 $.cal.getView().addEventListener("clickMese", doClickSuMese);
 $.doReport = doReport;
 $.doReportHTML = doReportHTML;
+$.doRefresh = doRefresh;
