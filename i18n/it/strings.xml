@@ -27,6 +27,15 @@
 	<string name="menu_export_html">Esporta in documento</string>
 	<string name="menu_donazione">Offrici un caffè</string>
 	<string name="menu_contattaci">Contattaci</string>
+
+	<string name="bt_annulla">Annulla</string>
+	<string name="bt_imprevista">Imprevista</string>
+	<string name="bt_programmata">Programmata</string>
+	<string name="bt_inserisci">Inserisci</string>
+	<string name="msg_programmata">Vuoi inserire una somministrazione imprevista oppure una programmata?</string>
+	<string name="title_inserimento">Inserimento</string>
+	<string name="msg_no_terapie_da_prendere">Non ci sono terapie da prendere</string>
+	<string name="msg_seleziona_terapia_da_prendere">Seleziona la terapia che avevi pianificato</string>
 		
 	<!-- Glicemia -->
 	<string name="hint_tf_glicemia">Rilevazione glicemica</string>

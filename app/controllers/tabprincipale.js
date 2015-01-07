@@ -33,9 +33,9 @@ function doAggiungi()
 function doInserisciSomministrazione() {
     var dialog = Ti.UI.createAlertDialog({
         cancel: 0,
-        buttonNames: ['Annulla', 'Imprevista', 'Programmata'],
-        message: 'Vuoi inserire una somministrazione imprevista oppure una programmata?',
-        title: 'Inserimento'
+        buttonNames: [L("bt_annulla"), L("bt_imprevista"), L("bt_programmata")],
+        message: L("msg_programmata"),
+        title: L("title_inserimento")
     });
     dialog.addEventListener('click', function(e){
         if (e.index === e.source.cancel) {
@@ -60,7 +60,7 @@ function doInserisciSomministrazioneProgrammata() {
     var listaTerapie = GestoreAllarmi.controllaTerapieDiOggiPerOra(mmt);
 
     if (listaTerapie.length===0) {
-        alert("Non ci sono terapie da prendere");
+        alert(L("msg_no_terapie_da_prendere"));
         return;
     } 
 
@@ -81,9 +81,9 @@ function doInserisciSomministrazioneProgrammata() {
 
     var dialog = Ti.UI.createAlertDialog({
         cancel: 0,
-        buttonNames: ['Annulla', 'Inserisci'],
-        message: 'Seleziona la terapia che avevi pianificato',
-        title: 'Inserimento',
+        buttonNames: [L("bt_annulla"), L("bt_inserisci")],
+        message: L("msg_seleziona_terapia_da_prendere"),
+        title: L("title_inserimento"),
         androidView: picker
     });
 

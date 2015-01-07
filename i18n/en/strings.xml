@@ -27,6 +27,15 @@
 	<string name="menu_export_html">Export as document</string>
 	<string name="menu_donazione">Buy me a coffee</string>
 	<string name="menu_contattaci">Contact us</string>
+
+	<string name="bt_annulla">Cancel</string>
+	<string name="bt_imprevista">Not planned</string>
+	<string name="bt_programmata">Planned</string>
+	<string name="bt_inserisci">Insert</string>
+	<string name="msg_programmata">Do you want to insert an unplanned therapy or a planned one?</string>
+	<string name="title_inserimento">Insert</string>
+	<string name="msg_no_terapie_da_prendere">There aren't therapies not yet taken</string>
+	<string name="msg_seleziona_terapia_da_prendere">Please select the therapy that you have planned</string>
 	
 	<!-- Glicemia -->
 	<string name="hint_tf_glicemia">Blood sugar level</string>
