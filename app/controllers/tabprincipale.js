@@ -24,11 +24,27 @@ function doAggiungi()
     }
     else if (activeIdx==INDICE_CALENDARIO)
     {
-    	var nuovoModello = Alloy.createModel("somministrazione");
-    	nuovoModello.set({
-			quando : StringUtils.timestampToSql(new Date()),
-		});
-    	Alloy.createController("dettagli_somministrazione", {modello: nuovoModello}).getView().open();
+        var dialog = Ti.UI.createAlertDialog({
+            cancel: 0,
+            buttonNames: ['Annulla', 'Non pianificata', 'Pianificata'],
+            message: 'Vuoi anticipare una somministrazione pianificata oppure inserirne una nuova?',
+            title: 'Inserimento'
+        });
+        dialog.addEventListener('click', function(e){
+            if (e.index === e.source.cancel) {
+                Ti.API.info('The cancel button was clicked');
+            } else if (e.index === 1) {
+                var nuovoModello = Alloy.createModel("somministrazione");
+                nuovoModello.set({
+                    quando : StringUtils.timestampToSql(new Date()),
+                });
+                Alloy.createController("dettagli_somministrazione", {modello: nuovoModello}).getView().open();
+            }
+            Ti.API.info('e.cancel: ' + e.cancel);
+            Ti.API.info('e.source.cancel: ' + e.source.cancel);
+            Ti.API.info('e.index: ' + e.index);
+        });
+        dialog.show();
     }
 }
 
