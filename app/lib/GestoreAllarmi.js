@@ -39,7 +39,10 @@ function attivaGestioneAllarmi() {
 			return parseInt(x, 10);
 		});
 
-		if (terapie[i].considera_data_fine !== 0 && moment(StringUtils.sqlToTimestamp(terapie[i].data_fine)).hours(23).minutes(59).isBefore(moment())) {
+        if (moment(StringUtils.sqlToTimestamp(terapie[i].data_inizio)).hours(0).minutes(0).isAfter(moment())) {
+            Ti.API.info("La terapia con ID " + StringUtils.box(terapie[i].terapia_id) + " non e' ancora iniziata.");
+            leoModule.clearAlarm(terapie[i].terapia_id);
+        } else if (0 !== terapie[i].considera_data_fine && moment(StringUtils.sqlToTimestamp(terapie[i].data_fine)).hours(23).minutes(59).isBefore(moment())) {
 			Ti.API.info("La terapia con ID " + StringUtils.box(terapie[i].terapia_id) + " e' finita");
 			leoModule.clearAlarm(terapie[i].terapia_id);
 		} else if (controllaSeSomministrata(terapie[i], somministrazioni)) {
