@@ -13,7 +13,7 @@
 	<string name="lb_presa">Presa</string>
 	<string name="lb_non_presa">Non la prendo</string>
 	<string name="lb_nome">Nome:</string>
-	<string name="lb_dose">Dose:</string>	
+	<string name="lb_dose">Annotazione:</string>	
 	<string name="lb_N_A">N.A.</string>
 	<string name="lb_promemoria_terapie">Promemoria terapie</string>
 	<string name="bt_ripeti">Ripeti fra 15 minuti</string>
@@ -68,9 +68,9 @@
 	
 	<!-- Dettagli terapia -->
 	<string name="alert_dettagli_nome_farmaco">Inserisci il nome del farmaco</string>
-	<string name="alert_dettagli_dose_farmaco">Inserisci la dose che devi assumere</string>
+	<string name="alert_dettagli_dose_farmaco">Inserisci il campo annotazione</string>
 	<string name="hint_dettagli_nome_farmaco">Inserisci il nome</string>
-	<string name="hint_dettagli_dose">Dose</string>
+	<string name="hint_dettagli_dose">Ad ed. 1 CPR</string>
 	<string name="lb_nuovo_farmaco">Nuovo farmaco</string>
 	<string name="lb_dettagli_farmaco">Dettagli farmaco</string>
 	

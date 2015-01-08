@@ -10,7 +10,6 @@
 
 "#tf_dose": {
 	autocorrect: false,
-	keyboardType: Titanium.UI.KEYBOARD_DECIMAL_PAD,
 	hintText: L("hint_dettagli_dose")
 }
 
