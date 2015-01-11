@@ -7,8 +7,8 @@
 	<string name="bt_scegli">Choose</string>
 	<string name="lb_data_inizio">Start date:</string>
 	<string name="lb_data_fine">End date: </string>
-	<string name="lb_data_fine_off">End date: OFF</string>	
-	
+	<string name="lb_data_fine_off">End date: OFF</string>
+
 	<!-- terapie -->
 	<string name="lb_presa">Taken</string>
 	<string name="lb_non_presa">Will not take</string>
@@ -36,7 +36,7 @@
 	<string name="title_inserimento">Insert</string>
 	<string name="msg_no_terapie_da_prendere">There aren't therapies not yet taken</string>
 	<string name="msg_seleziona_terapia_da_prendere">Please select the therapy that you have planned</string>
-	
+
 	<!-- Glicemia -->
 	<string name="hint_tf_glicemia">Blood sugar level</string>
 	<string name="hint_ta_nota">Notes</string>
@@ -46,12 +46,12 @@
 	<string name="lb_report_glicemia_csv">Report blood sugar, CSV format</string>
 	<string name="lb_nuova_glicemia">New blood sugar</string>
 	<string name="lb_dettagli_glicemia">Blood sugar details</string>
-	
+
 	<!-- Pressioni -->
 	<string name="hint_tf_massima">Systolic blood pressure</string>
 	<string name="hint_tf_minima">Diastolic blood pressure</string>
 	<string name="hint_tf_frequenza">Hearth rate</string>
-	<string name="cb_automisurazione">Auto-measurement</string>	
+	<string name="cb_automisurazione">Auto-measurement</string>
 	<string name="alert_pressione_massima">Please insert the systolic blood pressure</string>
 	<string name="alert_pressione_minima">Please insert the diastolic blood pressure</string>
 	<string name="lb_report_pressione_html">Report blood pressure, HTML format</string>
@@ -61,11 +61,11 @@
 	<string name="lb_rilevata_altri">Detected by other</string>
 	<string name="lb_nuova_pressione">New blood pressure</string>
 	<string name="lb_dettagli_pressione">Blood pressure details</string>
-	
+
 	<!-- Esclusione di responsabilita -->
 	<string name="bt_vai_memofarma">Open Memofarma</string>
 	<string name="title_non_responsabilita">Limitation of Liability</string>
-	
+
 	<!-- Dettagli terapia -->
 	<string name="alert_dettagli_nome_farmaco">Please insert the name of the drug</string>
 	<string name="alert_dettagli_dose_farmaco">Please enter the note</string>
@@ -73,7 +73,8 @@
 	<string name="hint_dettagli_dose">Ad ex. 1 CPR</string>
 	<string name="lb_nuovo_farmaco">New drug</string>
 	<string name="lb_dettagli_farmaco">Drug details</string>
-	
+	<string name="msg_ogni_giorno">MemoFarma will remind every day to take this pill</string>
+
 	<!-- calendario -->
 	<string name="lb_nessuna_somministrazione">No administration</string>
 	<string name="alert_report_vuoto">The report is empty</string>
@@ -83,5 +84,5 @@
 	<string name="lb_somministrazioni">Administrations: </string>
 	<string name="lb_nuova_somministrazione">New administration</string>
 	<string name="lb_dettagli_somministrazione">Administration details</string>
-	
+
 </resources>

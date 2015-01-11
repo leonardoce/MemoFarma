@@ -7,17 +7,17 @@
 	<string name="bt_scegli">Scegli</string>
 	<string name="lb_data_inizio">Data inizio:</string>
 	<string name="lb_data_fine">Data fine: </string>
-	<string name="lb_data_fine_off">Data fine: OFF</string>	
-	
+	<string name="lb_data_fine_off">Data fine: OFF</string>
+
 	<!-- terapie -->
 	<string name="lb_presa">Presa</string>
 	<string name="lb_non_presa">Non la prendo</string>
 	<string name="lb_nome">Nome:</string>
-	<string name="lb_dose">Annotazione:</string>	
+	<string name="lb_dose">Annotazione:</string>
 	<string name="lb_N_A">N.A.</string>
 	<string name="lb_promemoria_terapie">Promemoria terapie</string>
 	<string name="bt_ripeti">Ripeti fra 15 minuti</string>
-	
+
 	<!-- Tab principale -->
 	<string name="tab_calendario">Calendario</string>
 	<string name="tab_terapie">Terapia</string>
@@ -36,7 +36,7 @@
 	<string name="title_inserimento">Inserimento</string>
 	<string name="msg_no_terapie_da_prendere">Non ci sono terapie da prendere</string>
 	<string name="msg_seleziona_terapia_da_prendere">Seleziona la terapia che avevi pianificato</string>
-		
+
 	<!-- Glicemia -->
 	<string name="hint_tf_glicemia">Rilevazione glicemica</string>
 	<string name="hint_ta_nota">Nota</string>
@@ -46,7 +46,7 @@
 	<string name="lb_report_glicemia_csv">Report glicemia, formato CSV</string>
 	<string name="lb_nuova_glicemia">Nuova glicemia</string>
 	<string name="lb_dettagli_glicemia">Dettagli glicemia</string>
-	
+
 	<!-- Pressioni -->
 	<string name="hint_tf_massima">Pressione massima</string>
 	<string name="hint_tf_minima">Pressione minima</string>
@@ -61,11 +61,11 @@
 	<string name="lb_rilevata_altri">Rilevata da altri</string>
 	<string name="lb_nuova_pressione">Nuova pressione</string>
 	<string name="lb_dettagli_pressione">Dettagli pressione</string>
-	
+
 	<!-- Esclusione di responsabilita -->
 	<string name="bt_vai_memofarma">Vai a Memofarma</string>
 	<string name="title_non_responsabilita">Limitazione di Responsabilità</string>
-	
+
 	<!-- Dettagli terapia -->
 	<string name="alert_dettagli_nome_farmaco">Inserisci il nome del farmaco</string>
 	<string name="alert_dettagli_dose_farmaco">Inserisci il campo annotazione</string>
@@ -73,7 +73,8 @@
 	<string name="hint_dettagli_dose">Ad ed. 1 CPR</string>
 	<string name="lb_nuovo_farmaco">Nuovo farmaco</string>
 	<string name="lb_dettagli_farmaco">Dettagli farmaco</string>
-	
+	<string name="msg_ogni_giorno">MemoFarma ti avviserà ogni giorno di prendere questa terapia</string>
+
 	<!-- calendario -->
 	<string name="lb_nessuna_somministrazione">Nessuna somministrazione presente</string>
 	<string name="alert_report_vuoto">Il report è vuoto</string>
@@ -83,5 +84,5 @@
 	<string name="lb_somministrazioni">Somministrazioni: </string>
 	<string name="lb_nuova_somministrazione">Nuova somministrazione</string>
 	<string name="lb_dettagli_somministrazione">Dettagli somministrazione</string>
-	
+
 </resources>

@@ -1,6 +1,6 @@
 
 ".container" : {
-  
+
 },
 
 "#tf_nome": {
@@ -18,7 +18,7 @@
 }
 
 "#pk_ora": {
-	
+
 }
 
 "#cancellaItem":{
@@ -39,13 +39,17 @@
 }
 
 "#lb_text_data_inizio": {
-	
+  text: L("lb_data_inizio")
 }
 
 "#lb_data_inizio": {
-	
+
 }
 
 "#lb_data_fine": {
-	
+
+}
+
+"#msg_ogni_giorno": {
+  text: L("msg_ogni_giorno")
 }
