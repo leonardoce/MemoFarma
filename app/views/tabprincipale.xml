@@ -1,20 +1,36 @@
+<!--
+This file is part of MemoFarma.
+
+MemoFarma is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+MemoFarma is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with MemoFarma.  If not, see <http://www.gnu.org/licenses/>.
+-->
 <Alloy>
 	<TabGroup class="container" onFocus="doFocus" onOpen="doOpen">
 		<ActionBar platform="android" title="MemoFarma"/>
 		<Menu>
-			<MenuItem onClick="doAggiungi" 
+			<MenuItem onClick="doAggiungi"
 				icon="/images/aggiungi.png"
 				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
-			<MenuItem title="Aiuto" onClick="doAiuto" 
+			<MenuItem title="Aiuto" onClick="doAiuto"
 				icon="/images/aiuto.png"
 				showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/>
-			<MenuItem id="donazione" onClick="doDonazione" 
+			<MenuItem id="donazione" onClick="doDonazione"
 				showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
-			<MenuItem id="export_csv" onClick="doReport" 
+			<MenuItem id="export_csv" onClick="doReport"
 				showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
-			<MenuItem id="export_html" onClick="doReportHTML" 
+			<MenuItem id="export_html" onClick="doReportHTML"
 				showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
-			<MenuItem id="contattaci" onClick="doContattaci" 
+			<MenuItem id="contattaci" onClick="doContattaci"
 				showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
 		</Menu>
 
