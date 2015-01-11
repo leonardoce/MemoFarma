@@ -1,3 +1,18 @@
+// This file is part of MemoFarma.
+//
+// MemoFarma is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// MemoFarma is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with MemoFarma.  If not, see <http://www.gnu.org/licenses/>.
+
 // Nota bene:
 // Qua dobbiamo suonare l'allarme in continuo, cosi' l'utente si sveglia
 // e prende la pasticca.
@@ -9,7 +24,7 @@ function aggiungiNotifica() {
     var contenutoNotifica = "";
     contenutoNotifica = "Ci sono delle terapie da prendere";
 
-    // Intent object to launch the application 
+    // Intent object to launch the application
     var intent = Ti.Android.createIntent({
         className : 'it.interfree.leonardoce.memofarma.MemofarmaActivity',
     });
@@ -43,25 +58,25 @@ function aggiungiNotifica() {
  */
 function suonaFortePerSempre() {
     Ti.API.info("Via all'audio");
-    
-    var audioPlayer = Ti.Media.createAudioPlayer({ 
+
+    var audioPlayer = Ti.Media.createAudioPlayer({
         url: Ti.Filesystem.getResRawDirectory() + "notifica.mp3",
         allowBackground: true,
         volume: 1
-    });           
-    
+    });
+
     audioPlayer.addEventListener('complete', function(e) {
         audioPlayer.release();
         audioPlayer.start();
     });
-    
+
     audioPlayer.start();
 }
 
 function main() {
     // Intanto mando la notifica
     aggiungiNotifica();
-    
+
     // Adesso suono a tutta canna!
     suonaFortePerSempre();
 }
@@ -100,9 +115,9 @@ if (terapieNonPrese.length>0)
     else
     {
         contenutoNotifica = "Ci sono " + terapieNonPrese.length + " terapie da prendere";
-    }        
+    }
 
-    // Intent object to launch the application 
+    // Intent object to launch the application
     var intent = Ti.Android.createIntent({
         className : 'it.interfree.leonardoce.memofarma.MemofarmaActivity',
     });

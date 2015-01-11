@@ -1,3 +1,18 @@
+// This file is part of MemoFarma.
+//
+// MemoFarma is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// MemoFarma is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with MemoFarma.  If not, see <http://www.gnu.org/licenses/>.
+
 var StringUtils = require("StringUtils");
 var Alloy = require("alloy");
 var moment = require("moment-with-locales");
@@ -7,7 +22,7 @@ var leoModule = require('it.interfree.leonardoce.bootreceiver');
  * Carica tutte le somministrazioni di oggi in formato JSON
  */
 function dammiSomministrazioniDiOggi() {
-	var dataOggi = StringUtils.timestampToSql(new Date());	
+	var dataOggi = StringUtils.timestampToSql(new Date());
 	var somministrazioni = Alloy.createCollection("somministrazione");
 
 	somministrazioni.fetch({

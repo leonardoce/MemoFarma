@@ -1,3 +1,18 @@
+// This file is part of MemoFarma.
+//
+// MemoFarma is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// MemoFarma is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with MemoFarma.  If not, see <http://www.gnu.org/licenses/>.
+
 var StringUtils = require("StringUtils");
 var GestoreReport = require("GestoreReport");
 var EmailUtils = require("EmailUtils");
@@ -81,15 +96,15 @@ function doReport()
     });
     somministrazione = somministrazione.toJSON();
 
-	if (somministrazione.length===0) 
+	if (somministrazione.length===0)
 	{
 		alert(L("alert_report_vuoto"));
-	} 
+	}
 	else
 	{
 	    var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_somministrazione.csv');
 	    f.write(GestoreReport.generaReportSomministrazioniCSV(somministrazione));
-	
+
 	    EmailUtils.inviaMail(L("lb_report_somministrazioni_csv"), L("lb_allego_quanto_in_oggetto"), f);
 	}
 }
@@ -118,7 +133,7 @@ function doReportHTML()
 	{
 	    var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_somministrazione.html');
 	    f.write(GestoreReport.generaReportSomministrazioniHTML(somministrazione));
-	
+
 	    EmailUtils.inviaMail(L("lb_report_somministrazioni_html"), L("lb_allego_quanto_in_oggetto"), f);
 	}
 }
