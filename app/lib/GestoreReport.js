@@ -14,6 +14,8 @@
 // along with MemoFarma.  If not, see <http://www.gnu.org/licenses/>.
 
 var StringUtils = require("StringUtils");
+var moment = require("moment-with-locales");
+var Handlebars = require("handlebars");
 
 /**
  * Genera il report delle pressioni (json) in una stringa CSV
@@ -218,9 +220,120 @@ function generaReportSomministrazioniHTML(somministrazioni)
     return result;
 }
 
+function notSameDay(m1, m2)
+{
+    if(m1.date()!=m2.date()) {
+        return true;
+    }
+
+    if(m1.month()!=m2.month()) {
+        return true;
+    }
+
+    if(m1.year()!=m2.year()) {
+        return true;
+    }
+
+    return false;
+}
+
+function createCompleteReport()
+{
+    // Now we load the data
+    var pressioni = Alloy.createCollection("pressione");
+    var glicemia = Alloy.createCollection("glicemia");
+    var somministrazione = Alloy.createCollection("somministrazione");
+
+    pressioni.fetch({
+	query: {
+	    statement:'select * from pressione where rilevazione>=?',
+	    params:[StringUtils.timestampToSql(moment().subtract(3,'month').toDate())]
+	}
+    });
+    
+    glicemia.fetch({
+	query: {
+	    statement:'select * from glicemia where rilevazione>=?',
+	    params:[StringUtils.timestampToSql(moment().subtract(3,'month').toDate())]
+	}
+    });
+
+    somministrazione.fetch({
+	query: {
+	    statement: 'select * from somministrazione where quando>=?',
+	    params: [
+		StringUtils.timestampToSql(moment().subtract(3,'month').toDate())
+	    ]
+	}
+    });
+
+    pressioni = pressioni.toJSON();
+    glicemia = glicemia.toJSON();
+    somministrazione = somministrazione.toJSON();
+
+    for(var i=0; i<somministrazione.length; i++)
+    {
+        somministrazione[i].rilevazione = somministrazione[i].quando;
+    }
+
+    var allData = pressioni.concat(glicemia,somministrazione);
+    allData = allData.sort(function(a,b) {
+        if(a.rilevazione<b.rilevazione) {
+            return -1;
+        } else if(a.rilevazione==b.rilevazione) {
+            return 0;
+        } else {
+            return 1;
+        }
+    });
+
+    // These are the report sections
+    var report = Handlebars.compile("<html><body><h1>Complete Report</h1>{{{body}}}</body></html>");
+    var reportNewDay = Handlebars.compile("<h2>{{day}}</h2>");
+    var pressure = Handlebars.compile("<b>{{time}}</b>: max {{max}} min {{min}} rate {{rate}}<br>");
+    var sugar = Handlebars.compile("<b>{{time}}</b>: blood sugar {{sugar}}<br>");
+    var pills = Handlebars.compile("<b>{{time}}</b>: pill {{name}}</br>");
+
+    // Write the report
+    var currentDay = null;
+    var body = "";
+
+    while (allData.length>0) {
+        var record = allData.shift();
+        var currentTs = moment(StringUtils.sqlToTimestamp(record.rilevazione));
+
+        if(currentDay==null || notSameDay(currentDay, currentTs)) {
+            currentDay = moment(currentTs).hour(0).minutes(0);
+            body += reportNewDay({day: currentDay.format("LL")});
+        }
+
+        if(record.massima) {
+            body += pressure({time: currentTs.format("LT"),
+                              max: record.massima,
+                              min: record.minima,
+                              rate: record.frequenza});
+        }
+
+        if(record.dose) {
+            body += pills({time: currentTs.format("LT"),
+                           name: record.nome + " " + record.dose});
+        }
+
+        if(record.glicemia) {
+            body += sugar({nome: currentTs.format("LT"),
+                           sugar: record.glicemia,
+                           time: currentTs.format("LT")});
+        }
+    }
+
+    var result = report({body: body});
+    return result;
+}
+
 exports.generaReportPressioniCSV = generaReportPressioniCSV;
 exports.generaReportGlicemiaCSV = generaReportGlicemiaCSV;
 exports.generaReportSomministrazioniCSV = generaReportSomministrazioniCSV;
 exports.generaReportPressioniHTML = generaReportPressioniHTML;
 exports.generaReportGlicemiaHTML = generaReportGlicemiaHTML;
 exports.generaReportSomministrazioniHTML = generaReportSomministrazioniHTML;
+exports.createCompleteReport = createCompleteReport;
