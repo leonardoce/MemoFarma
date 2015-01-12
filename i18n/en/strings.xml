@@ -27,7 +27,8 @@
 	<string name="menu_export_html">Export as document</string>
 	<string name="menu_donazione">Buy me a coffee</string>
 	<string name="menu_contattaci">Contact us</string>
-
+        <string name="menu_complete_report">Complete report</string>
+        
 	<string name="bt_annulla">Cancel</string>
 	<string name="bt_imprevista">Not planned</string>
 	<string name="bt_programmata">Planned</string>
@@ -37,6 +38,8 @@
 	<string name="msg_no_terapie_da_prendere">There aren't therapies not yet taken</string>
 	<string name="msg_seleziona_terapia_da_prendere">Please select the therapy that you have planned</string>
 
+        <string name="lb_complete_report_title">Complete Report</string>
+        
 	<!-- Glicemia -->
 	<string name="hint_tf_glicemia">Blood sugar level</string>
 	<string name="hint_ta_nota">Notes</string>

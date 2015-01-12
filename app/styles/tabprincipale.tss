@@ -65,3 +65,7 @@
 "#contattaci": {
 	title: L("menu_contattaci")
 }
+
+"#complete_report": {
+        title: L("menu_complete_report")
+}

@@ -27,6 +27,7 @@
 	<string name="menu_export_html">Esporta in documento</string>
 	<string name="menu_donazione">Offrici un caffè</string>
 	<string name="menu_contattaci">Contattaci</string>
+        <string name="menu_complete_report">Report completo</string>
 
 	<string name="bt_annulla">Annulla</string>
 	<string name="bt_imprevista">Imprevista</string>
@@ -36,6 +37,8 @@
 	<string name="title_inserimento">Inserimento</string>
 	<string name="msg_no_terapie_da_prendere">Non ci sono terapie da prendere</string>
 	<string name="msg_seleziona_terapia_da_prendere">Seleziona la terapia che avevi pianificato</string>
+
+        <string name="lb_complete_report_title">Report completo</string>
 
 	<!-- Glicemia -->
 	<string name="hint_tf_glicemia">Rilevazione glicemica</string>
