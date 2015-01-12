@@ -88,4 +88,6 @@
 	<string name="lb_nuova_somministrazione">New administration</string>
 	<string name="lb_dettagli_somministrazione">Administration details</string>
 
+        <!-- preview report -->
+        <string name="bt_email">Send by email</string>
 </resources>

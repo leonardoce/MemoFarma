@@ -88,4 +88,6 @@
 	<string name="lb_nuova_somministrazione">Nuova somministrazione</string>
 	<string name="lb_dettagli_somministrazione">Dettagli somministrazione</string>
 
+        <!-- preview report -->
+        <string name="bt_email">Invia per email</string>
 </resources>

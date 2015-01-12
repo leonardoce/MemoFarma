@@ -76,8 +76,8 @@ function doCompleteReport() {
     var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_full.html');
     Ti.API.info(testo);
     f.write(testo);
-    
-    EmailUtils.inviaMail(L("lb_complete_report_title"), L("lb_allego_quanto_in_oggetto"), f);
+
+    Alloy.createController("preview_report", {file: f, title: L("lb_complete_report_title")}).getView().open();
 }
 
 function doInserisciSomministrazioneProgrammata() {
