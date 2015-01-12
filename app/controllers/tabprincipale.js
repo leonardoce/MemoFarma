@@ -20,6 +20,7 @@ var INDICE_PRESSIONI = 2;
 var INDICE_GLICEMIE = 3;
 var StringUtils = require("StringUtils");
 var GestoreAllarmi = require("GestoreAllarmi");
+var GestoreReport = require("GestoreReport");
 var moment = require("moment-with-locales");
 
 function doAggiungi()
@@ -66,6 +67,17 @@ function doInserisciSomministrazione() {
         }
     });
     dialog.show();
+}
+
+function doCompleteReport() {
+    // This function will create a complete report of the patient data
+    var testo = GestoreReport.createCompleteReport();
+    
+    var f = Ti.Filesystem.getFile(Ti.Filesystem.tempDirectory, 'report_full.html');
+    Ti.API.info(testo);
+    f.write(testo);
+    
+    EmailUtils.inviaMail(L("lb_complete_report_title"), L("lb_allego_quanto_in_oggetto"), f);
 }
 
 function doInserisciSomministrazioneProgrammata() {
