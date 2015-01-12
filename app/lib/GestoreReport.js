@@ -290,7 +290,7 @@ function createCompleteReport()
     // These are the report sections
     var report = Handlebars.compile("<html><body><h1>Complete Report</h1>{{{body}}}</body></html>");
     var reportNewDay = Handlebars.compile("<h2>{{day}}</h2>");
-    var pressure = Handlebars.compile("<b>{{time}}</b>: max {{max}} min {{min}} rate {{rate}}<br>");
+    var pressure = Handlebars.compile("<b>{{time}}</b>: pressure max {{max}} min {{min}} rate {{rate}}<br>");
     var sugar = Handlebars.compile("<b>{{time}}</b>: blood sugar {{sugar}}<br>");
     var pills = Handlebars.compile("<b>{{time}}</b>: pill {{name}}</br>");
 

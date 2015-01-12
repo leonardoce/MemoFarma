@@ -30,9 +30,9 @@ along with MemoFarma.  If not, see <http://www.gnu.org/licenses/>.
                 showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
       <MenuItem id="export_html" onClick="doReportHTML"
                 showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
-      <MenuItem id="contattaci" onClick="doContattaci"
-                showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
       <MenuItem id="complete_report" onClick="doCompleteReport"
+                showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
+      <MenuItem id="contattaci" onClick="doContattaci"
                 showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER"/>
     </Menu>
 
